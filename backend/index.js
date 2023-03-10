@@ -4,19 +4,21 @@ var cors = require('cors');
 const config = require("./config/config");
 const passport = require('passport');
 const session = require('express-session');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 require('./config/passport');
 
 // express app initialized
 const app = express();
 
 // import routes
+const gymRoute = require("./routes/GymRoute");
+const classRoute = require("./routes/ClassRoute");
 const userRoute = require("./routes/UserRoute");
 const adminRoute = require("./routes/AdminRoute");
 const searchRoute = require("./routes/SearchRoute");
 
 // middleware
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session(config.session));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -35,6 +37,8 @@ app.use((req, res, next) => {
 });
 
 // routes
+app.use("/api/gym", gymRoute);
+app.use("/api/class", classRoute);
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/search", searchRoute);

@@ -51,7 +51,9 @@ con.query(sql, function (err, result) {
 
 var sql = "CREATE TABLE Location (\
     id INT NOT NULL AUTO_INCREMENT, \
-    name VARCHAR(255) NOT NULL, \
+    city VARCHAR(255), \
+    state VARCHAR(255), \
+    country VARCHAR(255), \
     PRIMARY KEY(id)) ";
 con.query(sql, function (err, result) {
     if (err) throw err;
@@ -60,9 +62,10 @@ con.query(sql, function (err, result) {
 
 var sql = "CREATE TABLE Gym (\
     id INT NOT NULL AUTO_INCREMENT, \
-    location INT NOT NULL, \
+    location_id INT NOT NULL, \
+    address VARCHAR(255), \
     PRIMARY KEY(id), \
-    FOREIGN KEY (location) REFERENCES Location(id) ON DELETE CASCADE)";
+    FOREIGN KEY (location_id) REFERENCES Location(id) ON DELETE CASCADE)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("TABLE Gym created");
@@ -85,9 +88,9 @@ var sql = "CREATE TABLE User (\
     email VARCHAR(255) NOT NULL UNIQUE, \
     password VARCHAR(255) NOT NULL,\
     create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, \
-    level INT NOT NULL, \
+    level_id INT NOT NULL, \
     PRIMARY KEY(id), \
-    FOREIGN KEY (level) REFERENCES Level(id) ON DELETE CASCADE)";
+    FOREIGN KEY (level_id) REFERENCES Level(id) ON DELETE CASCADE)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("TABLE USER created");
@@ -101,11 +104,11 @@ var sql = "CREATE TABLE Employee (\
     email VARCHAR(255) NOT NULL UNIQUE, \
     password VARCHAR(255) NOT NULL,\
     create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, \
-    level INT NOT NULL, \
-    gym INT NOT NULL, \
+    level_id INT NOT NULL, \
+    gym_id INT NOT NULL, \
     PRIMARY KEY(id), \
-    FOREIGN KEY (gym) REFERENCES Gym(id) ON DELETE CASCADE, \
-    FOREIGN KEY (level) REFERENCES Level(id) ON DELETE CASCADE)";
+    FOREIGN KEY (gym_id) REFERENCES Gym(id) ON DELETE CASCADE, \
+    FOREIGN KEY (level_id) REFERENCES Level(id) ON DELETE CASCADE)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("TABLE Employee created");
@@ -114,12 +117,12 @@ con.query(sql, function (err, result) {
 
 var sql = "CREATE TABLE Checkin (\
     id INT NOT NULL AUTO_INCREMENT, \
-    user INT NOT NULL, \
-    employee INT NOT NULL, \
+    user_id INT NOT NULL, \
+    employee_id INT NOT NULL, \
     time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, \
     PRIMARY KEY(id), \
-    FOREIGN KEY (user) REFERENCES User(id) ON DELETE CASCADE, \
-    FOREIGN KEY (employee) REFERENCES Employee(id) ON DELETE CASCADE)";
+    FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE, \
+    FOREIGN KEY (employee_id) REFERENCES Employee(id) ON DELETE CASCADE)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("TABLE Checkin created");
@@ -127,15 +130,16 @@ con.query(sql, function (err, result) {
 
 var sql = "CREATE TABLE Class (\
     id INT NOT NULL AUTO_INCREMENT, \
-    activity INT NOT NULL, \
-    employee INT NOT NULL, \
-    gym INT NOT NULL, \
+    activity_id INT NOT NULL, \
+    employee_id INT NOT NULL, \
+    gym_id INT NOT NULL, \
     start_time TIMESTAMP, \
     duration INT, \
+    capacity INT, \
     PRIMARY KEY(id), \
-    FOREIGN KEY (activity) REFERENCES Activity(id) ON DELETE CASCADE, \
-    FOREIGN KEY (gym) REFERENCES Gym(id) ON DELETE CASCADE, \
-    FOREIGN KEY (employee) REFERENCES Employee(id) ON DELETE CASCADE)";
+    FOREIGN KEY (activity_id) REFERENCES Activity(id) ON DELETE CASCADE, \
+    FOREIGN KEY (gym_id) REFERENCES Gym(id) ON DELETE CASCADE, \
+    FOREIGN KEY (employee_id) REFERENCES Employee(id) ON DELETE CASCADE)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("TABLE Class created");
@@ -143,11 +147,11 @@ con.query(sql, function (err, result) {
 
 var sql = "CREATE TABLE Enroll (\
     id INT NOT NULL AUTO_INCREMENT, \
-    user INT NOT NULL, \
-    class INT NOT NULL, \
+    user_id INT NOT NULL, \
+    class_id INT NOT NULL, \
     PRIMARY KEY(id), \
-    FOREIGN KEY (user) REFERENCES User(id) ON DELETE CASCADE, \
-    FOREIGN KEY (class) REFERENCES Class(id) ON DELETE CASCADE)";
+    FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE, \
+    FOREIGN KEY (class_id) REFERENCES Class(id) ON DELETE CASCADE)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("TABLE Enroll created");
@@ -155,46 +159,363 @@ con.query(sql, function (err, result) {
 
 var sql = "CREATE TABLE Log (\
     id INT NOT NULL AUTO_INCREMENT, \
-    user INT NOT NULL, \
-    activity INT NOT NULL, \
+    user_id INT NOT NULL, \
+    activity_id INT NOT NULL, \
     duration INT NOT NULL, \
     create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, \
     PRIMARY KEY(id), \
-    FOREIGN KEY (user) REFERENCES User(id) ON DELETE CASCADE, \
-    FOREIGN KEY (activity) REFERENCES Activity(id) ON DELETE CASCADE)";
+    FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE, \
+    FOREIGN KEY (activity_id) REFERENCES Activity(id) ON DELETE CASCADE)";
 con.query(sql, function (err, result) {
     if (err) throw err;
-    console.log("TABLE Enroll created");
+    console.log("TABLE Log created");
 });
 
-//Inserts
+//Insert Level
+var sql = "INSERT INTO Level (name) VALUES ('admin')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Level inserted");
+});
+var sql = "INSERT INTO Level (name) VALUES ('employee')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Level inserted");
+});
+var sql = "INSERT INTO Level (name) VALUES ('vip')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Level inserted");
+});
+var sql = "INSERT INTO Level (name) VALUES ('user')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Level inserted");
+});
 
-// var sql = "INSERT INTO User (first_name, last_name, phone_number, password, level) VALUES ('John', 'Doe', '1231231231', '$2b$10$2Q0Nb2exzidQZMWBrHE5Q.BvJ2aKUx4VaZ4yAXcfPdrY3JKJboCjm', 'admin')";
-// con.query(sql, function (err, result) {
-//     if (err) throw err;
-//     console.log("1 User inserted");
-// });
-// var sql = "INSERT INTO User (first_name, last_name, phone_number, password, level) VALUES ('Doe', 'John', '1231231232', '$2b$10$2Q0Nb2exzidQZMWBrHE5Q.BvJ2aKUx4VaZ4yAXcfPdrY3JKJboCjm', 'user')";
-// con.query(sql, function (err, result) {
-//     if (err) throw err;
-//     console.log("1 User inserted");
-// });
-// var sql = "INSERT INTO User (first_name, last_name, phone_number, password, level) VALUES ('PICKUP', 'PICKUP', '0000000000', '$2b$10$2Q0Nb2exzidQZMWBrHE5Q.BvJ2aKUx4VaZ4yAXcfPdrY3JKJboCjm', 'user')";
-// con.query(sql, function (err, result) {
-//     if (err) throw err;
-//     console.log("1 User inserted");
-// });
 
-// var sql = "INSERT INTO Restaurant (name, description, logo, owner_id) VALUES ('Johns Restaurant', 'A restaurant', 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x2.jpg', 1)";
-// con.query(sql, function (err, result) {
-//     if (err) throw err;
-//     console.log("1 record inserted");
-// });
+// insert location
+var sql = "INSERT INTO Location (city, state, country) VALUES ('San Jose', 'CA', 'The United States')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Location inserted");
+});
+var sql = "INSERT INTO Location (city, state, country) VALUES ('New York', 'NY', 'The United States')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Location inserted");
+});
+var sql = "INSERT INTO Location (city, state, country) VALUES ('San Francisco', 'CA', 'The United States')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Location inserted");
+});
+var sql = "INSERT INTO Location (city, state, country) VALUES ('Los Angelas', 'CA', 'The United States')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Location inserted");
+});
+var sql = "INSERT INTO Location (city, state, country) VALUES ('Boston', 'MA', 'The United States')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Location inserted");
+});
 
-// //var sql = "INSERT INTO Menu_Item (name, description, image, price, restaurant_id) VALUES ('Pizza', 'A pizza', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg', '10.00', 1)";
-// //con.query(sql, function (err, result) {
-// //    if (err) throw err;
-// //    console.log("1 record inserted");
-// //});
+// insert gym
+var sql = "INSERT INTO Gym (location_id, address) VALUES (1, '1 Washington Sq')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Gym inserted");
+});
+var sql = "INSERT INTO Gym (location_id, address) VALUES (1, '1701 Airport Blvd')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Gym inserted");
+});
+var sql = "INSERT INTO Gym (location_id, address) VALUES (2, '7 E 12th St')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Gym inserted");
+});
+var sql = "INSERT INTO Gym (location_id, address) VALUES (3, '505 Parnassus Ave')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Gym inserted");
+});
+var sql = "INSERT INTO Gym (location_id, address) VALUES (4, '425 Westwood Plaza')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Gym inserted");
+});
+var sql = "INSERT INTO Gym (location_id, address) VALUES (5, '725 Commonwealth Ave')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Gym inserted");
+});
+
+// insert activity
+var sql = "INSERT INTO Activity (name) VALUES ('Yoga')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Pilates')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Circuit Training')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Water Aerobics')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('HIIT')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Cycling')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Bootcamp')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Zumba')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Kickboxing')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Training bench')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Dumbbell')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Barbell')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Rowing machine')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+var sql = "INSERT INTO Activity (name) VALUES ('Ellipticals')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Activity inserted");
+});
+
+// insert user
+var sql = "INSERT INTO User (first_name, last_name, phone, email, password, level_id) \
+VALUES ('John', 'Doe', '1231231231', 'johndoe@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 3)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 User inserted");
+});
+
+var sql = "INSERT INTO User (first_name, last_name, phone, email, password, level_id) \
+VALUES ('Doe', 'John', '1231231232', 'doejohn@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 3)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 User inserted");
+});
+
+var sql = "INSERT INTO User (first_name, last_name, phone, email, password, level_id) \
+VALUES ('Kevin', 'Doe', '1231231233', 'kevindoe@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 3)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 User inserted");
+});
+
+var sql = "INSERT INTO User (first_name, last_name, phone, email, password, level_id) \
+VALUES ('Doe', 'Kevin', '1231231234', 'doekevin@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 4)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 User inserted");
+});
+
+var sql = "INSERT INTO User (first_name, last_name, phone, email, password, level_id) \
+VALUES ('Mary', 'Doe', '1231231235', 'marydoe@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 4)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 User inserted");
+});
+
+// insert employee
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('admin1', 'gym1', '3213213211', 'admin1gym1@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 1)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('admin1', 'gym2', '3213213212', 'admin1gym2@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 2)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('admin1', 'gym3', '3213213213', 'admin1gym3@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 3)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('admin1', 'gym4', '3213213214', 'admin1gym4@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 4)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('admin1', 'gym5', '3213213215', 'admin1gym5@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 5)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('admin1', 'gym6', '3213213216', 'admin1gym6@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 6)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('employee1', 'gym1', '1231231211', 'employee1gym1@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 1)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('employee2', 'gym1', '1231231212', 'employee2gym1@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 1)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('employee1', 'gym2', '1231231221', 'employee1gym2@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 2)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('employee1', 'gym3', '1231231231', 'employee1gym3@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 3)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('employee1', 'gym4', '1231231241', 'employee1gym4@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 4)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('employee1', 'gym5', '1231231251', 'employee1gym5@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 5)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+var sql = "INSERT INTO Employee (first_name, last_name, phone, email, password, level_id, gym_id) \
+VALUES ('employee1', 'gym6', '1231231261', 'employee1gym6@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 6)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Employee inserted");
+});
+
+// insert class
+var sql = "INSERT INTO Class (activity_id, employee_id, gym_id, start_time, duration, capacity) \
+VALUES (1, 1, 1, '2023-03-10 10:00:00', 60, 20)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Class inserted");
+});
+
+var sql = "INSERT INTO Class (activity_id, employee_id, gym_id, start_time, duration, capacity) \
+VALUES (2, 1, 1, '2023-03-10 12:00:00', 60, 20)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Class inserted");
+});
+
+var sql = "INSERT INTO Class (activity_id, employee_id, gym_id, start_time, duration, capacity) \
+VALUES (1, 1, 1, '2023-03-11 10:00:00', 60, 20)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Class inserted");
+});
+
+var sql = "INSERT INTO Class (activity_id, employee_id, gym_id, start_time, duration, capacity) \
+VALUES (2, 1, 1, '2023-03-11 12:00:00', 60, 20)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Class inserted");
+});
+
+//insert enroll
+var sql = "INSERT INTO Enroll (user_id, class_id) \
+VALUES (1, 1)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Enroll inserted");
+});
+
+var sql = "INSERT INTO Enroll (user_id, class_id) \
+VALUES (2, 1)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Enroll inserted");
+});
+
+var sql = "INSERT INTO Enroll (user_id, class_id) \
+VALUES (3, 1)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Enroll inserted");
+});
+
+var sql = "INSERT INTO Enroll (user_id, class_id) \
+VALUES (4, 1)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Enroll inserted");
+});
+
+var sql = "INSERT INTO Enroll (user_id, class_id) \
+VALUES (5, 1)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Enroll inserted");
+});
 
 con.end();
