@@ -1,12 +1,41 @@
 const db = require("../db_connection");
 
-exports.getByID = (req, res) => {
+exports.getAllUsers = (req, res) => {
+    let sql = "SELECT User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
+    User.create_time, User.level_id, Level.name as level, Gender.name as gender \
+    FROM User, Level, Gender \
+    where User.level_id = level.id and User.gender_id = Gender.id";
 
-    const id = req.query.id
+    db.query(sql, (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No users found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    })
+}   
 
-    let sql = "SELECT * FROM employees where emp_no = ?"
+exports.getUserByID = (req, res) => {
 
-    db.query(sql, [id], (err, results) => {
+    const id = req.query.id;
+
+    let sql = "SELECT User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
+    User.create_time, User.level_id, Level.name as level, Gender.name as gender \
+    FROM User, Level, Gender \
+    where id = ? and User.level_id = level.id and User.gender_id = Gender.id";
+
+    db.query(sql, (err, results) => {
         if (err) {
             return res.status(401).send({
                 status: "error",
@@ -19,83 +48,30 @@ exports.getByID = (req, res) => {
                 message: "No user found"
             })
         }
-        let userData = results[0];
-        let sql2 = "SELECT * FROM salaries WHERE emp_no = ? ORDER BY to_date DESC"
-        db.query(sql2, [id], (err, results) => {
-            if (err) {
-                return res.status(401).send({
-                    status: "error",
-                    message: err
-                })
-            }
-            let salaryData = results;
-            let sql3 = "SELECT * FROM titles WHERE emp_no = ? ORDER BY to_date DESC"
-            db.query(sql3, [id], (err, results) => {
-                if (err) {
-                    return res.status(401).send({
-                        status: "error",
-                        message: err
-                    })
-                }
-                let titleData = results;
-                let sql4 = "SELECT *, departments.dept_name FROM dept_emp JOIN departments ON dept_emp.dept_no = departments.dept_no WHERE emp_no = ? ORDER BY to_date DESC"
-                db.query(sql4, [id], (err, results) => {
-                    if (err) {
-                        return res.status(401).send({
-                            status: "error",
-                            message: err
-                        })
-                    }
-                    let deptData = results;
-                    return res.status(200).send({
-                        status: "success",
-                        results: {
-                            userData,
-                            salaryData,
-                            titleData,
-                            deptData
-                        }
-                    })
-                })
-            })
-        })
-    })
-}   
-
-
-exports.getEmployeeCount = (req, res) => {
-
-    let sql = "SELECT COUNT(*) AS EmpCount FROM employees"
-
-    db.query(sql, (err, results, fields) => {
-        if (err) {
-            return res.status(401).send({
-                status: "error",
-                message: err
-            })
-        }
         return res.status(200).send({
             status: "success",
-            results: results,
-            fields: fields
+            results: results[0]
         })
-    })
+    });
+}   
 
-}
-
-exports.editByID = (req, res) => {
-
+exports.editUserByID = (req, res) => {
     const id = req.query.id
     const first_name = req.query.first_name
     const last_name = req.query.last_name
-    const gender = req.query.gender
+    const gender_id = req.query.gender
+    const phone = req.query.phone
+    const password = req.query.password
+    const level_id = req.query.level_id
 
-    let sql = "UPDATE employees SET first_name = ?, last_name = ?, gender = ?  WHERE emp_no = ?"
+    let sql = "UPDATE User SET first_name = ?, last_name = ?, gender_id = ?, phone = ?, \
+    password = ?, level_id = ? \
+    WHERE id = ?"
 
     db.query
         (
             sql,
-            [first_name, last_name, gender, id],
+            [first_name, last_name, gender_id, phone, password, level_id, id],
             (err, results) => {
                 if (err) {
                     return res.status(401).send({
@@ -117,6 +93,51 @@ exports.editByID = (req, res) => {
         )
 }
 
+exports.getAllLevels = (req, res) => {
+    let sql = "SELECT * from Level";
+
+    db.query(sql, (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No Levels found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    })
+}
+
+exports.getAllGenders = (req, res) => {
+    let sql = "SELECT * from Gender";
+
+    db.query(sql, (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No Genders found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    })
+}
 
 exports.getByDepartment = (req, res) => {
 
