@@ -145,8 +145,7 @@ exports.addClass = (req, res) => {
     let sql = "INSER INTO USER (activity_id, employee_id, gym_id, start_time, duration, \
     capacity) VALUES (?, ?, ?, ?, ?, ?)";
 
-    db.query(sql, [activity_id, employee_id, gym_id, start_time, duration, \
-        capacity], (err, results) => {
+    db.query(sql, [activity_id, employee_id, gym_id, start_time, duration, capacity], (err, results) => {
         if (err) {
             return res.status(401).send({
                 status: "error",

@@ -9,110 +9,136 @@ The admin routes are used to manage the backend. They have more power than users
 * api/admin/editSalary - Params: id, salary
 * api/admin/editTitle - Params: id, title
 
-User Routes
+Admin Routes
 ==========
-The user routes are the routes that are used by the user to interact with the db
+The Admin routes are the routes that are used by the user to interact with the db
 
-## User Routes
-### GET /api/user/getByID
-This route is used to get a user by their id  
+## Admin Routes
+### GET /api/admin/getAllEmployees
+This endpoint returns a list of all employees in the database.
 
 #### Parameters
-* id: The id of the user
 
 #### Response
-* 200: The user was found
-* 404: The user was not found
+* 200: The employees were found
+* 404: No employees was not found
 * 401: Error
-* results: [
-    {   
-        "emp_no":10001,  
-        "birth_date":"1953-09-02T07:00:00.000Z",  
-        "first_name":"Georgi",  
-        "last_name":"Facello",  
-        "gender":"M",  
-        "hire_date":"1986-06-26T07:00:00.000Z",   
-        "salary": 88958,  
-        "title": "Senior Engineer"  
-    }
-]   
+* return: {
+    "status": "success",
+    "results": [
+        {   
+            "first_name": "John",
+            "last_name": "Doe",
+            "phone": "123-456-7890",
+            "email": "johndoe@example.com",
+            "gender_id": 1,
+            "create_time": "2022-03-29T15:16:09.000Z",
+            "level_id": 1,
+            "gym_id": 1,
+            "level": "user",
+            "gender": "Male"
+        }
+    ] 
+}
 
-### GET /api/user/editByID
-This route is used to let user update their name and gender
+### GET /api/admin/getAllEmployeesByGym
+This endpoint returns a list of all employees in a gym.
 
 #### Parameters
-* id: The id of the user  
-* first_name: The first name of the user  
-* last_name: last name
-* gender: "M" or "F" ONLY
+* gym_id: the id of the gym
 
 #### Response
-* 200: The user was found
-* 404: The user was not found
+* 200: The employees were found
+* 404: The employees were not found
 * 401: Error
-* results: [
-    {   
-        ?????
-    }
-]   
+* return: {
+    "status": "success",
+    "results": [
+        {   
+            "first_name": "John",
+            "last_name": "Doe",
+            "phone": "123-456-7890",
+            "email": "johndoe@example.com",
+            "gender_id": 1,
+            "create_time": "2022-03-29T15:16:09.000Z",
+            "level_id": 1,
+            "gym_id": 1,
+            "level": "user",
+            "gender": "Male"
+        }
+    ] 
+}
 
-### GET /api/user/getEmployeeCount
-This route is used to get the number of employees
+### GET /api/user/getEmployeeByID
+This endpoint returns a single employee based on their ID.
 
 #### Parameters
-* None
+* employee_id: the id of the employee
 
 #### Response
 * 200: Success
 * 401: Error
-* "results":[
-    {   
-        "EmpCount":300024  
+* return: {
+    "status": "success",
+    "results": {   
+            "first_name": "John",
+            "last_name": "Doe",
+            "phone": "123-456-7890",
+            "email": "johndoe@example.com",
+            "gender_id": 1,
+            "create_time": "2022-03-29T15:16:09.000Z",
+            "level_id": 1,
+            "gym_id": 1,
+            "level": "user",
+            "gender": "Male"
     }
-]  
+}
 
-### GET /api/user/getByDepartment
-This route is used to get employees by department
+### GET /api/admin/editUserByID
+This endpoint edits a user's information based on their ID.
 
 #### Parameters
-* dept: The department id/number/dept_no to search for
-* count: The number of employees to return INT
-* offset: The offset to start at INT
+* user_id: the id of the user
+* first_name: first name of the user
+* last_name: last name of the user
+* gender_id: gender id of the user
+* level_id: level id of the user
+* email: email of the user
+* phone: phone of the user
+* password: password of the user
 
 #### Response
 * 200: Success
 * 401: Error
 * 404: No employees found
-* "results":[
-    {   
-        emp_no: 10001,  
-        first_name: "Georgi",  
-        last_name: "Smith"  
-    }
-]   
+* return: {
+    "status": "success",
+    "results": {}
+}
 
-### GET /api/user/getDepartmentsManagers
-This route is used to get list of departments along with their managers. RARE CASES: Could include duplicates if more than one manager per department or if department has multiple managers. If department has no manager it wont show up in the results.  
+### GET /api/user/enrollUser
+This endpoint enrolls a user to the gym.
 
 #### Parameters
-* NONE
+* first_name: first name of the user
+* last_name: last name of the user
+* gender_id: gender id of the user
+* level_id: level id of the user
+* email: email of the user
+* phone: phone of the user
+* password: password of the user
 
 #### Response
-* 200: The user was found
-* 404: No departments found
+* 200: Success
 * 401: Error
-* results: [
-    {   
-        dept_no: "d001",  
-        dept_name: "Marketing",  
-        first_name: "Georgi",  
-        last_name: "Smith",  
-        emp_no: 10001  
-    }
-]   
+* 404: No employees found
+* return: {
+    "status": "success",
+    "results": {}
+}
 
-### GET /api/user/getDepartments
-This route is used to get list of departments 
+### GET /api/user/checkinUser
+This route is used to check in user to the gym
 
 #### Parameters
 * NONE
