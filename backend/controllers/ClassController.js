@@ -1,7 +1,7 @@
 const db = require("../db_connection");
 
 exports.getAllClasses = (req, res) => {
-    let sql = "SELECT activity.id as activity_id, activity.name as activity_name, \
+    let sql = "SELECT class.id, activity.id as activity_id, activity.name as activity_name, \
     class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity \
     from class, activity where class.activity_id = activity.id;"
     db.query(sql, (err, results) => {
@@ -28,7 +28,7 @@ exports.getAllClasses = (req, res) => {
 exports.getClassesByGym = (req, res) => {
     const gym_id = parseInt(req.query.gym_id);
 
-    let sql = "SELECT activity.id as activity_id, activity.name as activity_name, \
+    let sql = "SELECT class.id, activity.id as activity_id, activity.name as activity_name, \
     class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity \
     from class, activity where class.activity_id = activity.id and class.gym_id = ?;"
 
@@ -56,7 +56,7 @@ exports.getClassesByGym = (req, res) => {
 exports.getClassById = (req, res) => {
     const class_id = parseInt(req.query.class_id);
 
-    let sql = "SELECT activity.id as activity_id, activity.name as activity_name, \
+    let sql = "SELECT class.id, activity.id as activity_id, activity.name as activity_name, \
     class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity, \
     count(enroll.id) as enrolled_number \
     from class, activity, enroll \

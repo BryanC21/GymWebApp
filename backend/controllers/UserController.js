@@ -1,7 +1,7 @@
 const db = require("../db_connection");
 
 exports.getAllUsers = (req, res) => {
-    let sql = "SELECT User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
+    let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
     User.create_time, User.level_id, Level.name as level, Gender.name as gender \
     FROM User, Level, Gender \
     where User.level_id = level.id and User.gender_id = Gender.id";
@@ -29,7 +29,7 @@ exports.getAllUsers = (req, res) => {
 exports.getUserByID = (req, res) => {
     const user_id = req.query.user_id;
 
-    let sql = "SELECT User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
+    let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
     User.create_time, User.level_id, Level.name as level, Gender.name as gender \
     FROM User, Level, Gender \
     where User.id = ? and User.level_id = level.id and User.gender_id = Gender.id";

@@ -2,7 +2,7 @@ const db = require("../db_connection");
 const crypto = require('crypto')
 
 exports.getAllEmployees = (req, res) => {
-    let sql = "SELECT Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
+    let sql = "SELECT Employee.id, Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
     Employee.create_time, Employee.level_id, Employee.gym_id, Level.name as level, Gender.name as gender \
     FROM Employee, Level, Gender \
     where Employee.level_id = level.id and Employee.gender_id = Gender.id"
@@ -30,7 +30,7 @@ exports.getAllEmployees = (req, res) => {
 exports.getAllEmployeesByGym = (req, res) => {
     const gym_id = req.query.gym_id;
 
-    let sql = "SELECT Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
+    let sql = "SELECT Employee.id, Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
     Employee.create_time, Employee.level_id, Employee.gym_id, Level.name as level, Gender.name as gender \
     FROM Employee, Level, Gender \
     where Employee.level_id = level.id and Employee.gender_id = Gender.id and Employee.gym_id = ?"
@@ -58,7 +58,7 @@ exports.getAllEmployeesByGym = (req, res) => {
 exports.getEmployeeByID = (req, res) => {
     const employee_id = req.query.employee_id;
 
-    let sql = "SELECT Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
+    let sql = "SELECT Employee.id, Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
     Employee.create_time, Employee.level_id, Employee.gym_id, Level.name as level, Gender.name as gender \
     FROM Employee, Level, Gender \
     where Employee.id = ? and Employee.level_id = level.id and Employee.gender_id = Gender.id";
