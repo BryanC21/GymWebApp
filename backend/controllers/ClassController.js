@@ -4,7 +4,7 @@ exports.getAllClasses = (req, res) => {
     let sql = "SELECT activity.id as activity_id, activity.name as activity_name, \
     class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity \
     from class, activity where class.activity_id = activity.id;"
-    db.query(sql, [gym_id], (err, results) => {
+    db.query(sql, (err, results) => {
         if (err) {
             return res.status(401).send({
                 status: "error",

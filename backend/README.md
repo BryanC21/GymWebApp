@@ -141,15 +141,14 @@ This endpoint enrolls a user to the gym.
 This route is used to check in user to the gym
 
 #### Parameters
-* NONE
+* user_id: id of the user
+* employee_id: id of the employee
 
 #### Response
 * 200: The user was found
 * 404: No departments found
 * 401: Error
-* results: [
-    {   
-        dept_no: "d001",  
-        dept_name: "Marketing"  
-    }
-]  
+* return: {
+    "status": "success",
+    "results": {}
+}
