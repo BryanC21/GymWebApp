@@ -27,15 +27,14 @@ exports.getAllUsers = (req, res) => {
 }   
 
 exports.getUserByID = (req, res) => {
-
-    const id = req.query.id;
+    const user_id = req.query.user_id;
 
     let sql = "SELECT User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
     User.create_time, User.level_id, Level.name as level, Gender.name as gender \
     FROM User, Level, Gender \
-    where id = ? and User.level_id = level.id and User.gender_id = Gender.id";
+    where User.id = ? and User.level_id = level.id and User.gender_id = Gender.id";
 
-    db.query(sql, (err, results) => {
+    db.query(sql, [user_id], (err, results) => {
         if (err) {
             return res.status(401).send({
                 status: "error",
@@ -55,43 +54,6 @@ exports.getUserByID = (req, res) => {
     });
 }   
 
-exports.editUserByID = (req, res) => {
-    const id = req.query.id
-    const first_name = req.query.first_name
-    const last_name = req.query.last_name
-    const gender_id = req.query.gender
-    const phone = req.query.phone
-    const password = req.query.password
-    const level_id = req.query.level_id
-
-    let sql = "UPDATE User SET first_name = ?, last_name = ?, gender_id = ?, phone = ?, \
-    password = ?, level_id = ? \
-    WHERE id = ?"
-
-    db.query
-        (
-            sql,
-            [first_name, last_name, gender_id, phone, password, level_id, id],
-            (err, results) => {
-                if (err) {
-                    return res.status(401).send({
-                        status: "error",
-                        message: err
-                    })
-                }
-                if (results.affectedRows === 0) {
-                    return res.status(404).send({
-                        status: "error",
-                        message: "No user found"
-                    })
-                }
-                return res.status(200).send({
-                    status: "success",
-                    results: results
-                })
-            }
-        )
-}
 
 exports.getAllLevels = (req, res) => {
     let sql = "SELECT * from Level";

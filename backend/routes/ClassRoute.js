@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const {
-    getClasses, getClassById
+    getAllClasses, getClassById, getClassesByGym
 } = require("../controllers/ClassController");
 
-router.get("/getClasses", getClasses);
+router.get("/getAllClasses", getAllClasses);
 router.get("/getClassById", getClassById);
+router.get("/getClassesByGym", getClassesByGym);
 
 module.exports = router;

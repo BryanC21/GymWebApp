@@ -1,38 +1,15 @@
-/*
->api/admin/getAllEmployees - gets all employees 
->api/admin/getAllEmployeesCurrent - gets all employees  currently working there
->api/admin/getEmployeesCurrentSorted - gets all employees sorted by a column
-
->api/admin/getByID 
->api/admin/editByID
->api/admin/deleteByID
-
->api/admin/editSalary // Dont want to have more than one current salary. Archive old salary and add new one
-
->api/admin/addEmpTitle // Can have multiple current titles
->api/admin/removeEmpTitle // Archives title
->api/admin/addEmpDept // Can have multiple current departments. Edits dept_emp table
->api/admin/removeEmpDept // Archives department. Edits dept_emp table
-
-#api/admin/deleteDepartment // Deletes department from departments table. We shouldnt use this. Could break relationships and make some emplyees unqueriable in future
-api/admin/addDepartment // Adds department to departments table
-api/admin/editDepartment // Used for renaming a department. Edits department in departments table
-api/admin/removeDepartmentManager // Archives department manager. Edits dept_manager table
-api/admin/addDepartmentManager // Edits dept_manager table
-*/
 const db = require("../db_connection");
+const crypto = require('crypto')
 
 exports.getAllEmployees = (req, res) => {
 
     const count = parseInt(req.query.count)
     const offset = parseInt(req.query.offset)
 
-    let sql = "SELECT employees.emp_no, first_name, last_name, \
-    (SELECT titles.title FROM titles WHERE employees.emp_no = titles.emp_no ORDER BY to_date DESC LIMIT 1) AS title, \
-    (SELECT departments.dept_name FROM departments WHERE departments.dept_no = \
-        (SELECT dept_emp.dept_no FROM dept_emp WHERE dept_emp.emp_no = employees.emp_no ORDER BY dept_emp.to_date DESC LIMIT 1)) \
-        as dept_name FROM employees \
-    ORDER BY employees.emp_no DESC LIMIT ? OFFSET ?"
+    let sql = "SELECT Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
+    Employee.create_time, Employee.level_id, Employee.gym_id, Level.name as level, Gender.name as gender \
+    FROM Employee, Level, Gender \
+    where Employee.level_id = level.id and Employee.gender_id = Gender.id"
 
     db.query(sql, [count, offset], (err, results) => {
         if (err) {
@@ -51,9 +28,134 @@ exports.getAllEmployees = (req, res) => {
             status: "success",
             results: results
         })
-    }
-    )
+    })
 }
+
+exports.getEmployeeByID = (req, res) => {
+    const employee_id = req.query.employee_id;
+
+    let sql = "SELECT Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
+    Employee.create_time, Employee.level_id, Employee.gym_id, Level.name as level, Gender.name as gender \
+    FROM Employee, Level, Gender \
+    where Employee.id = ? and Employee.level_id = level.id and Employee.gender_id = Gender.id";
+
+    db.query(sql, [employee_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No employee found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results[0]
+        })
+    });
+}
+
+exports.editUserByID = (req, res) => {
+    const id = req.query.id
+    const first_name = req.query.first_name
+    const last_name = req.query.last_name
+    const gender_id = req.query.gender
+    const phone = req.query.phone
+    const password = req.query.password
+    const level_id = req.query.level_id
+
+    let sql = "UPDATE User SET first_name = ?, last_name = ?, gender_id = ?, phone = ?, \
+    password = ?, level_id = ? \
+    WHERE id = ?"
+
+    db.query
+        (
+            sql,
+            [first_name, last_name, gender_id, phone, password, level_id, id],
+            (err, results) => {
+                if (err) {
+                    return res.status(401).send({
+                        status: "error",
+                        message: err
+                    })
+                }
+                if (results.affectedRows === 0) {
+                    return res.status(404).send({
+                        status: "error",
+                        message: "No user found"
+                    })
+                }
+                return res.status(200).send({
+                    status: "success",
+                    results: results
+                })
+            }
+        )
+}
+
+exports.enrollUser = (req, res) => {
+    const first_name = req.query.first_name;
+    const last_name = req.query.last_name;
+    const phone = req.query.phone;
+    const email = req.query.email;
+    const gender_id = req.query.gender_id;
+    const level_id = req.query.level_id;
+    const password = crypto.createHash('md5').update(req.query.password).digest("hex");
+
+    let sql = "INSER INTO USER (first_name, last_name, phone, email, gender_id, \
+    level_id, passwrod) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    db.query(sql, [first_name, last_name, phone, email, gender_id, level_id, 
+        password], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "Enroll failed"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    });
+}
+
+exports.checkinUser = (req, res) => {
+    const user_id = req.query.user_id;
+    const employee_id = req.query.employee_id;
+
+    let sql = "INSER INTO Checkin (user_id, employee_id) VALUES (?, ?)";
+
+    db.query(sql, [user_id, employee_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "Enroll failed"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    });
+}
+
 
 exports.getAllEmployeesCurrent = (req, res) => { //If employee isnt in a department, they arent considered current employees
 
