@@ -16,7 +16,7 @@ const classRoute = require("./routes/ClassRoute");
 const userRoute = require("./routes/UserRoute");
 const adminRoute = require("./routes/AdminRoute");
 const searchRoute = require("./routes/SearchRoute");
-
+const activityRoute = require("./routes/ActivityRoute");
 // middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session(config.session));
@@ -43,6 +43,7 @@ app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/search", searchRoute);
 
+app.use("/api/activity", activityRoute);
 // SSO
 app.get("/logout", (req, res) => {
     console.log("logout");
