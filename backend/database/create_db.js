@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const path = require('path');
-require('dotenv').config();
+require('dotenv').config({path:__dirname+'/../.env'});
 var drop = process.argv[2] === 'drop'; //node create_db.js drop
 
 var con = mysql.createConnection({
