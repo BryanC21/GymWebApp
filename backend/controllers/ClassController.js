@@ -87,7 +87,7 @@ exports.getClassById = (req, res) => {
 exports.addActivity = (req, res) => {
     const activity_name = req.query.activity_name;
 
-    let sql = "INSER INTO Activity (name) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    let sql = "INSERT INTO Activity (name) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     db.query(sql, [activity_name], (err, results) => {
         if (err) {
@@ -117,7 +117,7 @@ exports.addClass = (req, res) => {
     const duration = req.query.duration;
     const capacity = req.query.capacity;
 
-    let sql = "INSER INTO USER (activity_id, employee_id, gym_id, start_time, duration, \
+    let sql = "INSERT INTO Class (activity_id, employee_id, gym_id, start_time, duration, \
     capacity) VALUES (?, ?, ?, ?, ?, ?)";
 
     db.query(sql, [activity_id, employee_id, gym_id, start_time, duration, capacity], (err, results) => {

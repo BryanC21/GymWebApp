@@ -44,6 +44,7 @@ app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/sso", SsoRoute);
 
+//app.use("/api/activity", activityRoute);
 // SSO
 app.get("/logout", (req, res) => {
     console.log("logout");

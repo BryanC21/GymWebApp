@@ -1,11 +1,25 @@
 import React from 'react';
-import { BrowserRouter } from "react-router-dom";
-import URLPaths from "./components/routes";
-import "./assets/css/styles.css";
-import "./assets/fonts/ionicons.min.css";
-import store from './store';
-import { Provider } from 'react-redux';
+import Home from './components/Home';
+import AddClasses from './components/AddClasses';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+//import store from './store';
+//import { Provider } from 'react-redux';
 
+
+function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/add-classes" element={<AddClasses />} />
+
+            </Routes>
+        </BrowserRouter>
+    );
+}
+
+/*
 function App() {
     return (
         <Provider store={store} >
@@ -15,4 +29,5 @@ function App() {
         </Provider>
     );
 }
+*/
 export default App;
