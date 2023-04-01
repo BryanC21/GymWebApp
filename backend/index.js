@@ -7,6 +7,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 require('./config/passport');
 
+
 // express app initialized
 const app = express();
 
@@ -15,7 +16,7 @@ const gymRoute = require("./routes/GymRoute");
 const classRoute = require("./routes/ClassRoute");
 const userRoute = require("./routes/UserRoute");
 const adminRoute = require("./routes/AdminRoute");
-const searchRoute = require("./routes/SearchRoute");
+const SsoRoute = require("./routes/SsoRoute");
 
 // middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,7 +42,7 @@ app.use("/api/gym", gymRoute);
 app.use("/api/class", classRoute);
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
-app.use("/api/search", searchRoute);
+app.use("/api/sso", SsoRoute);
 
 // SSO
 app.get("/logout", (req, res) => {

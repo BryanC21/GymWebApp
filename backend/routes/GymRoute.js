@@ -1,8 +1,11 @@
 const express = require("express");
-const router = express.Router();
 const {
     getAllGyms, getGymById
 } = require("../controllers/GymController");
+
+
+const router = express.Router();
+
 
 router.get("/getAllGyms", getAllGyms);
 router.get("/getGymById", getGymById);

@@ -83,31 +83,6 @@ exports.getClassById = (req, res) => {
     )
 }
 
-exports.enrollClass = (req, res) => {
-    const class_id = parseInt(req.query.class_id);
-    const user_id = parseInt(req.query.user_id);
-
-    let sql = "INSERT INTO Enroll (class_id, user_id) values(?, ?)"
-
-    db.query(sql, [class_id, user_id], (err, results) => {
-        if (err) {
-            return res.status(401).send({
-                status: "error",
-                message: err
-            })
-        }
-        if (results.length === 0) {
-            return res.status(404).send({
-                status: "error",
-                message: "No Classes found for this gym"
-            })
-        }
-        return res.status(200).send({
-            status: "Success",
-            results: results
-        })
-    })
-}
 
 exports.addActivity = (req, res) => {
     const activity_name = req.query.activity_name;

@@ -352,35 +352,35 @@ con.query(sql, function (err, result) {
 
 // insert user
 var sql = "INSERT INTO User (first_name, last_name, gender_id, phone, email, password, level_id) \
-VALUES ('John', 'Doe', 1, '1231231231', 'johndoe@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 3)";
+VALUES ('John', 'Doe', 1, '1231231231', 'johndoe@gmail.com', '202cb962ac59075b964b07152d234b70', 3)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 User inserted");
 });
 
 var sql = "INSERT INTO User (first_name, last_name, gender_id, phone, email, password, level_id) \
-VALUES ('Doe', 'John', 2, '1231231232', 'doejohn@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 3)";
+VALUES ('Doe', 'John', 2, '1231231232', 'doejohn@gmail.com', '202cb962ac59075b964b07152d234b70', 3)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 User inserted");
 });
 
 var sql = "INSERT INTO User (first_name, last_name, gender_id, phone, email, password, level_id) \
-VALUES ('Kevin', 'Doe', 1, '1231231233', 'kevindoe@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 3)";
+VALUES ('Kevin', 'Doe', 1, '1231231233', 'kevindoe@gmail.com', '202cb962ac59075b964b07152d234b70', 3)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 User inserted");
 });
 
 var sql = "INSERT INTO User (first_name, last_name, gender_id, phone, email, password, level_id) \
-VALUES ('Doe', 'Kevin', 2, '1231231234', 'doekevin@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 4)";
+VALUES ('Doe', 'Kevin', 2, '1231231234', 'doekevin@gmail.com', '202cb962ac59075b964b07152d234b70', 4)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 User inserted");
 });
 
 var sql = "INSERT INTO User (first_name, last_name, gender_id, phone, email, password, level_id) \
-VALUES ('Mary', 'Doe', 1, '1231231235', 'marydoe@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 4)";
+VALUES ('Mary', 'Doe', 1, '1231231235', 'marydoe@gmail.com', '202cb962ac59075b964b07152d234b70', 4)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 User inserted");
@@ -388,91 +388,91 @@ con.query(sql, function (err, result) {
 
 // insert employee
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('admin1', 'gym1', 2, '3213213211', 'admin1gym1@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 1)";
+VALUES ('admin1', 'gym1', 2, '3213213211', 'admin1gym1@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 1)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('admin1', 'gym2', 1, '3213213212', 'admin1gym2@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 2)";
+VALUES ('admin1', 'gym2', 1, '3213213212', 'admin1gym2@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 2)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('admin1', 'gym3', 1, '3213213213', 'admin1gym3@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 3)";
+VALUES ('admin1', 'gym3', 1, '3213213213', 'admin1gym3@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 3)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('admin1', 'gym4', 2, '3213213214', 'admin1gym4@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 4)";
+VALUES ('admin1', 'gym4', 2, '3213213214', 'admin1gym4@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 4)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('admin1', 'gym5', 1, '3213213215', 'admin1gym5@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 5)";
+VALUES ('admin1', 'gym5', 1, '3213213215', 'admin1gym5@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 5)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('admin1', 'gym6', 1, '3213213216', 'admin1gym6@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 6)";
+VALUES ('admin1', 'gym6', 1, '3213213216', 'admin1gym6@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 6)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('employee1', 'gym1', 2, '1231231211', 'employee1gym1@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 1)";
+VALUES ('employee1', 'gym1', 2, '1231231211', 'employee1gym1@gmail.com', '202cb962ac59075b964b07152d234b70', 2, 1)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('employee2', 'gym1', 1, '1231231212', 'employee2gym1@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 1)";
+VALUES ('employee2', 'gym1', 1, '1231231212', 'employee2gym1@gmail.com', '202cb962ac59075b964b07152d234b70', 2, 1)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('employee1', 'gym2', 2, '1231231221', 'employee1gym2@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 2)";
+VALUES ('employee1', 'gym2', 2, '1231231221', 'employee1gym2@gmail.com', '202cb962ac59075b964b07152d234b70', 2, 2)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('employee1', 'gym3', 1, '1231231231', 'employee1gym3@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 3)";
+VALUES ('employee1', 'gym3', 1, '1231231231', 'employee1gym3@gmail.com', '202cb962ac59075b964b07152d234b70', 2, 3)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('employee1', 'gym4', 1, '1231231241', 'employee1gym4@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 4)";
+VALUES ('employee1', 'gym4', 1, '1231231241', 'employee1gym4@gmail.com', '202cb962ac59075b964b07152d234b70', 2, 4)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('employee1', 'gym5', 2, '1231231251', 'employee1gym5@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 5)";
+VALUES ('employee1', 'gym5', 2, '1231231251', 'employee1gym5@gmail.com', '202cb962ac59075b964b07152d234b70', 2, 5)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
 });
 
 var sql = "INSERT INTO Employee (first_name, last_name, gender_id, phone, email, password, level_id, gym_id) \
-VALUES ('employee1', 'gym6', 2, '1231231261', 'employee1gym6@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 2, 6)";
+VALUES ('employee1', 'gym6', 2, '1231231261', 'employee1gym6@gmail.com', '202cb962ac59075b964b07152d234b70', 2, 6)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Employee inserted");
