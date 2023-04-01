@@ -5,9 +5,6 @@ The admin routes are used to manage the backend. They have more power than users
 * api/admin/getAllEmployees
 * api/admin/getAllEmployeesByGym
 * api/admin/getEmployeeByID 
-* api/admin/editUserByID
-* api/admin/enrollUser
-* api/admin/checkinUser
 
 ## Admin Routes
 ### GET /api/admin/getAllEmployees
@@ -93,65 +90,6 @@ This endpoint returns a single employee based on their ID.
     }
 }
 
-### GET /api/admin/editUserByID
-This endpoint edits a user's information based on their ID.
-
-#### Parameters
-* user_id: the id of the user
-* first_name: first name of the user
-* last_name: last name of the user
-* gender_id: gender id of the user
-* level_id: level id of the user
-* email: email of the user
-* phone: phone of the user
-* password: password of the user
-
-#### Response
-* 200: Success
-* 401: Error
-* 404: No employees found
-* return: {
-    "status": "success",
-    "results": {}
-}
-
-### GET /api/user/enrollUser
-This endpoint enrolls a user to the gym.
-
-#### Parameters
-* first_name: first name of the user
-* last_name: last name of the user
-* gender_id: gender id of the user
-* level_id: level id of the user
-* email: email of the user
-* phone: phone of the user
-* password: password of the user
-
-#### Response
-* 200: Success
-* 401: Error
-* 404: No employees found
-* return: {
-    "status": "success",
-    "results": {}
-}
-
-### GET /api/user/checkinUser
-This route is used to check in user to the gym
-
-#### Parameters
-* user_id: id of the user
-* employee_id: id of the employee
-
-#### Response
-* 200: The user was found
-* 404: No departments found
-* 401: Error
-* return: {
-    "status": "success",
-    "results": {}
-}
-
 
 User Routes
 ============
@@ -161,6 +99,8 @@ The user routes are used to manage users
 * api/user/getUserByID
 * api/user/getAllLevels 
 * api/user/getAllGenders
+* api/user/enrollUser
+* api/user/checkinUser
 
 ## User Routes
 ### GET /api/user/getAllUsers
@@ -253,6 +193,67 @@ This endpoint returns a list of all genders in the database.
     ]
 }
 
+
+### GET /api/user/editUserByID
+This endpoint edits a user's information based on their ID.
+
+#### Parameters
+* user_id: the id of the user
+* first_name: first name of the user
+* last_name: last name of the user
+* gender_id: gender id of the user
+* level_id: level id of the user
+* email: email of the user
+* phone: phone of the user
+* password: password of the user
+
+#### Response
+* 200: Success
+* 401: Error
+* 404: No employees found
+* return: {
+    "status": "success",
+    "results": {}
+}
+
+### GET /api/user/enrollUser
+This endpoint enrolls a user to the gym.
+
+#### Parameters
+* first_name: first name of the user
+* last_name: last name of the user
+* gender_id: gender id of the user
+* level_id: level id of the user
+* email: email of the user
+* phone: phone of the user
+* password: password of the user
+
+#### Response
+* 200: Success
+* 401: Error
+* 404: No employees found
+* return: {
+    "status": "success",
+    "results": {}
+}
+
+### GET /api/user/checkinUser
+This route is used to check in user to the gym
+
+#### Parameters
+* user_id: id of the user
+* employee_id: id of the employee
+
+#### Response
+* 200: The user was found
+* 404: No departments found
+* 401: Error
+* return: {
+    "status": "success",
+    "results": {}
+}
+
+
 Gym Routes
 ============
 The gym routes are used to manage gyms
@@ -323,8 +324,8 @@ This endpoint returns a list of all classes in the database.
 #### Parameters
 
 #### Response
-* 200: The users were found
-* 404: No users were found
+* 200: The classes were found
+* 404: No classes were found
 * 401: Error
 * return: {
     "status": "success",
@@ -415,4 +416,70 @@ This endpoint returns a single class based on their ID.
 * return: {
     "status": "success",
     "results": {}
+}
+
+
+SSO Routes
+============
+The sso routes are used to manage sso
+
+* api/sso/userSignin
+* api/sso/employeeSignin
+
+## SSO Routes
+### GET /api/sso/userSignin
+This endpoint use for user signin.
+
+#### Parameters
+* email: email of the user
+* password: password of the user
+
+#### Response
+* 200: Sign in success
+* 404: Sign in failed
+* 401: Error
+* return: {
+    "status": "success",
+    "token": "abcdefg",
+    "results": {   
+        "id": 1,
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone": "123-456-7890",
+        "email": "johndoe@example.com",
+        "gender_id": 1,
+        "create_time": "2022-03-29T15:16:09.000Z",
+        "level_id": 1,
+        "level": "user",
+        "gender": "Male"
+    }
+}
+
+### GET /api/sso/employeeSignin
+This endpoint use for employee signin.
+
+#### Parameters
+* email: email of the employee
+* password: password of the employee
+
+#### Response
+* 200: Sign in success
+* 404: Sign in failed
+* 401: Error
+* return: {
+    "status": "success",
+    "token": "abcdefg",
+    "results": {   
+        "id": 1,
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone": "123-456-7890",
+        "email": "johndoe@example.com",
+        "gender_id": 1,
+        "create_time": "2022-03-29T15:16:09.000Z",
+        "level_id": 1,
+        "gym_id": 1,
+        "level": "user",
+        "gender": "Male"
+    }
 }

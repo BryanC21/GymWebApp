@@ -11,5 +11,6 @@ router.get("/getClassById", getClassById);
 router.get("/getClassesByGym", getClassesByGym);
 router.get("/addActivity", employeeAuth, addActivity);
 router.get("/addClass", employeeAuth, addClass);
+router.get("/enrollClass", userAuth, enrollClass);
 
 module.exports = router;
