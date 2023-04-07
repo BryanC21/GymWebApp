@@ -1,5 +1,6 @@
 const express = require("express");
 const employeeAuth = require("../controllers/auth/employeeAuth");
+const userAuth = require("../controllers/auth/userAuth");
 const {
     getAllClasses, getClassById, getClassesByGym, addActivity, addClass, enrollClass
 } = require("../controllers/ClassController");

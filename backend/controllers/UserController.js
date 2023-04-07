@@ -1,4 +1,5 @@
 const db = require("../db_connection");
+const crypto = require("crypto");
 
 exports.getAllUsers = (req, res) => {
     let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
@@ -139,12 +140,13 @@ exports.enrollUser = (req, res) => {
     const last_name = req.query.last_name;
     const phone = req.query.phone;
     const email = req.query.email;
-    const gender_id = req.query.gender_id;
-    const level_id = req.query.level_id;
+    const gender_id = parseInt(req.query.gender_id);
+    const level_id = 3;
+    const duration = req.query.duration;
     const password = crypto.createHash('md5').update(req.query.password).digest("hex");
 
-    let sql = "INSER INTO USER (first_name, last_name, phone, email, gender_id, \
-    level_id, passwrod) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    let sql = "INSERT INTO USER (first_name, last_name, phone, email, gender_id, \
+    level_id, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     db.query(sql, [first_name, last_name, phone, email, gender_id, level_id, 
         password], (err, results) => {
@@ -160,18 +162,47 @@ exports.enrollUser = (req, res) => {
                 message: "Enroll failed"
             })
         }
+        let user_id = results.insertId;
+        if (duration) {
+            Date.prototype.addDays = function(days) {
+                var date = new Date(this.valueOf());
+                date.setDate(date.getDate() + days);
+                return date;
+            }
+            let date = new Date();
+            let expire_time = date.addDays(duration);
+
+            let sql = "INSERT INTO Expire (user_id, expire_time) VALUES (?, ?)";
+
+            db.query(sql, [user_id, expire_time], (err, results) => {
+                if (err) {
+                    return res.status(401).send({
+                        status: "error",
+                        message: err
+                    })
+                }
+                if (results.length === 0) {
+                    return res.status(404).send({
+                        status: "error",
+                        message: "Enroll failed"
+                    })
+                }
+            });
+        }
         return res.status(200).send({
             status: "success",
             results: results
         })
     });
+
+    
 }
 
 exports.checkinUser = (req, res) => {
     const user_id = req.query.user_id;
     const employee_id = req.query.employee_id;
 
-    let sql = "INSER INTO Checkin (user_id, employee_id) VALUES (?, ?)";
+    let sql = "INSERT INTO Checkin (user_id, employee_id) VALUES (?, ?)";
 
     db.query(sql, [user_id, employee_id], (err, results) => {
         if (err) {

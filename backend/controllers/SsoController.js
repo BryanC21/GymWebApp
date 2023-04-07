@@ -30,12 +30,35 @@ exports.userSignin = (req, res) => {
             process.env.USER_TOKEN_KEY,
             {expiresIn: "2h",}
         )
-
-        return res.status(200).send({
-            status: "success",
-            results: results[0],
-            token: token
-        })
+        if (result.level_id == 3) {
+            let sql1 = "UPDATE User SET level_id = 4 WHERE id = ? and (SELECT expire_time FROM Expire where user_id = ? ORDER BY expire_time DESC LIMIT 1) < CURRENT_TIMESTAMP";
+            db.query(sql1, [result.id, result.id], (err, results) => {
+                if (err) {
+                    return res.status(401).send({
+                        status: "update level error",
+                        message: err
+                    })
+                }
+                if (results.length === 0) {
+                    return res.status(404).send({
+                        status: "error",
+                        message: "No expiration find"
+                    })
+                }
+                result.level_id = 4;
+                return res.status(200).send({
+                    status: "success",
+                    results: result,
+                    token: token
+                })
+            });
+        } else {
+            return res.status(200).send({
+                status: "success",
+                results: result,
+                token: token
+            })
+        }
     })
 }
 

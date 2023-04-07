@@ -184,6 +184,19 @@ con.query(sql, function (err, result) {
     console.log("TABLE Log created");
 });
 
+var sql = "CREATE TABLE Expire (\
+    id INT NOT NULL AUTO_INCREMENT, \
+    user_id INT NOT NULL, \
+    expire_time TIMESTAMP, \
+    create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, \
+    PRIMARY KEY(id), \
+    FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("TABLE Expire created");
+});
+
+
 //Insert Gender
 var sql = "INSERT INTO Gender (name) VALUES ('Male')";
 con.query(sql, function (err, result) {
