@@ -1,0 +1,691 @@
+
+.MemberDet_MemberDet {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	margin: auto;
+	width: 100%;
+	height: 100vh;
+	overflow: auto;
+	background: rgba(0,0,0,1.00);
+}
+.MemberDet_MemberDet .MemberSpace {
+	position: absolute;
+	left: 46px;
+	top: 30px;
+	width: 473px;
+	height: 84px;
+	color: rgba(0,255,133,1.00);
+	font-family: Roboto;
+	font-size: 72px;
+	font-weight: 100;
+	line-height: 84.375px;
+}
+.MemberDet_MemberDet .Rectangle13 {
+	position: absolute;
+	left: 322px;
+	top: 131px;
+	width: 1084px;
+	height: 856px;
+	background: rgba(57,57,57,1.00);
+}
+.MemberDet_MemberDet .Rectangle15 {
+	position: absolute;
+	left: 343px;
+	top: 264px;
+	width: 1038px;
+	height: 634px;
+	background: rgba(113,113,113,1.00);
+}
+.MemberDet_MemberDet .Rectangle14 {
+	position: absolute;
+	left: 905px;
+	top: 57px;
+	width: 501px;
+	height: 74px;
+	background: rgba(45,45,45,1.00);
+}
+.MemberDet_MemberDet .CurrentMembers {
+	position: absolute;
+	left: 1012px;
+	top: 69px;
+	width: 369px;
+	height: 56px;
+	color: rgba(255,122,0,1.00);
+	font-family: Roboto;
+	font-size: 48px;
+	font-weight: 300;
+	line-height: 56.25px;
+}
+.MemberDet_MemberDet .Group8 {
+	position: absolute;
+	left: 343px;
+	top: 153px;
+	width: 487px;
+	height: 89px;
+	border-radius: 73px;
+}
+.MemberDet_MemberDet .Group8 .Rectangle5 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 487px;
+	height: 89px;
+	background: rgba(255,255,255,1.00);
+	border-radius: 73px;
+}
+.MemberDet_MemberDet .Group8 .SearchbyName {
+	position: absolute;
+	left: 28px;
+	top: 25px;
+	width: 265px;
+	height: 42px;
+	color: rgba(159,159,159,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 500;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .Group9 {
+	position: absolute;
+	left: 850px;
+	top: 153px;
+	width: 494px;
+	height: 89px;
+	border-radius: 73px;
+}
+.MemberDet_MemberDet .Group9 .Rectangle5_1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 494px;
+	height: 89px;
+	background: rgba(255,255,255,1.00);
+	border-radius: 73px;
+}
+.MemberDet_MemberDet .Group9 .SearchbyMemberID {
+	position: absolute;
+	left: 31px;
+	top: 25px;
+	width: 355px;
+	height: 43px;
+	color: rgba(159,159,159,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 500;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .search {
+	position: absolute;
+	left: 746px;
+	top: 169px;
+	width: 56px;
+	height: 56px;
+}
+.MemberDet_MemberDet .search .Vector {
+	position: absolute;
+	left: 7px;
+	top: 7px;
+	width: 72.8759765625%;
+	height: 72.87494114467076%;
+}
+.MemberDet_MemberDet .search .Vector_1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+.MemberDet_MemberDet .search_1 {
+	position: absolute;
+	left: 1267px;
+	top: 169px;
+	width: 56px;
+	height: 56px;
+}
+.MemberDet_MemberDet .search_1 .Vector_2 {
+	position: absolute;
+	left: 7px;
+	top: 7px;
+	width: 72.8759765625%;
+	height: 72.87494114467076%;
+}
+.MemberDet_MemberDet .search_1 .Vector_3 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+.MemberDet_MemberDet .Rectangle16 {
+	position: absolute;
+	left: 355px;
+	top: 274px;
+	width: 1017px;
+	height: 91px;
+	background: rgba(196,196,196,1.00);
+}
+.MemberDet_MemberDet .AakashDev {
+	position: absolute;
+	left: 387px;
+	top: 298px;
+	width: 200px;
+	height: 42px;
+	color: rgba(0,0,0,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .Age24 {
+	position: absolute;
+	left: 720px;
+	top: 299px;
+	width: 125px;
+	height: 42px;
+	color: rgba(0,0,0,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet ._123456 {
+	position: absolute;
+	left: 1024px;
+	top: 299px;
+	width: 146px;
+	height: 42px;
+	color: rgba(0,0,0,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .AaronThomas {
+	position: absolute;
+	left: 387px;
+	top: 925px;
+	width: 246px;
+	height: 42px;
+	color: rgba(255,255,255,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .keyboard_arrow_down {
+	position: absolute;
+	left: 1284px;
+	top: 280px;
+	width: 78px;
+	height: 78px;
+}
+.MemberDet_MemberDet .keyboard_arrow_down .Vector_4 {
+	position: absolute;
+	left: 19.5px;
+	top: 27.917495727539062px;
+	width: 50%;
+	height: 30.875005477514023%;
+}
+.MemberDet_MemberDet .keyboard_arrow_down .Vector_5 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+.MemberDet_MemberDet .keyboard_arrow_down_1 {
+	position: absolute;
+	left: 1294px;
+	top: 907px;
+	width: 78px;
+	height: 78px;
+}
+.MemberDet_MemberDet .keyboard_arrow_down_1 .Vector_6 {
+	position: absolute;
+	left: 19.5px;
+	top: 26px;
+	width: 50%;
+	height: 30.874985914963943%;
+}
+.MemberDet_MemberDet .keyboard_arrow_down_1 .Vector_7 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+.MemberDet_MemberDet .MemberSince2019MembershipvalidityUntil2023TrainerYes6TotalCharges180005000AmountOwedNIL {
+	position: absolute;
+	left: 369px;
+	top: 395px;
+	width: 506px;
+	height: 252px;
+	color: rgba(255,255,255,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 300;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .Group10 {
+	position: absolute;
+	left: 958px;
+	top: 435px;
+	width: 391px;
+	height: 391px;
+}
+.MemberDet_MemberDet .Group10 .Ellipse1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 391px;
+	height: 391px;
+	background: rgba(255,119,119,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group10 .Ellipse2 {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	width: 351px;
+	height: 351px;
+	background: rgba(0,217,165,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group10 .Ellipse3 {
+	position: absolute;
+	left: 38px;
+	top: 38px;
+	width: 316px;
+	height: 316px;
+	background: rgba(31,31,31,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group10 .Ellipse4 {
+	position: absolute;
+	left: 227px;
+	top: 30.76024627685547px;
+	width: 163.326171875px;
+	height: 199.64389038085938px;
+	background: rgba(31,31,31,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group10 .Rectangle11 {
+	position: absolute;
+	left: 243.810546875px;
+	top: 36.9503173828125px;
+	width: 58.08203125px;
+	height: 64.71153259277344px;
+	background: rgba(31,31,31,1.00);
+}
+.MemberDet_MemberDet .Group10 .Rectangle12 {
+	position: absolute;
+	left: 333.490234375px;
+	top: 159.18584442138672px;
+	width: 37.626953125px;
+	height: 58.756187438964844px;
+	background: rgba(31,31,31,1.00);
+}
+.MemberDet_MemberDet .Group10 .FitnessRegime {
+	position: absolute;
+	left: 74px;
+	top: 175px;
+	width: 244px;
+	height: 42px;
+	color: rgba(255,255,255,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 300;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .Group11 {
+	position: absolute;
+	left: 372px;
+	top: 705.0000152587891px;
+	width: 167.212890625px;
+	height: 167.2130584716797px;
+}
+.MemberDet_MemberDet .Group11 .Ellipse1_1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 167.212890625px;
+	height: 167.2130584716797px;
+	background: rgba(255,119,119,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group11 .Ellipse2_1 {
+	position: absolute;
+	left: 8.5546875px;
+	top: 8.5531005859375px;
+	width: 150.10546875px;
+	height: 150.1068572998047px;
+	background: rgba(0,217,165,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group11 .Ellipse3_1 {
+	position: absolute;
+	left: 16.232421875px;
+	top: 15.823226928710938px;
+	width: 135.140625px;
+	height: 135.13894653320312px;
+	background: rgba(31,31,31,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group11 .Ellipse4_1 {
+	position: absolute;
+	left: 14.197265625px;
+	top: 4.2036895751953125px;
+	width: 81.4296875px;
+	height: 68.90982055664062px;
+	background: rgba(31,31,31,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group11 .Rectangle11_1 {
+	position: absolute;
+	left: 17.33984375px;
+	top: 42.88764953613281px;
+	width: 26.4921875px;
+	height: 23.158111572265625px;
+	background: rgba(31,31,31,1.00);
+}
+.MemberDet_MemberDet .Group11 .Rectangle12_1 {
+	position: absolute;
+	left: 65.48046875px;
+	top: 11.525634765625px;
+	width: 24.51953125px;
+	height: 16.384567260742188px;
+	background: rgba(31,31,31,1.00);
+}
+.MemberDet_MemberDet .Group12 {
+	position: absolute;
+	left: 560.66796875px;
+	top: 693.4625549316406px;
+	width: 348.548828125px;
+	height: 181.75338745117188px;
+}
+.MemberDet_MemberDet .Group12 .Ellipse1_2 {
+	position: absolute;
+	left: 0.03125px;
+	top: 8.2784423828125px;
+	width: 165.732421875px;
+	height: 165.73208618164062px;
+	background: rgba(255,119,119,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group12 .Ellipse2_2 {
+	position: absolute;
+	left: 8.5078125px;
+	top: 16.754547119140625px;
+	width: 148.77734375px;
+	height: 148.77740478515625px;
+	background: rgba(0,217,165,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group12 .Ellipse3_2 {
+	position: absolute;
+	left: 15.73046875px;
+	top: 23.96075439453125px;
+	width: 133.94140625px;
+	height: 133.94204711914062px;
+	background: rgba(31,31,31,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group12 .Ellipse4_2 {
+	position: absolute;
+	left: 3.203125px;
+	top: 75.11058044433594px;
+	width: 64.943359375px;
+	height: 81.61463928222656px;
+	background: rgba(31,31,31,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group12 .Rectangle11_2 {
+	position: absolute;
+	left: 37.275390625px;
+	top: 128.31021118164062px;
+	width: 24.166015625px;
+	height: 26.376861572265625px;
+	background: rgba(31,31,31,1.00);
+}
+.MemberDet_MemberDet .Group12 .Rectangle12_2 {
+	position: absolute;
+	left: 11.462890625px;
+	top: 79.77243041992188px;
+	width: 14.556640625px;
+	height: 23.5787353515625px;
+	background: rgba(31,31,31,1.00);
+}
+.MemberDet_MemberDet .Group12 .Group11_1 {
+	position: absolute;
+	left: 179.341796875px;
+	top: 12.545211791992188px;
+	width: 163.197265625px;
+	height: 163.1975555419922px;
+}
+.MemberDet_MemberDet .Group12 .Group11_1 .Ellipse1_3 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 163.197265625px;
+	height: 163.1975555419922px;
+	background: rgba(255,119,119,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group12 .Group11_1 .Ellipse2_3 {
+	position: absolute;
+	left: 8.345703125px;
+	top: 8.347671508789062px;
+	width: 146.501953125px;
+	height: 146.50216674804688px;
+	background: rgba(0,217,165,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group12 .Group11_1 .Ellipse3_3 {
+	position: absolute;
+	left: 15.44921875px;
+	top: 15.860610961914062px;
+	width: 131.89453125px;
+	height: 131.8936767578125px;
+	background: rgba(31,31,31,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group12 .Group11_1 .Ellipse4_3 {
+	position: absolute;
+	left: 68.33984375px;
+	top: 93.40470886230469px;
+	width: 81.548828125px;
+	height: 67.74755859375px;
+	background: rgba(31,31,31,1.00);
+	border-radius: 50%;
+}
+.MemberDet_MemberDet .Group12 .Group11_1 .Rectangle11_3 {
+	position: absolute;
+	left: 120.603515625px;
+	top: 100.36634826660156px;
+	width: 26.4765625px;
+	height: 23.4852294921875px;
+	background: rgba(31,31,31,1.00);
+}
+.MemberDet_MemberDet .Group12 .Group11_1 .Rectangle12_3 {
+	position: absolute;
+	left: 73.673828125px;
+	top: 137.6999053955078px;
+	width: 24.25px;
+	height: 15.837066650390625px;
+	background: rgba(31,31,31,1.00);
+}
+.MemberDet_MemberDet .Leg {
+	position: absolute;
+	left: 426px;
+	top: 768px;
+	width: 60px;
+	height: 42px;
+	color: rgba(255,255,255,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .Cardio {
+	position: absolute;
+	left: 769px;
+	top: 768px;
+	width: 106px;
+	height: 42px;
+	color: rgba(255,255,255,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .Core {
+	position: absolute;
+	left: 606px;
+	top: 763px;
+	width: 76px;
+	height: 42px;
+	color: rgba(255,255,255,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .Rectangle17 {
+	position: absolute;
+	left: 1362px;
+	top: 395px;
+	width: 45px;
+	height: 173px;
+	background: rgba(196,196,196,1.00);
+	border-radius: 82px;
+}
+.MemberDet_MemberDet .keyboard_arrow_down_2 {
+	position: absolute;
+	left: 1354px;
+	top: 512px;
+	width: 61px;
+	height: 61px;
+}
+.MemberDet_MemberDet .keyboard_arrow_down_2 .Vector_8 {
+	position: absolute;
+	left: 15.25px;
+	top: 21.832918167114258px;
+	width: 50%;
+	height: 30.87499962478388%;
+}
+.MemberDet_MemberDet .keyboard_arrow_down_2 .Vector_9 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+.MemberDet_MemberDet .keyboard_arrow_down_3 {
+	position: absolute;
+	left: 1354px;
+	top: 393.99999237060547px;
+	width: 61px;
+	height: 61.00000762939453px;
+}
+.MemberDet_MemberDet .keyboard_arrow_down_3 .Vector_10 {
+	position: absolute;
+	left: 15.25px;
+	top: 20.333335876464844px;
+	width: 50%;
+	height: 30.875005143587064%;
+}
+.MemberDet_MemberDet .keyboard_arrow_down_3 .Vector_11 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+.MemberDet_MemberDet .Group13 {
+	position: absolute;
+	left: 46px;
+	top: 131px;
+	width: 245px;
+	height: 89px;
+	border-radius: 73px;
+}
+.MemberDet_MemberDet .Group13 .Rectangle5_2 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 245px;
+	height: 89px;
+	background: rgba(0,255,133,1.00);
+	border-radius: 73px;
+}
+.MemberDet_MemberDet .Group13 .Add {
+	position: absolute;
+	left: 90px;
+	top: 24px;
+	width: 65px;
+	height: 42px;
+	color: rgba(0,0,0,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 500;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .Group14 {
+	position: absolute;
+	left: 46px;
+	top: 247px;
+	width: 245px;
+	height: 89px;
+	border-radius: 73px;
+}
+.MemberDet_MemberDet .Group14 .Rectangle5_3 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 245px;
+	height: 89px;
+	background: rgba(0,255,133,1.00);
+	border-radius: 73px;
+}
+.MemberDet_MemberDet .Group14 .Remove {
+	position: absolute;
+	left: 57px;
+	top: 24px;
+	width: 131px;
+	height: 42px;
+	color: rgba(0,0,0,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 500;
+	line-height: 42.1875px;
+}
+.MemberDet_MemberDet .Group15 {
+	position: absolute;
+	left: 46px;
+	top: 365px;
+	width: 245px;
+	height: 89px;
+	border-radius: 73px;
+}
+.MemberDet_MemberDet .Group15 .Rectangle5_4 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 245px;
+	height: 89px;
+	background: rgba(0,255,133,1.00);
+	border-radius: 73px;
+}
+.MemberDet_MemberDet .Group15 .Modify {
+	position: absolute;
+	left: 67px;
+	top: 24px;
+	width: 112px;
+	height: 42px;
+	color: rgba(0,0,0,1.00);
+	font-family: Roboto;
+	font-size: 36px;
+	font-weight: 500;
+	line-height: 42.1875px;
+}
