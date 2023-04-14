@@ -1,5 +1,5 @@
 import React from 'react'
-import './LoginSelectorStaff.css'
+import './../styles/LoginSelectorStaff.css'
 import ImgAsset from '../public'
 import {Link} from 'react-router-dom'
 export default function LoginSelectorStaff () {

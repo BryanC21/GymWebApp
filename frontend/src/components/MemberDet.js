@@ -1,5 +1,5 @@
 import React from 'react'
-import './MemberDet.css'
+import './../styles/MemberDet.css'
 import ImgAsset from '../public'
 export default function MemberDet () {
 	return (

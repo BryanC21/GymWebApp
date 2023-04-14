@@ -1,5 +1,5 @@
 import React from 'react'
-import './MemberSelectPushIn.css'
+import './../styles/MemberSelectPushIn.css'
 import ImgAsset from '../public'
 import {Link} from 'react-router-dom'
 export default function MemberSelectPushIn () {

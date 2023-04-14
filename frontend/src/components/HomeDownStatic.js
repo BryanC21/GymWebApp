@@ -1,5 +1,5 @@
 import React from 'react'
-import './HomeDownStatic.css'
+import './../styles/HomeDownStatic.css'
 import ImgAsset from '../public'
 export default function HomeDownStatic () {
 	return (

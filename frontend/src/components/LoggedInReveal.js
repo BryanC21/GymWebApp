@@ -1,5 +1,5 @@
 import React from 'react'
-import './LoggedInReveal.css'
+import './../styles/LoggedInReveal.css'
 import ImgAsset from '../public'
 import {Link} from 'react-router-dom'
 export default function LoggedInReveal () {
@@ -80,7 +80,7 @@ export default function LoggedInReveal () {
 					<div className='Rectangle11'/>
 					<div className='Rectangle12'/>
 					<span className='_710'>7:10</span>
-					<span className='Optimum'>> Optimum</span>
+					<span className='Optimum'> Optimum</span>
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import './LoggedInStaffHighlight.css'
+import './../styles/LoggedInStaffHighlight.css'
 import ImgAsset from '../public'
 import {Link} from 'react-router-dom'
 export default function LoggedInStaffHighlight () {
@@ -74,7 +74,7 @@ export default function LoggedInStaffHighlight () {
 					<div className='Rectangle11'/>
 					<div className='Rectangle12'/>
 					<span className='_710'>7:10</span>
-					<span className='Optimum'>> Optimum</span>
+					<span className='Optimum'> Optimum</span>
 				</div>
 			</div>
 		</div>

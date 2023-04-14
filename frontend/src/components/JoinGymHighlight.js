@@ -1,5 +1,5 @@
 import React from 'react'
-import './JoinGymHighlight.css'
+import './../styles/JoinGymHighlight.css'
 import ImgAsset from '../public'
 import {Link} from 'react-router-dom'
 export default function JoinGymHighlight () {

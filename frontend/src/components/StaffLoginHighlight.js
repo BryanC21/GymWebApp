@@ -1,5 +1,5 @@
 import React from 'react'
-import './StaffLoginHighlight.css'
+import './../styles/StaffLoginHighlight.css'
 import ImgAsset from '../public'
 import {Link} from 'react-router-dom'
 export default function StaffLoginHighlight () {
