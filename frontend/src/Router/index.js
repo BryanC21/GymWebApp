@@ -1,49 +1,52 @@
+
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomePage from '../Components/index';
-import HomeStatic from '../Components/HomeStatic';
-import TWUHighlight from '../Components/TWUHighlight';
-import LoginHighlight from '../Components/LoginHighlight';
-import StaffLogin from '../Components/StaffLogin';
-import StaffLoginHighlight from '../Components/StaffLoginHighlight';
-import LoggedIn from '../Components/LoggedIn';
-import LoggedInReveal from '../Components/LoggedInReveal';
-import MemberSelect from '../Components/MemberSelect';
-import MemberSelectPushIn from '../Components/MemberSelectPushIn';
-import LoggedInStaffHighlight from '../Components/LoggedInStaffHighlight';
-import LoggedInMemberHighlight from '../Components/LoggedInMemberHighlight';
-import LoginSelector from '../Components/LoginSelector';
-import LoginSelectorStaff from '../Components/LoginSelectorStaff';
-import LoginSelectorMember from '../Components/LoginSelectorMember';
-import JoinGymHighlight from '../Components/JoinGymHighlight';
-import HomeDownStatic from '../Components/HomeDownStatic';
-import LoggedInACCSett from '../Components/LoggedInACCSett';
-import MemberDet from '../Components/MemberDet';
+import { Routes, BrowserRouter, Route } from 'react-router-dom';
+import HomePage from '../components/index';
+import HomeStatic from '../components/HomeStatic';
+import TWUHighlight from '../components/TWUHighlight';
+import LoginHighlight from '../components/LoginHighlight';
+import StaffLogin from '../components/StaffLogin';
+import StaffLoginHighlight from '../components/StaffLoginHighlight';
+import LoggedIn from '../components/LoggedIn';
+import LoggedInReveal from '../components/LoggedInReveal';
+import MemberSelect from '../components/MemberSelect';
+import MemberSelectPushIn from '../components/MemberSelectPushIn';
+import LoggedInStaffHighlight from '../components/LoggedInStaffHighlight';
+import LoggedInMemberHighlight from '../components/LoggedInMemberHighlight';
+import LoginSelector from '../components/LoginSelector';
+import LoginSelectorStaff from '../components/LoginSelectorStaff';
+import LoginSelectorMember from '../components/LoginSelectorMember';
+import JoinGymHighlight from '../components/JoinGymHighlight';
+import HomeDownStatic from '../components/HomeDownStatic';
+import LoggedInACCSett from '../components/LoggedInACCSett';
+import MemberDet from '../components/MemberDet';
+
+
 const RouterDOM = () => {
 	return (
-		<Router>
-			<Switch>
-				<Route exact path="/"><HomePage /></Route>
-				<Route exact path="/homestatic"><HomeStatic /></Route>
-				<Route exact path="/twuhighlight"><TWUHighlight /></Route>
-				<Route exact path="/loginhighlight"><LoginHighlight /></Route>
-				<Route exact path="/stafflogin"><StaffLogin /></Route>
-				<Route exact path="/staffloginhighlight"><StaffLoginHighlight /></Route>
-				<Route exact path="/loggedin"><LoggedIn /></Route>
-				<Route exact path="/loggedinreveal"><LoggedInReveal /></Route>
-				<Route exact path="/memberselect"><MemberSelect /></Route>
-				<Route exact path="/memberselectpushin"><MemberSelectPushIn /></Route>
-				<Route exact path="/loggedinstaffhighlight"><LoggedInStaffHighlight /></Route>
-				<Route exact path="/loggedinmemberhighlight"><LoggedInMemberHighlight /></Route>
-				<Route exact path="/loginselector"><LoginSelector /></Route>
-				<Route exact path="/loginselectorstaff"><LoginSelectorStaff /></Route>
-				<Route exact path="/loginselectormember"><LoginSelectorMember /></Route>
-				<Route exact path="/joingymhighlight"><JoinGymHighlight /></Route>
-				<Route exact path="/homedownstatic"><HomeDownStatic /></Route>
-				<Route exact path="/loggedinaccsett"><LoggedInACCSett /></Route>
-				<Route exact path="/memberdet"><MemberDet /></Route>
-			</Switch>
-		</Router>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				<Route path="/homestatic" element={<HomeStatic />} />
+				<Route path="/twuhighlight" element={<TWUHighlight />} />
+				<Route path="/loginhighlight" element={<LoginHighlight />} />
+				<Route path="/stafflogin" element={<StaffLogin />} />
+				<Route path="/staffloginhighlight" element={<StaffLoginHighlight />} />
+				<Route path="/loggedin" element={<LoggedIn />} />
+				<Route path="/loggedinreveal" element={<LoggedInReveal />} />
+				<Route path="/memberselect" element={<MemberSelect />} />
+				<Route path="/memberselectpushin" element={<MemberSelectPushIn />} />
+				<Route path="/loggedinstaffhighlight" element={<LoggedInStaffHighlight />} />
+				<Route path="/loggedinmemberhighlight" element={<LoggedInMemberHighlight />} />
+				<Route path="/loginselector" element={<LoginSelector />} />
+				<Route path="/loginselectorstaff" element={<LoginSelectorStaff />} />
+				<Route path="/loginselectormember" element={<LoginSelectorMember />} />
+				<Route path="/joingymhighlight" element={<JoinGymHighlight />} />
+				<Route path="/homedownstatic" element={<HomeDownStatic />} />
+				<Route path="/loggedinaccsett" element={<LoggedInACCSett />} />
+				<Route path="/memberdet" element={<MemberDet />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 export default RouterDOM;
