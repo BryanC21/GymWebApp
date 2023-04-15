@@ -3,7 +3,7 @@ import {
 } from '../actions/actionTypes';
 
 const initialState = {
-    user: {}
+    user: "somekey"
 };
 
 const setUser = (state, action) => {

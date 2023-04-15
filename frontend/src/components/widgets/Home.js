@@ -3,10 +3,21 @@ import HomePage from "..";
 
 import {Link} from 'react-router-dom'
 
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../../actions/userActions";
+
+
+
+
 const Home = () => {
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         console.log("Home page");
+        dispatch(setUser("a new one"));
+
+
     }, []);
 
     return (
