@@ -1,13 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.fe651a71.css",
-    "main.js": "/static/js/main.a79adcd8.js",
+    "main.css": "/static/css/main.5c7d205e.css",
+    "main.js": "/static/js/main.0360afc1.js",
+    "static/js/787.f7d4efb5.chunk.js": "/static/js/787.f7d4efb5.chunk.js",
+    "static/media/LoginSelector_beautifulyoungsportywomantrainingworkoutgym1.png": "/static/media/LoginSelector_beautifulyoungsportywomantrainingworkoutgym1.449ad48c40a09a22b8e1.png",
+    "static/media/LoginSelectorStaff_vecteezy_asianwomanisexercisinginagymwithapersonaltrainer_24406531.png": "/static/media/LoginSelectorStaff_vecteezy_asianwomanisexercisinginagymwithapersonaltrainer_24406531.bc5331a4f3fa0d5a8526.png",
+    "static/media/TWUHighlight_Untitled21.png": "/static/media/TWUHighlight_Untitled21.10bd80ff577f01e5352a.png",
+    "static/media/StaffLogin_vecteezy_healthylifestyledoodlehanddrawnsetcollectionswith_1.png": "/static/media/StaffLogin_vecteezy_healthylifestyledoodlehanddrawnsetcollectionswith_1.413ed17171024b5d12ef.png",
+    "static/media/HomeStatic_Untitled11.png": "/static/media/HomeStatic_Untitled11.7beb8990f7beb08dd4be.png",
     "index.html": "/index.html",
-    "main.fe651a71.css.map": "/static/css/main.fe651a71.css.map",
-    "main.a79adcd8.js.map": "/static/js/main.a79adcd8.js.map"
+    "main.5c7d205e.css.map": "/static/css/main.5c7d205e.css.map",
+    "main.0360afc1.js.map": "/static/js/main.0360afc1.js.map",
+    "787.f7d4efb5.chunk.js.map": "/static/js/787.f7d4efb5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe651a71.css",
-    "static/js/main.a79adcd8.js"
+    "static/css/main.5c7d205e.css",
+    "static/js/main.0360afc1.js"
   ]
 }
