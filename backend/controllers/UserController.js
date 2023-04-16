@@ -187,12 +187,12 @@ exports.enrollUser = (req, res) => {
                         message: "Enroll failed"
                     })
                 }
+                return res.status(200).send({
+                    status: "success",
+                    results: results
+                })
             });
         }
-        return res.status(200).send({
-            status: "success",
-            results: results
-        })
     });
 
     

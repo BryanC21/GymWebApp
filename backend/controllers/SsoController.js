@@ -28,7 +28,7 @@ exports.userSignin = (req, res) => {
         const token = jwt.sign(
             result,
             process.env.USER_TOKEN_KEY,
-            {expiresIn: "2h",}
+            {expiresIn: "24h",}
         )
         if (result.level_id == 3) {
             let sql1 = "UPDATE User SET level_id = 4 WHERE id = ? and (SELECT expire_time FROM Expire where user_id = ? ORDER BY expire_time DESC LIMIT 1) < CURRENT_TIMESTAMP";
