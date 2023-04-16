@@ -3,8 +3,9 @@ const db = require("../db_connection");
 exports.getAllClasses = (req, res) => {
     let sql = "SELECT class.id, activity.id as activity_id, activity.name as activity_name, \
     class.employee_id, employee.first_name as employee_first_name, employee.last_name as employee_last_name, \
-    class.gym_id, gym.address as gym_address, class.start_time, class.duration, class.capacity \
-    from class, activity, gym, employee where class.activity_id = activity.id and class.gym_id = gym.id \
+    class.gym_id, gym.address as gym_address, class.start_time, class.duration, class.capacity, \
+    count(enroll.id) as enrolled_number from class, activity, gym, employee, enroll \
+    where class.activity_id = activity.id and class.gym_id = gym.id and enroll.class_id = class.id \
     and class.employee_id = employee.id;"
     db.query(sql, (err, results) => {
         if (err) {
@@ -32,9 +33,10 @@ exports.getClassesByGym = (req, res) => {
 
     let sql = "SELECT class.id, activity.id as activity_id, activity.name as activity_name, \
     class.employee_id, employee.first_name as employee_first_name, employee.last_name as employee_last_name, \
-    class.gym_id, gym.address as gym_address, class.start_time, class.duration, class.capacity \
-    from class, activity, gym, employee where class.activity_id = activity.id and class.gym_id = ? and class.gym_id = gym.id \
-    and class.employee_id = employee.id;"
+    class.gym_id, gym.address as gym_address, class.start_time, class.duration, class.capacity, \
+    count(enroll.id) as enrolled_number from class, activity, gym, employee, enroll \
+    where class.activity_id = activity.id and class.gym_id = ? and enroll.class_id = class.id \
+    and class.gym_id = gym.id and class.employee_id = employee.id;"
     db.query(sql, [gym_id], (err, results) => {
         if (err) {
             return res.status(401).send({

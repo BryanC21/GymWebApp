@@ -99,3 +99,17 @@ exports.employeeSignin = (req, res) => {
         })
     })
 }
+
+exports.verifyToken = (req, res) {
+    const token = req.query.token;
+    try {
+        const decoded = jwt.verify(token, config.USER_TOKEN_KEY);
+        return res.status(200).send({
+            status: "success",
+        })
+    } catch(err) {
+        return res.status(401).send({
+            status: "error",
+        })
+    }
+}
