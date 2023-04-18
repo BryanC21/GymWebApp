@@ -132,7 +132,8 @@ var sql = "CREATE TABLE Checkin (\
     id INT NOT NULL AUTO_INCREMENT, \
     user_id INT NOT NULL, \
     employee_id INT NOT NULL, \
-    time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, \
+    checkin_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, \
+    checkout_time TIMESTAMP DEFAULT NULL, \
     PRIMARY KEY(id), \
     FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE, \
     FOREIGN KEY (employee_id) REFERENCES Employee(id) ON DELETE CASCADE)";
@@ -554,6 +555,97 @@ VALUES (5, 1)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Enroll inserted");
+});
+
+var sql = "INSERT INTO Enroll (user_id, class_id) \
+VALUES (1, 3)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Enroll inserted");
+});
+
+var sql = "INSERT INTO Enroll (user_id, class_id) \
+VALUES (2, 3)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Enroll inserted");
+});
+
+var sql = "INSERT INTO Enroll (user_id, class_id) \
+VALUES (3, 3)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Enroll inserted");
+});
+
+var sql = "INSERT INTO Enroll (user_id, class_id) \
+VALUES (4, 4)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Enroll inserted");
+});
+
+var sql = "INSERT INTO Enroll (user_id, class_id) \
+VALUES (5, 4)";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Enroll inserted");
+});
+
+var sql = "INSERT INTO Checkin (user_id, employee_id, checkin_time, checkout_time) \
+VALUES (1, 1, TIMESTAMP '2023-04-10 07:00:00.00', TIMESTAMP '2023-04-10 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Checkin inserted");
+});
+
+var sql = "INSERT INTO Checkin (user_id, employee_id, checkin_time, checkout_time) \
+VALUES (2, 1, TIMESTAMP '2023-04-10 07:00:00.00', TIMESTAMP '2023-04-10 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Checkin inserted");
+});
+
+var sql = "INSERT INTO Checkin (user_id, employee_id, checkin_time, checkout_time) \
+VALUES (3, 1, TIMESTAMP '2023-04-10 07:00:00.00', TIMESTAMP '2023-04-10 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Checkin inserted");
+});
+
+var sql = "INSERT INTO Checkin (user_id, employee_id, checkin_time, checkout_time) \
+VALUES (1, 1, TIMESTAMP '2023-04-11 07:00:00.00', TIMESTAMP '2023-04-11 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Checkin inserted");
+});
+
+var sql = "INSERT INTO Checkin (user_id, employee_id, checkin_time, checkout_time) \
+VALUES (1, 1, TIMESTAMP '2023-04-12 07:00:00.00', TIMESTAMP '2023-04-12 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Checkin inserted");
+});
+
+var sql = "INSERT INTO Checkin (user_id, employee_id, checkin_time, checkout_time) \
+VALUES (1, 1, TIMESTAMP '2023-04-13 07:00:00.00', TIMESTAMP '2023-04-13 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Checkin inserted");
+});
+
+var sql = "INSERT INTO Checkin (user_id, employee_id, checkin_time, checkout_time) \
+VALUES (1, 1, TIMESTAMP '2023-04-14 07:00:00.00', TIMESTAMP '2023-04-14 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Checkin inserted");
+});
+
+var sql = "INSERT INTO Checkin (user_id, employee_id, checkin_time, checkout_time) \
+VALUES (1, 1, TIMESTAMP '2023-04-15 07:00:00.00', TIMESTAMP '2023-04-15 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Checkin inserted");
 });
 
 con.end();

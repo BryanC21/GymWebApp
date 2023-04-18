@@ -83,3 +83,147 @@ exports.getEmployeeByID = (req, res) => {
     });
 }
 
+exports.getClassCountByGymId = (req, res) => {
+    const gym_id = req.query.gym_id;
+    const interval = req.query.interval;
+
+    let date = "date(Class.start_time)";
+    if (interval == "week") {
+        date = "DATE(DATE_SUB(start_time, INTERVAL WEEKDAY(start_time) DAY))"
+    }
+
+    let sql = "SELECT " + date + " as time,  \
+    COUNT(Class.id) as count \
+    from Class, Employee \
+    WHERE Employee.gym_id = ? and Employee.id = Class.employee_id \
+    GROUP BY time";
+
+    db.query(sql, [gym_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No Class found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    });
+}
+
+exports.getEnrollCountByGymId = (req, res) => {
+    const gym_id = req.query.gym_id;
+    const interval = req.query.interval;
+
+    let date = "date(Class.start_time)";
+    if (interval == "week") {
+        date = "DATE(DATE_SUB(start_time, INTERVAL WEEKDAY(start_time) DAY))"
+    }
+
+    let sql = "SELECT " + date + " as time,  \
+    COUNT(Enroll.id) as count \
+    from Class, Enroll, Employee \
+    WHERE Employee.gym_id = ? and Employee.id = Class.employee_id and Enroll.class_id = Class.id \
+    GROUP BY time";
+
+    db.query(sql, [gym_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No Enroll found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    });
+}
+
+exports.getMemberCountPerHourByGymId = (req, res) => {
+    const gym_id = req.query.gym_id;
+    const interval = req.query.interval;
+
+    let weekday = " ";
+    if (interval == "weekday") {
+        weekday = " AND NOT (WEEKDAY(checkin_time) = 5 OR WEEKDAY(checkin_time) = 6)"
+    } else if (interval == "weekend") {
+        weekday = " AND WEEKDAY(checkin_time) = 5 OR WEEKDAY(checkin_time) = 6";
+    }
+
+    let sql = "SELECT date(checkin_time) as time,  \
+    hour(checkin.checkin_time) as checkin_hour, \
+    COUNT(checkin.id) as count \
+    from checkin, Employee \
+    WHERE Employee.gym_id = ? and Employee.id = checkin.employee_id " + weekday +
+    " GROUP BY time, checkin_hour";
+
+    db.query(sql, [gym_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No checkin found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    });
+}
+
+exports.getHoursCountByGymId = (req, res) => {
+    const gym_id = req.query.gym_id;
+    const interval = req.query.interval;
+
+    let date = "date(checkin_time)";
+    if (interval == "week") {
+        date = "DATE(DATE_SUB(checkin_time, INTERVAL WEEKDAY(checkin_time) DAY))"
+    } else if (interval == "month") {
+        date = "DATE(DATE_SUB(checkin_time, INTERVAL DAYOFMONTH(checkin_time) DAY))"
+    }
+
+    let sql = "SELECT " + date + " as time,  \
+    SUM(TIMESTAMPDIFF(MINUTE, checkin.checkin_time, checkin.checkout_time)) as count \
+    from checkin, Employee \
+    WHERE Employee.gym_id = ? and Employee.id = checkin.employee_id and checkin.checkout_time IS NOT null \
+    GROUP BY time";
+
+    db.query(sql, [gym_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No checkin found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    });
+}

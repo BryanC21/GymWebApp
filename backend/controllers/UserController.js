@@ -214,7 +214,7 @@ exports.checkinUser = (req, res) => {
         if (results.length === 0) {
             return res.status(404).send({
                 status: "error",
-                message: "Enroll failed"
+                message: "Checkin failed"
             })
         }
         return res.status(200).send({
@@ -224,3 +224,27 @@ exports.checkinUser = (req, res) => {
     });
 }
 
+exports.checkoutUser = (req, res) => {
+    const checkin_id = req.query.checkin_id;
+
+    let sql = "UPDATE Checkin SET checkout_time = CURRENT_TIMESTAMP WHERE id = ?";
+
+    db.query(sql, [checkin_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "Checkout failed"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    });
+}

@@ -100,7 +100,7 @@ exports.employeeSignin = (req, res) => {
     })
 }
 
-exports.verifyToken = (req, res) {
+exports.verifyToken = (req, res) => {
     const token = req.query.token;
     try {
         const decoded = jwt.verify(token, config.USER_TOKEN_KEY);
