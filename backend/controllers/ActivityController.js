@@ -50,3 +50,32 @@ exports.getActivityById = (req, res) => {
     }
     )
 }
+
+exports.getActivityByDays = (req, res) => {
+    const activity_days = parseInt(req.query.activity_days)
+
+    let sql = "SELECT Log.id, User.first_name, User.last_name, Log.duration, Log.create_time \
+    FROM Log \
+    JOIN User ON Log.user_id = User.id \
+    WHERE Log.create_time >= DATE_SUB(NOW(), INTERVAL ? DAY)";
+    
+    db.query(sql, [activity_days], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No Activity found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results[0]
+        })
+    }
+    )
+}
