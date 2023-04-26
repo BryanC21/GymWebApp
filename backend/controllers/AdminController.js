@@ -155,6 +155,36 @@ exports.getEnrollCountByGymId = (req, res) => {
 
 exports.getMemberCountPerHourByGymId = (req, res) => {
     const gym_id = req.query.gym_id;
+
+    let sql = "SELECT date(checkin_time) as time,  \
+    hour(checkin.checkin_time) as checkin_hour, \
+    COUNT(checkin.id) as count \
+    from checkin, Employee \
+    WHERE Employee.gym_id = ? and Employee.id = checkin.employee_id \
+    GROUP BY time, checkin_hour";
+
+    db.query(sql, [gym_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No checkin found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    });
+}
+
+exports.getMemberCountPerHourByGymIdWithWeek = (req, res) => {
+    const gym_id = req.query.gym_id;
     const interval = req.query.interval;
 
     let weekday = " ";
@@ -164,12 +194,12 @@ exports.getMemberCountPerHourByGymId = (req, res) => {
         weekday = " AND WEEKDAY(checkin_time) = 5 OR WEEKDAY(checkin_time) = 6";
     }
 
-    let sql = "SELECT date(checkin_time) as time,  \
+    let sql = "SELECT DATE(DATE_SUB(checkin_time, INTERVAL WEEKDAY(checkin_time) DAY)) as time,  \
     hour(checkin.checkin_time) as checkin_hour, \
-    COUNT(checkin.id) as count \
+    SUM(COUNT(checkin.id)) as count \
     from checkin, Employee \
-    WHERE Employee.gym_id = ? and Employee.id = checkin.employee_id " + weekday +
-    " GROUP BY time, checkin_hour";
+    WHERE Employee.gym_id = ? and Employee.id = checkin.employee_id" + 
+    weekday + " GROUP BY time, checkin_hour";
 
     db.query(sql, [gym_id], (err, results) => {
         if (err) {

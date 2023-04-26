@@ -8,7 +8,7 @@ const {
 const router = express.Router();
 
 router.get("/getAllUsers", employeeAuth, getAllUsers);
-router.get("/getUserByID", userAuth, getUserByID);
+router.get("/getUserByID", employeeAuth, getUserByID);
 router.get("/editUserByID", employeeAuth, editUserByID);
 router.get("/getAllLevels", getAllLevels);
 router.get("/getAllGenders", getAllGenders);
