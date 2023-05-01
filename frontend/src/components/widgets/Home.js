@@ -26,6 +26,8 @@ const Home = () => {
             <br />
             <Link to="/Employee">Employee Page</Link>
             <br />
+            <Link to="/Member">Member Page</Link>
+            <br />
             <br />
             <br />
             <HomePage />
