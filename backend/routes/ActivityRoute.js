@@ -6,5 +6,5 @@ const {
 
 router.get("/getAllActivity", getAllActivity);
 router.get("/getActivityById", getActivityById);
-router.get("/getActivityByDays", getActivityByDays);
+//router.get("/getActivityByDays", getActivityByDays);
 module.exports = router;
