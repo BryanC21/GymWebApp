@@ -2,11 +2,8 @@ const db = require("../db_connection");
 
 exports.getAllClasses = (req, res) => {
     let sql = "SELECT class.id, activity.id as activity_id, activity.name as activity_name, \
-    class.employee_id, employee.first_name as employee_first_name, employee.last_name as employee_last_name, \
-    class.gym_id, gym.address as gym_address, class.start_time, class.duration, class.capacity, \
-    count(enroll.id) as enrolled_number from class, activity, gym, employee, enroll \
-    where class.activity_id = activity.id and class.gym_id = gym.id and enroll.class_id = class.id \
-    and class.employee_id = employee.id;"
+    class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity \
+    from class, activity where class.activity_id = activity.id;"
     db.query(sql, (err, results) => {
         if (err) {
             return res.status(401).send({
@@ -32,11 +29,8 @@ exports.getClassesByGym = (req, res) => {
     const gym_id = parseInt(req.query.gym_id);
 
     let sql = "SELECT class.id, activity.id as activity_id, activity.name as activity_name, \
-    class.employee_id, employee.first_name as employee_first_name, employee.last_name as employee_last_name, \
-    class.gym_id, gym.address as gym_address, class.start_time, class.duration, class.capacity, \
-    count(enroll.id) as enrolled_number from class, activity, gym, employee, enroll \
-    where class.activity_id = activity.id and class.gym_id = ? and enroll.class_id = class.id \
-    and class.gym_id = gym.id and class.employee_id = employee.id;"
+    class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity \
+    from class, activity where class.activity_id = activity.id and class.gym_id = ?;"
     db.query(sql, [gym_id], (err, results) => {
         if (err) {
             return res.status(401).send({
@@ -62,13 +56,10 @@ exports.getClassById = (req, res) => {
     const class_id = parseInt(req.query.class_id);
 
     let sql = "SELECT class.id, activity.id as activity_id, activity.name as activity_name, \
-    class.employee_id, employee.first_name as employee_first_name, employee.last_name as employee_last_name, \
-    class.gym_id, gym.address as gym_address, class.start_time, class.duration, class.capacity, \
+    class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity, \
     count(enroll.id) as enrolled_number \
-    from class, activity, enroll, gym, employee \
-    where class.activity_id = activity.id and enroll.class_id = class.id and class.id = ? \
-    and class.gym_id = gym.id \
-    and class.employee_id = employee.id;"
+    from class, activity, enroll \
+    where class.activity_id = activity.id and enroll.class_id = class.id and class.id = ?;"
 
     db.query(sql, [class_id], (err, results) => {
         if (err) {
