@@ -26,6 +26,8 @@ const Home = () => {
             <br />
             <Link to="/Login">Login</Link>
             <br />
+            <Link to="/Member">Member Page</Link>
+            <br />
             <br />
             <br />
             <HomePage />
