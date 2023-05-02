@@ -42,8 +42,8 @@ const ListClasses = () => {
                                 <td> {item.activity_name}</td>
                                 <td> {item.capacity}</td>
                                 <td> {item.duration}</td>
-                                <td> {item.employee_first_name + " " + item.employee_last_name}</td>
-                                <td> {item.gym_address}</td>
+                                <td> {item.first_name + " " + item.last_name}</td>
+                                <td> {item.address}</td>
                                 <td> {item.start_time.slice(0, 10) + " " + item.start_time.slice(11, 16)}</td>
                             </tr>
                         })}
