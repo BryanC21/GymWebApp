@@ -92,6 +92,36 @@ exports.getClassById = (req, res) => {
     )
 }
 
+exports.getClassesByUserId = (req, res) => {
+    const user_id = parseInt(req.query.user_id);
+
+    let sql = "SELECT class.id, activity.id as activity_id, activity.name as activity_name, \
+    class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity, \
+    employee.first_name, employee.last_name, gym.address \
+    FROM class, enroll, activity, gym, employee \
+    WHERE class.gym_id = gym.id and class.activity_id = activity.id and enroll.user_id = ? \
+    and enroll.class_id = class.id and class.employee_id = employee.id;"
+    db.query(sql, [user_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No Classes found for this gym"
+            })
+        }
+        return res.status(200).send({
+            status: "Success",
+            results: results
+        })
+    }
+    )
+}
+
 
 exports.addActivity = (req, res) => {
     const activity_name = req.query.activity_name;
