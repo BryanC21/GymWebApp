@@ -94,7 +94,7 @@ exports.getClassCountByGymId = (req, res) => {
 
     let sql = "SELECT " + date + " as time,  \
     COUNT(Class.id) as count \
-    from Class, Employee \
+    FORM Class, Employee \
     WHERE Employee.gym_id = ? and Employee.id = Class.employee_id \
     GROUP BY time";
 
@@ -129,7 +129,7 @@ exports.getEnrollCountByGymId = (req, res) => {
 
     let sql = "SELECT " + date + " as time,  \
     COUNT(Enroll.id) as count \
-    from Class, Enroll, Employee \
+    FROM Class, Enroll, Employee \
     WHERE Employee.gym_id = ? and Employee.id = Class.employee_id and Enroll.class_id = Class.id \
     GROUP BY time";
 
@@ -159,7 +159,7 @@ exports.getMemberCountPerHourByGymId = (req, res) => {
     let sql = "SELECT date(checkin_time) as time,  \
     hour(checkin.checkin_time) as checkin_hour, \
     COUNT(checkin.id) as count \
-    from checkin, Employee \
+    FROM checkin, Employee \
     WHERE Employee.gym_id = ? and Employee.id = checkin.employee_id \
     GROUP BY time, checkin_hour";
 
@@ -196,7 +196,7 @@ exports.getMemberCountPerHourByGymIdWithWeek = (req, res) => {
 
     let sql = "SELECT hour(checkin.checkin_time) as checkin_hour, \
     SUM(COUNT(checkin.id)) as count \
-    from checkin, Employee \
+    FROM checkin, Employee \
     WHERE Employee.gym_id = ? and Employee.id = checkin.employee_id" + 
     weekday + " GROUP BY checkin_hour";
 
@@ -233,7 +233,7 @@ exports.getHoursCountByGymId = (req, res) => {
 
     let sql = "SELECT " + date + " as time,  \
     SUM(TIMESTAMPDIFF(MINUTE, checkin.checkin_time, checkin.checkout_time)) as count \
-    from checkin, Employee \
+    FROM checkin, Employee \
     WHERE Employee.gym_id = ? and Employee.id = checkin.employee_id and checkin.checkout_time IS NOT null \
     GROUP BY time";
 

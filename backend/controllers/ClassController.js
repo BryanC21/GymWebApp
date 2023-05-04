@@ -36,10 +36,9 @@ exports.getClassesByGym = (req, res) => {
     class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity \
     employee.first_name, employee.last_name, gym.address \
     FROM class \
-    WHERE class.gym_id = ? \
     JOIN activity ON activity.id = class.activity_id \
     JOIN employee ON employee.id = class.employee_id \
-    JOIN gym ON gym.id = class.gym_id;"
+    JOIN gym ON gym.id = class.gym_id WHERE class.gym_id = ? ;"
     db.query(sql, [gym_id], (err, results) => {
         if (err) {
             return res.status(401).send({
@@ -68,10 +67,9 @@ exports.getClassById = (req, res) => {
     class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity \
     employee.first_name, employee.last_name, gym.address \
     FROM class \
-    WHERE class.id = ? \
     JOIN activity ON activity.id = class.activity_id \
     JOIN employee ON employee.id = class.employee_id \
-    JOIN gym ON gym.id = class.gym_id;"
+    JOIN gym ON gym.id = class.gym_id WHERE class.id = ?;"
 
     db.query(sql, [class_id], (err, results) => {
         if (err) {
