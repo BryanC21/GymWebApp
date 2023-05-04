@@ -2,7 +2,7 @@ import ListClasses from "./ListClasses";
 import {useEffect} from "react";
 import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import AddClasses from "./AddClasses";
+import EnrollClass from "./EnrollClass";
 import React from "react";
 import LogHours from "./LogHours";
 import PastActivity from "./PastActivity.js";
@@ -29,7 +29,7 @@ const MemberPage = () => {
             <h1 className="text-center">Member Page</h1>
             {/* <ShowCurrentClass /> */}
             <LogHours />{/* Done */}
-            <AddClasses />{/* Done */}
+            <EnrollClass />{/* Done */}
             <PastActivity />{/* Done */}
         </div>
     );
