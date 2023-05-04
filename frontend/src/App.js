@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './components/widgets/Home';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EmployeePage from './components/widgets/EmployeePage';
+import MemberPage from './components/widgets/MemberPage';
 import { useEffect } from 'react';
 
 import HomeStatic from './components/HomeStatic';
@@ -38,6 +39,7 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/Employee" element={<EmployeePage />} />
 					<Route path="/Login" element={<Login />} />
+					<Route path="/Member" element={<MemberPage />} />
 
 					<Route path="/homestatic" element={<HomeStatic />} />
 					<Route path="/twuhighlight" element={<TWUHighlight />} />

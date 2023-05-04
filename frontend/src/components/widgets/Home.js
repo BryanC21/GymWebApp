@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import HomePage from "..";
+import Header from "../Header/Header";
 
 import {Link} from 'react-router-dom'
 
@@ -21,6 +22,8 @@ const Home = () => {
     return (
         <div>
             <h1>Home</h1>
+
+            <Header />
             <br />
             <Link to="/Employee">Employee Page</Link>
             <br />
@@ -29,8 +32,6 @@ const Home = () => {
             <Link to="/Member">Member Page</Link>
             <br />
             <br />
-            <br />
-            <HomePage />
         </div>
     );
 }
