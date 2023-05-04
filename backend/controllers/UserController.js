@@ -249,3 +249,28 @@ exports.checkoutUser = (req, res) => {
         })
     });
 }
+
+exports.getCheckinByUserId = (req, res) => {
+    const user_id = req.query.user_id;
+
+    let sql = "SELECT * FROM Checkin WHERE user_id = ? ORDER BY checkin_time DESC LIMIT 1";
+
+    db.query(sql, [user_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No checkin found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results[0]
+        })
+    });
+}
