@@ -194,12 +194,11 @@ exports.getMemberCountPerHourByGymIdWithWeek = (req, res) => {
         weekday = " AND WEEKDAY(checkin_time) = 5 OR WEEKDAY(checkin_time) = 6";
     }
 
-    let sql = "SELECT DATE(DATE_SUB(checkin_time, INTERVAL WEEKDAY(checkin_time) DAY)) as time,  \
-    hour(checkin.checkin_time) as checkin_hour, \
+    let sql = "SELECT hour(checkin.checkin_time) as checkin_hour, \
     SUM(COUNT(checkin.id)) as count \
     from checkin, Employee \
     WHERE Employee.gym_id = ? and Employee.id = checkin.employee_id" + 
-    weekday + " GROUP BY time, checkin_hour";
+    weekday + " GROUP BY checkin_hour";
 
     db.query(sql, [gym_id], (err, results) => {
         if (err) {

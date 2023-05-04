@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {
-    getAllActivity, getActivityById
+    getAllActivity, getActivityById, getActivityByDays
 } = require("../controllers/ActivityController");
 
 router.get("/getAllActivity", getAllActivity);
