@@ -8,6 +8,7 @@ import React from "react";
 const EmployeePage = () => {
 
     const info = useSelector(state => state.userState);
+    const user = useSelector(state => state.userDetailsState);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -15,8 +16,9 @@ const EmployeePage = () => {
             alert("Please login first");
             navigate("/Home");
         }*/
-        console.log("THIS: ", info);
-    }, [info, navigate]);
+        console.log("TOKEN: ", info);
+        console.log("USER: ", user);
+    }, [info, navigate, user]);
 
     return (
         <div>

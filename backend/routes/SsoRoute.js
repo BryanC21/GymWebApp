@@ -5,8 +5,8 @@ const {
 
 const router = express.Router();
 
-router.post("/userSignin", userSignin);
-router.post("/employeeSignin", employeeSignin);
+router.get("/userSignin", userSignin);
+router.get("/employeeSignin", employeeSignin);
 router.get("/verifyToken", verifyToken);
 
 module.exports = router;

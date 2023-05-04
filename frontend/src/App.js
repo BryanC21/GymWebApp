@@ -22,6 +22,7 @@ import JoinGymHighlight from './components/JoinGymHighlight';
 import HomeDownStatic from './components/HomeDownStatic';
 import LoggedInACCSett from './components/LoggedInACCSett';
 import MemberDet from './components/MemberDet';
+import Login from './components/widgets/Login';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/Employee" element={<EmployeePage />} />
+					<Route path="/Login" element={<Login />} />
 
 					<Route path="/homestatic" element={<HomeStatic />} />
 					<Route path="/twuhighlight" element={<TWUHighlight />} />

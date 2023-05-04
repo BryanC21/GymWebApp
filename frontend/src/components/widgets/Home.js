@@ -15,9 +15,7 @@ const Home = () => {
 
     useEffect(() => {
         console.log("Home page");
-        dispatch(setUser("a new one"));
-
-
+        //dispatch(setUser("a new one"));
     }, []);
 
     return (
@@ -25,6 +23,10 @@ const Home = () => {
             <h1>Home</h1>
             <br />
             <Link to="/Employee">Employee Page</Link>
+            <br />
+            <Link to="/Login">Login</Link>
+            <br />
+            <Link to="/Member">Member Page</Link>
             <br />
             <br />
             <br />
