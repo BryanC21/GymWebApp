@@ -18,7 +18,7 @@ const EmployeePage = () => {
         }*/
         console.log("TOKEN: ", info);
         console.log("USER: ", user);
-    }, [info, navigate]);
+    }, [info, navigate, user]);
 
     return (
         <div>
