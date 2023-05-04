@@ -8,13 +8,13 @@ const {
 
 const router = express.Router();
 
-router.get("/getAllEmployees", employeeAuth, getAllEmployees);
-router.get("/getAllEmployeesByGym", employeeAuth, getAllEmployeesByGym);
-router.get("/getEmployeeByID", employeeAuth, getEmployeeByID);
-router.get("/getClassCountByGymId", employeeAuth, getClassCountByGymId);
-router.get("/getEnrollCountByGymId", employeeAuth, getEnrollCountByGymId);
+router.get("/getAllEmployees", getAllEmployees);
+router.get("/getAllEmployeesByGym", getAllEmployeesByGym);
+router.get("/getEmployeeByID", getEmployeeByID);
+router.get("/getClassCountByGymId", getClassCountByGymId);
+router.get("/getEnrollCountByGymId", getEnrollCountByGymId);
 router.get("/getMemberCountPerHourByGymId", getMemberCountPerHourByGymId);
 router.get("/getMemberCountPerHourByGymIdWithWeek", getMemberCountPerHourByGymIdWithWeek);
-router.get("/getHoursCountByGymId", employeeAuth, getHoursCountByGymId);
+router.get("/getHoursCountByGymId", getHoursCountByGymId);
 
 module.exports = router;

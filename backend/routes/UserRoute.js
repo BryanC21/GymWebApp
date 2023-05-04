@@ -7,13 +7,13 @@ const {
 
 const router = express.Router();
 
-router.get("/getAllUsers", employeeAuth, getAllUsers);
-router.get("/getUserByID", employeeAuth, getUserByID);
-router.get("/editUserByID", employeeAuth, editUserByID);
+router.get("/getAllUsers", getAllUsers);
+router.get("/getUserByID", getUserByID);
+router.get("/editUserByID", editUserByID);
 router.get("/getAllLevels", getAllLevels);
 router.get("/getAllGenders", getAllGenders);
-router.get("/enrollUser", employeeAuth, enrollUser);
-router.get("/checkinUser", employeeAuth, checkinUser);
-router.get("/checkoutUser", employeeAuth, checkoutUser);
+router.get("/enrollUser", enrollUser);
+router.get("/checkinUser", checkinUser);
+router.get("/checkoutUser", checkoutUser);
 
 module.exports = router;
