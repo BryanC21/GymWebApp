@@ -51,15 +51,33 @@ exports.getActivityById = (req, res) => {
     )
 }
 
-exports.getActivityByDays = (req, res) => {
-    const activity_days = parseInt(req.query.activity_days)
+exports.getActivityByInterval = (req, res) => {
+    const activity_interval = parseInt(req.query.interval)
+    const userId = req.user.id
 
-    let sql = "SELECT Log.id, User.first_name, User.last_name, Log.duration, Log.create_time \
-    FROM Log \
-    JOIN User ON Log.user_id = User.id \
-    WHERE Log.create_time >= DATE_SUB(NOW(), INTERVAL ? DAY)";
-    
-    db.query(sql, [activity_days], (err, results) => {
+
+    let sql = ""
+    if (activity_interval == "week") {
+        sql = "SELECT a.id AS activity_id, a.name AS activity_name, SUM(l.duration)/60 AS total_hours \
+                FROM Log l \
+                JOIN Activity a ON l.activity_id = a.id \
+                WHERE l.user_id = ? AND l.create_time >= DATE(NOW()) - INTERVAL 7 DAY \
+                GROUP BY a.id, a.name";
+    } else if (interval == "month") {
+        sql = "SELECT a.id AS activity_id, a.name AS activity_name, SUM(l.duration)/60 AS total_hours \
+                FROM Log l \
+                JOIN Activity a ON l.activity_id = a.id \
+                WHERE l.user_id = ? AND l.create_time >= DATE(NOW()) - INTERVAL 1 MONTH \
+                GROUP BY a.id, a.name";
+    } else if (interval == "quarter") {
+        sql = "SELECT a.id AS activity_id, a.name AS activity_name, SUM(l.duration)/60 AS total_hours \
+                FROM Log l \
+                JOIN Activity a ON l.activity_id = a.id \
+                WHERE l.user_id = ? AND l.create_time >= DATE(NOW()) - INTERVAL 90 DAY \
+                GROUP BY a.id, a.name";
+    }
+
+    db.query(sql, [userId], (err, results) => {
         if (err) {
             return res.status(401).send({
                 status: "error",
@@ -69,7 +87,7 @@ exports.getActivityByDays = (req, res) => {
         if (results.length === 0) {
             return res.status(404).send({
                 status: "error",
-                message: "No Activity found"
+                message: "No Activity found for this user for this interval."
             })
         }
         return res.status(200).send({

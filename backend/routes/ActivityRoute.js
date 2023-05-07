@@ -1,10 +1,13 @@
 const express = require("express");
-const router = express.Router();
+const userAuth = require("../controllers/auth/userAuth");
 const {
-    getAllActivity, getActivityById, getActivityByDays
+    getAllActivity, getActivityById, getActivityByInterval
 } = require("../controllers/ActivityController");
+
+const router = express.Router();
 
 router.get("/getAllActivity", getAllActivity);
 router.get("/getActivityById", getActivityById);
-//router.get("/getActivityByDays", getActivityByDays);
+router.get("/getActivityByInterval", getActivityByInterval);
+
 module.exports = router;
