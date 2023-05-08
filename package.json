@@ -1,6 +1,9 @@
 {
-  "dependencies": {
-    "mongodb": "^5.0.1",
-    "mongoose": "^6.9.2"
+  "name": "Elastic-Beanstalk-Sample-App",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {},
+  "scripts": {
+    "start": "node app.js"
   }
 }
