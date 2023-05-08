@@ -1,47 +1,68 @@
-import React from 'react';
-import { useState } from 'react';
-import axios from 'axios';
-import {useDispatch} from 'react-redux';
-import {setUser, setUserDetails} from '../../actions/userActions';
-
-
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "../../styles/ListClasses.css"
 
 const ShowCurrentClass = () => {
+    const [classes, setClasses] = useState([]);
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    let dispatch = useDispatch();
+    const [user_id, setUser_id] = useState('1');
 
-    const showClass = (e) => {
-        e.preventDefault();
-        console.log('login');
-
-        let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
-        axios.get(`${baseURL}/api/sso/userSignIn`, { params: { 'email': username, 'password': password } })
+    useEffect(() => {
+        let urlPath = process.env.REACT_APP_API_URL || 'http://localhost:5002';
+        axios.get(urlPath + '/api/class/getClassesByUserId')
             .then(res => {
-                console.log(res);
-                alert('Login successful');
-                dispatch(setUser(res.data.token));
-                dispatch(setUserDetails(res.data.results));
-                //TODO remove alert
-                //TODO redirect to home page if user is set
+                console.log(res.data.results);
+                setClasses(res.data.results);
             })
             .catch(err => {
                 console.log(err);
-                alert('Invalid credentials');
-            });
+            })
 
-    }
+
+    }, []);
 
     return (
-        <div className="show-class">
-            <h1>Class Schedules</h1>
-            <div class="class-schedule">
-            
-            </div>
+        <div className="">
+            <h2 className="text-center">Class Schedule</h2>
+
+            {classes.length > 0 ? (
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Activity Name</th>
+                            <th>Capacity</th>
+                            <th>Duration</th>
+                            <th>Employee Name</th>
+                            <th>Gym Address</th>
+                            <th>Start Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {classes.map((item) => {
+                            return <tr key={item.id}>
+                                <td> {item.activity_name}</td>
+                                <td> {item.capacity}</td>
+                                <td> {item.duration}</td>
+                                <td> {item.first_name + " " + item.last_name}</td>
+                                <td> {item.address}</td>
+                                <td> {item.start_time.slice(0, 10) + " " + item.start_time.slice(11, 16)}</td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
+
+            ) : (
+                <div>
+                    <p>No classes found</p>
+                </div>
+
+            )
+            }
+
+
         </div>
     );
-
 }
 
 export default ShowCurrentClass;
