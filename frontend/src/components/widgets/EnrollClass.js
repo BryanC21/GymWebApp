@@ -24,7 +24,7 @@ const EnrollClass = () => {
         e.preventDefault();
         setFail(false);
         setSuccess(false);
-        let trueDate = day + ' ' + start_time;
+        // let trueDate = day + ' ' + start_time;
         const newClass = {
             'class_id': class_id,
             'user_id': user_id
