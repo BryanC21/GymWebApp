@@ -1,14 +1,7 @@
-/*
-activity_id: the id of the activity
-employee_id: the id of the employee
-gym_id: the id of the gym
-start_time: the start time of the class
-duration: the duration time of the class
-capacity: the capacity time of the class
-*/
 import React, { useState } from 'react';
 import '../../styles/LogHours.css';
 import axios from 'axios';
+import MemberHeader from '../Header/MemberHeader';
 
 const PastActivity = () => {
 
@@ -40,6 +33,9 @@ const PastActivity = () => {
 
     return (
         <div>
+
+            <MemberHeader />
+           
             <h1 className='text-center'>Check Past Activity</h1>
             <form className='form-container'>
 

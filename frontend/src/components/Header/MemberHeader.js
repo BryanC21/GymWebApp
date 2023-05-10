@@ -6,14 +6,14 @@ const MemberHeader = () => {
   return (
     <div>
         <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#">TechFit</Navbar.Brand>
+        <Navbar.Brand href="#">Member Page</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/MemberLogIn">Member Login</Nav.Link>
-            <Nav.Link href="/EmployeeLogIn">Employee Login</Nav.Link>
-            <Nav.Link href="/Gym">About Us</Nav.Link>
+            <Nav.Link href="/ShowCurrentClass">Current Class</Nav.Link>
+            <Nav.Link href="/LogHours">Log Hours</Nav.Link>
+            <Nav.Link href="/EnrollClass">Enroll Class</Nav.Link>
+            <Nav.Link href="/PastActivity">Past Activity</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

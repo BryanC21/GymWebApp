@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/AddClasses.css';
 import axios from 'axios';
+import MemberHeader from '../Header/MemberHeader';
 
 const EnrollClass = () => {
 
@@ -37,6 +38,9 @@ const EnrollClass = () => {
 
     return (
         <div>
+
+            <MemberHeader />
+
             <h1 className='text-center'>Enroll Classes</h1>
             <form className='form-container'>
 

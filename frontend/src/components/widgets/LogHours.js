@@ -9,6 +9,7 @@ capacity: the capacity time of the class
 import React, { useState } from 'react';
 import '../../styles/LogHours.css';
 import axios from 'axios';
+import MemberHeader from '../Header/MemberHeader';
 
 const LogHours = () => {
 
@@ -40,6 +41,8 @@ const LogHours = () => {
 
     return (
         <div>
+
+            <MemberHeader />
             <h1 className='text-center'>Log Hours</h1>
 
             <form>

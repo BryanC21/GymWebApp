@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import {useDispatch} from 'react-redux';
 import {setUser, setUserDetails} from '../../actions/userActions';
+import Header from '../Header/Header';
 
 
 
@@ -35,7 +36,10 @@ const EmployeeLogin = () => {
 
     return (
         <div className="login">
-            <h1>Login</h1>
+            
+            
+            <Header />
+            
             <form>
                 <label> Username </label>
                 <input type="text" name="username" onChange={e => setUsername(e.target.value)} />

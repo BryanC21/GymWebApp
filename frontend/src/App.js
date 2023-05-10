@@ -26,6 +26,13 @@ import MemberDet from './components/MemberDet';
 import Login from './components/widgets/Login';
 import GymInfo from './components/widgets/GymInfo';
 
+import ShowCurrentClass from './components/widgets/ShowCurrentClass';
+import LogHours from './components/widgets/LogHours';
+import EnrollClass from './components/widgets/EnrollClass';
+import PastActivity from './components/widgets/PastActivity';
+import EmployeeLogin from './components/widgets/EmployeeLogin';
+import MemberLogin from './components/widgets/MemberLogin';
+
 function App() {
 
 	useEffect(() => {
@@ -41,6 +48,12 @@ function App() {
 					<Route path="/Login" element={<Login />} />
 					<Route path="/Member" element={<MemberPage />} />
 					<Route path="/Gym" element={<GymInfo />} />
+					<Route path="/ShowCurrentClass" element={<ShowCurrentClass />} />
+					<Route path="/LogHours" element={<LogHours />} />
+					<Route path="/EnrollClass" element={<EnrollClass />} />
+					<Route path="/PastActivity" element={<PastActivity />} />
+					<Route path="/EmployeeLogIn" element={<EmployeeLogin />} />
+					<Route path="/MemberLogIn" element={<MemberLogin />} />
 
 					<Route path="/homestatic" element={<HomeStatic />} />
 					<Route path="/twuhighlight" element={<TWUHighlight />} />
