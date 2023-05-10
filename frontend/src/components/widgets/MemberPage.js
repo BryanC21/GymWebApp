@@ -6,7 +6,6 @@ import React from "react";
 import LogHours from "./LogHours";
 import PastActivity from "./PastActivity.js";
 import ShowCurrentClass from "./ShowCurrentClass"
-import Header from "../Header/Header"
 
 const MemberPage = () => {
 

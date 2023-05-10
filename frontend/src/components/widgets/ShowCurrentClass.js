@@ -5,9 +5,9 @@ import "../../styles/ListClasses.css"
 const ShowCurrentClass = () => {
     const [classes, setClasses] = useState([]);
 
-    const info = useSelector(state => state.userState);
-    const user = useSelector(state => state.userDetailsState);
-    const navigate = useNavigate();
+    // const info = useSelector(state => state.userState);
+    // const user = useSelector(state => state.userDetailsState);
+    // const navigate = useNavigate();
 
 
     useEffect(() => {

@@ -25,7 +25,6 @@ import LoggedInACCSett from './components/LoggedInACCSett';
 import MemberDet from './components/MemberDet';
 import Login from './components/widgets/Login';
 
-
 function App() {
 
 	useEffect(() => {
