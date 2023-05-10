@@ -5,7 +5,10 @@ import "../../styles/ListClasses.css"
 const ShowCurrentClass = () => {
     const [classes, setClasses] = useState([]);
 
-    const [user_id, setUser_id] = useState('1');
+    const info = useSelector(state => state.userState);
+    const user = useSelector(state => state.userDetailsState);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         let urlPath = process.env.REACT_APP_API_URL || 'http://localhost:5002';

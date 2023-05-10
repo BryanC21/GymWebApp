@@ -24,7 +24,6 @@ const EnrollClass = () => {
         e.preventDefault();
         setFail(false);
         setSuccess(false);
-        // let trueDate = day + ' ' + start_time;
         const newClass = {
             'class_id': class_id,
             'user_id': user_id
@@ -47,7 +46,7 @@ const EnrollClass = () => {
     return (
         <div>
             <h1 className='text-center'>Enroll Classes</h1>
-            {/* <form className='form-container'>
+            <form className='form-container'>
 
                 <label className='form-label'>Employee ID</label>
                 <input className='form-input' type="text" value={class_id} onChange={(e) => setClass_id(e.target.value)} />
@@ -60,7 +59,7 @@ const EnrollClass = () => {
                 {success ? <h1 style={{ color: 'white', marginTop: '20px', backgroundColor: 'green', borderRadius: '10px', padding: '10px' }}> Class added succesfully! </h1> : null}
                 {fail ? <h1 style={{ color: 'white', marginTop: '20px', backgroundColor: 'red', borderRadius: '10px', padding: '10px' }}> Class failed to add! </h1> : null}
 
-            </form> */}
+            </form>
 
         </div >
     );
