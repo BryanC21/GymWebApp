@@ -1,12 +1,3 @@
-/*
-activity_id: the id of the activity
-employee_id: the id of the employee
-gym_id: the id of the gym
-start_time: the start time of the class
-duration: the duration time of the class
-capacity: the capacity time of the class
-*/
-
 import React, { useState } from 'react';
 import '../../styles/AddClasses.css';
 import axios from 'axios';

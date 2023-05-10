@@ -5,14 +5,9 @@ import "../../styles/ListClasses.css"
 const ShowCurrentClass = () => {
     const [classes, setClasses] = useState([]);
 
-    // const info = useSelector(state => state.userState);
-    // const user = useSelector(state => state.userDetailsState);
-    // const navigate = useNavigate();
-
-
     useEffect(() => {
         let urlPath = process.env.REACT_APP_API_URL || 'http://localhost:5002';
-        axios.get(urlPath + '/api/class/getClassesByUserId')
+        axios.get(urlPath + '/api/class/getClassById')
             .then(res => {
                 console.log(res.data.results);
                 setClasses(res.data.results);
@@ -26,7 +21,7 @@ const ShowCurrentClass = () => {
 
     return (
         <div className="">
-            <h2 className="text-center">Class Schedule</h2>
+            <h2 className="text-center">Class Scedule</h2>
 
             {classes.length > 0 ? (
 
