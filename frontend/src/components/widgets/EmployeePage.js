@@ -7,6 +7,7 @@ import React from "react";
 import RegisterMember from "./RegisterMember";
 import GymAnalytics from "./GymAnalytics";
 import EmployeeHeader from "../Header/EmployeeHeader";
+import Header from "../Header/Header";
 import ListActivities from "./ListActivities";
 import CheckIn from "./CheckIn";
 import CheckOut from "./CheckOut";
@@ -28,7 +29,7 @@ const EmployeePage = () => {
 
     return (
         <div>
-            <EmployeeHeader />
+            <Header />
             <h1 className="text-center">Employee Page</h1>
             <div className="container-flex">
                 <ListClasses />

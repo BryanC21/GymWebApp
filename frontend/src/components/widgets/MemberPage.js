@@ -8,6 +8,7 @@ import PastActivity from "./PastActivity.js";
 import ShowCurrentClass from "./ShowCurrentClass";
 
 import MemberHeader from "../Header/MemberHeader";
+import Header from "../Header/Header";
 
 const MemberPage = () => {
   const info = useSelector((state) => state.userState);
@@ -25,7 +26,7 @@ const MemberPage = () => {
 
   return (
     <div>
-      <MemberHeader />
+      <Header />
 
       {/* Use IDs in the hrefs to connect with the corresponding sections */}
       {/* <section id="current-class">
