@@ -5,11 +5,16 @@ const CheckIn = () => {
     const [userId, setUserId] = useState('');
     const [employeeId, setEmployeeId] = useState('');
 
+    let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
+
+
     const checkInUser = async (userId, employeeId) => {
         try {
-            const res = await axios.post('/api/user/checkinUser', {
-                user_id: userId,
-                employee_id: employeeId,
+            const res = await axios.get( baseURL +'/api/user/checkinUser', {
+                params: {
+                    user_id: userId,
+                    employee_id: employeeId,
+                }
             });
             //TODO save checkout id but where?
             console.log(res);

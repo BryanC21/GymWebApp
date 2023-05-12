@@ -8,6 +8,8 @@ import RegisterMember from "./RegisterMember";
 import GymAnalytics from "./GymAnalytics";
 import EmployeeHeader from "../Header/EmployeeHeader";
 import ListActivities from "./ListActivities";
+import CheckIn from "./CheckIn";
+import CheckOut from "./CheckOut";
 
 const EmployeePage = () => {
 
@@ -34,6 +36,8 @@ const EmployeePage = () => {
                 <RegisterMember />
                 <GymAnalytics gymId={1} > </GymAnalytics>
                 <ListActivities />
+                <CheckIn />
+                <CheckOut />
             </div>
         </div>
     );

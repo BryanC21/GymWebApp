@@ -3,15 +3,34 @@ import axios from 'axios';
 
 const CheckOut = () => {
     const [checkin_id, setCheckin_id] = useState('');
+    let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
+
 
     const checkOutUser = async (someID) => {
+
         try {
-            const res = await axios.post('/api/user/checkoutUser', {
-                checkin_id: someID,
-            });
-            console.log(res);
-            alert('User checked out successfully');
-            
+            axios.get(baseURL + '/api/user/getCheckinByUserId', { params: { user_id: someID } })
+                .then(response => {
+                    axios.get(baseURL + '/api/user/checkoutUser', {
+                        params: {
+                            checkin_id: response.data.results.id,
+                        }
+                    }).then(res => {
+                        console.log(res);
+                        alert('User checked out successfully');
+                    }).catch(error => {
+                        console.error(error);
+                        alert('Error checking out user');
+                    }
+                    )
+                })
+
+                .catch(error => {
+                    console.error(error);
+                    alert('Error checking out user');
+                }
+                )
+
         } catch (error) {
             console.error(error);
             alert('Error checking out user');
@@ -25,9 +44,9 @@ const CheckOut = () => {
 
     return (
         <div>
-            <h2>Check In</h2>
+            <h2>Check Out</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="checkin_id">Checkin ID:</label>
+                <label htmlFor="checkin_id">User ID:</label>
                 <input
                     type="text"
                     id="checkin_id"
