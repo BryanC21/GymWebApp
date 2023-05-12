@@ -97,3 +97,27 @@ exports.getActivityByInterval = (req, res) => {
     }
     )
 }
+
+exports.removeActivity = (req, res) => {
+    const activity_id = parseInt(req.query.activity_id);
+
+    let sql = "DELTE FROM Activity WHERE id = ?"
+
+    db.query(sql, [activity_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No record with id"
+            })
+        }
+        return res.status(200).send({
+            status: "Success"
+        })
+    })
+}

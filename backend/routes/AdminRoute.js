@@ -3,7 +3,7 @@ const employeeAuth = require("../controllers/auth/employeeAuth");
 const {
     getAllEmployees, getAllEmployeesByGym, getEmployeeByID, 
     getClassCountByGymId, getEnrollCountByGymId, 
-    getMemberCountPerHourByGymId, getMemberCountPerHourByGymIdWithWeek, getHoursCountByGymId, 
+    getMemberCountPerHourByGymId, getMemberCountPerHourByGymIdWithWeek, getHoursCountByGymId, removeEmployee
 } = require("../controllers/AdminController");
 
 const router = express.Router();
@@ -16,5 +16,6 @@ router.get("/getEnrollCountByGymId", getEnrollCountByGymId);
 router.get("/getMemberCountPerHourByGymId", getMemberCountPerHourByGymId);
 router.get("/getMemberCountPerHourByGymIdWithWeek", getMemberCountPerHourByGymIdWithWeek);
 router.get("/getHoursCountByGymId", getHoursCountByGymId);
+router.get("/removeEmployee", removeEmployee);
 
 module.exports = router;

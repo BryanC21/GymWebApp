@@ -256,3 +256,27 @@ exports.getHoursCountByGymId = (req, res) => {
         })
     });
 }
+
+exports.removeEmployee = (req, res) => {
+    const employee_id = parseInt(req.query.employee_id);
+
+    let sql = "DELTE FROM Employee WHERE id = ?"
+
+    db.query(sql, [employee_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No record with id"
+            })
+        }
+        return res.status(200).send({
+            status: "Success"
+        })
+    })
+}
