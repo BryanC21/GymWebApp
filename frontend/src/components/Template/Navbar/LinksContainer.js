@@ -7,7 +7,7 @@ import Button from "../GlobalComponents/Button";
 const LinksContainer = ({ hidden }) => {
   return (
     <div css={styles} className={(hidden ? "hidden" : "") + " linksContainer"}>
-      <Link name="HOME" linkTo="#home" />
+      <Link name="HOME" linkTo="/" />
       <Link name="ABOUT" linkTo="#trainers" />
       <Link name="CLASSES" linkTo="#ourClasses" />
       <Link name="MEMBER LOGIN" linkTo="/MemberLogin" />

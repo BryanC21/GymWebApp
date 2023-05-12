@@ -10,6 +10,7 @@ import Nav from "../Template/Navbar/Nav";
 import Icon from "../Template/GlobalComponents/Icon";
 import scheduleBg from "../Template/Image/scheduleBg.jpg";
 import Container from "../Template/GlobalComponents/Container";
+import MemberLoginButton from '../Template/GlobalComponents/MemberLoginButton';
 
 
 const EmployeeLogin = () => {
@@ -45,42 +46,34 @@ const EmployeeLogin = () => {
 
         <section css={styles} className="schedule" id="schedule">
             <h2>
-                Member <span>Login</span>
+                 <span>Member Login</span>
             </h2>
             <Icon />
             <Container>
             <form>
-                <h1>
-                <label> Username </label>
+                
+                <h2>
+                <label> Username </label><span></span>
+                </h2>
                 <br />
-                <input type="text" name="username" onChange={e => setUsername(e.target.value)} />
+                <h3>
+                    <input type="text" name="username" onChange={e => setUsername(e.target.value)} />
+                </h3>
                 <br />
-                <label> Password </label>
+                <h2>
+                <label> Password </label><span></span>
+                </h2>
                 <br />
-                <input type="password" name="password" onChange={e => setPassword(e.target.value)} />
-                </h1>
-                <button onClick={handleLogin}> Login </button>
+                <h3>
+                    <input type="password" name="password" onChange={e => setPassword(e.target.value)} />
+                </h3>
+                <br />
+                 <h3>   
+                    <MemberLoginButton onClick={handleLogin}> Login </MemberLoginButton>
+                </h3>
             </form>
             </Container>
             </section>
-            
-            
-            {/* <Overlay_Login />
-            <Nav_Member />
-    
-
-            <h1>
-            <form>
-                <label> Username </label>
-                <input type="text" name="username" onChange={e => setUsername(e.target.value)} />
-                <label> Password </label>
-                <input type="password" name="password" onChange={e => setPassword(e.target.value)} />
-                <button onClick={handleLogin}> Login </button>
-            </form>
-            </h1>
-
-
-            <Video /> */}
         </div>
     );
 
@@ -88,9 +81,9 @@ const EmployeeLogin = () => {
 
 const styles = css`
   width: 100%;
-  padding: 120px 0;
   min-height: 100vh;
   text-align: center;
+  padding-top: 10%;
   background: url('${scheduleBg}') no-repeat center/cover;
   h2 {
     color: #fff;
@@ -109,10 +102,10 @@ const styles = css`
     margin: 20px 0;
   }
   .container{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
   @media(max-width: 640px) {
     p{
       padding: 0 30px;
