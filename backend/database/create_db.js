@@ -6,8 +6,8 @@ var drop = process.argv[2] === 'drop'; //node create_db.js drop
 var con = mysql.createConnection({
     host: process.env.DATABASE_HOST || 'localhost',
     user: process.env.DATABASE_USER || 'root',
-    password: process.env.DATABASE_PWD || 'root',
-    port: process.env.DATABASE_PORT || 3306,
+    password: process.env.DB_PASSWORD || 'root',
+    port: process.env.DB_PORT || 3306,
 });
 
 var dbName = process.env.DATABASE_DATABASE || 'gym_db';
@@ -494,28 +494,28 @@ con.query(sql, function (err, result) {
 
 // insert class
 var sql = "INSERT INTO Class (activity_id, employee_id, gym_id, start_time, duration, capacity) \
-VALUES (1, 1, 1, '2023-03-10 10:00:00', 60, 20)";
+VALUES (1, 1, 1, '2023-06-10 10:00:00', 60, 20)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Class inserted");
 });
 
 var sql = "INSERT INTO Class (activity_id, employee_id, gym_id, start_time, duration, capacity) \
-VALUES (2, 1, 1, '2023-03-10 12:00:00', 60, 20)";
+VALUES (2, 1, 1, '2023-06-10 12:00:00', 60, 20)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Class inserted");
 });
 
 var sql = "INSERT INTO Class (activity_id, employee_id, gym_id, start_time, duration, capacity) \
-VALUES (1, 1, 1, '2023-03-11 10:00:00', 60, 20)";
+VALUES (1, 1, 1, '2023-06-11 10:00:00', 60, 20)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Class inserted");
 });
 
 var sql = "INSERT INTO Class (activity_id, employee_id, gym_id, start_time, duration, capacity) \
-VALUES (2, 1, 1, '2023-03-11 12:00:00', 60, 20)";
+VALUES (2, 1, 1, '2023-06-11 12:00:00', 60, 20)";
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Class inserted");
@@ -646,6 +646,55 @@ VALUES (1, 1, TIMESTAMP '2023-04-15 07:00:00.00', TIMESTAMP '2023-04-15 12:00:00
 con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 Checkin inserted");
+});
+
+var sql = "INSERT INTO Log (user_id, activity_id, duration, create_time) \
+VALUES (1, 2, 30, TIMESTAMP '2023-04-10 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Log inserted");
+});
+
+var sql = "INSERT INTO Log (user_id, activity_id, duration, create_time) \
+VALUES (1, 2, 30, TIMESTAMP '2023-04-15 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Log inserted");
+});
+
+var sql = "INSERT INTO Log (user_id, activity_id, duration, create_time) \
+VALUES (2, 5, 30, TIMESTAMP '2023-04-09 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Log inserted");
+});
+
+var sql = "INSERT INTO Log (user_id, activity_id, duration, create_time) \
+VALUES (2, 6, 20, TIMESTAMP '2023-04-10 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Log inserted");
+});
+
+var sql = "INSERT INTO Log (user_id, activity_id, duration, create_time) \
+VALUES (2, 2, 40, TIMESTAMP '2023-04-15 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Log inserted");
+});
+
+var sql = "INSERT INTO Log (user_id, activity_id, duration, create_time) \
+VALUES (2, 3, 60, TIMESTAMP '2023-05-12 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Log inserted");
+});
+
+var sql = "INSERT INTO Log (user_id, activity_id, duration, create_time) \
+VALUES (2, 4, 30, TIMESTAMP '2023-05-11 12:00:00.00')";
+con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 Log inserted");
 });
 
 con.end();

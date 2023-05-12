@@ -9,7 +9,7 @@ import MemberPage from './components/widgets/MemberPage';
 
 import Login from './components/widgets/Login';
 import GymInfo from './components/widgets/GymInfo';
-import ShowCurrentClass from './components/widgets/ShowCurrentClass';
+import ShowCurrentClass from './components/widgets/ClassSchedule';
 import LogHours from './components/widgets/LogHours';
 import EnrollClass from './components/widgets/EnrollClass';
 import PastActivity from './components/widgets/PastActivity';

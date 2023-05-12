@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import {useSelector} from "react-redux";
 import '../../styles/LogHours.css';
 import axios from 'axios';
 import MemberHeader from '../Header/MemberHeader';
@@ -7,49 +8,73 @@ const PastActivity = () => {
 
     let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
 
-    const [activity_days, getActivityByDays] = useState('1');
+    const info = useSelector(state => state.userState);
+    const user = useSelector(state => state.userDetailsState);
+
     const [day, setDay] = useState(new Date().toISOString().slice(0, 10));
+    const [activityList, setActivityList] = useState([]);
 
     const [success, setSuccess] = useState(false);
     const [fail, setFail] = useState(false);
+    useEffect(() => {
+        handleGetLog("week");
+    }, []);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFail(false);
-        setSuccess(false);
+    const handleGetLog = (interval) => {
+        let urlPath = process.env.REACT_APP_API_URL || 'http://localhost:5002';
 
-        axios.get(baseURL + '/api/class/addClass', { params: activity_days })
-            .then(res => {
-                console.log(res);
-                setSuccess(true);
-            })
-            .catch(err => {
-                console.log(err);
-                setFail(true);
-            })
-
+        axios.get(urlPath + '/api/activity/getActivityByInterval', 
+        {params: {'user_id': user.userDetails.id, 'interval': interval, 'token': info.user}})
+        .then(res => {
+            setActivityList(res.data.results);
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
-
     return (
-        <div>
 
+        <div className="">
             <MemberHeader />
-           
-            <h1 className='text-center'>Check Past Activity</h1>
-            <form className='form-container'>
+            <h2 className="text-center">Past Activity</h2>
+            <div>
+                <button onClick={() => handleGetLog("week")}>Past Week</button>
+                <button onClick={() => handleGetLog("month")}>Past Month</button>
+                <button onClick={() => handleGetLog("quarter")}>Last 90 Days</button>
+            </div>
+            {console.log(activityList)}
+            {activityList.length > 0 ? (
 
-                <label className='form-label'>Day</label>
-                <input className='form-input' type="date" value={day} onChange={(e) => setDay(e.target.value)} />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class ID</th>
+                            <th>Activity Name</th>
+                            <th>Duration(Minutes)</th>
+                            <th>Start Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {activityList.map((item) => {
+                            return <tr key={item.id}>
+                                <td> {item.log_id}</td>
+                                <td> {item.activity_name}</td>
+                                <td> {item.duration}</td>
+                                <td> {item.create_time.slice(0, 10) + " " + item.create_time.slice(11, 16)}</td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
 
-                <button className='form-submit form-hover' type="submit" onClick={handleSubmit} >Check Activity</button>
+            ) : (
+                <div>
+                    <p>No Activities found</p>
+                </div>
 
-                {success ? <h1 style={{ color: 'white', marginTop: '20px', backgroundColor: 'green', borderRadius: '10px', padding: '10px' }}>  </h1> : null}
-                {fail ? <h1 style={{ color: 'white', marginTop: '20px', backgroundColor: 'red', borderRadius: '10px', padding: '10px' }}> No Activity Found </h1> : null}
-
-            </form>
-
-        </div >
+            )
+            }
+        </div>
     );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import './../styles/LoggedInReveal.css'
-import ImgAsset from '../public'
+import '../../styles/LoggedInReveal.css'
+import ImgAsset from '../../public'
 import {Link} from 'react-router-dom'
 export default function LoggedInReveal () {
 	return (

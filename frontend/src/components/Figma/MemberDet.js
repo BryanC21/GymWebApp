@@ -1,6 +1,6 @@
 import React from 'react'
-import './../styles/MemberDet.css'
-import ImgAsset from '../public'
+import '../../styles/MemberDet.css'
+import ImgAsset from '../../public'
 export default function MemberDet () {
 	return (
 		<div className='MemberDet_MemberDet'>

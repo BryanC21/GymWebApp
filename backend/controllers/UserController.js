@@ -298,3 +298,29 @@ exports.removeUser = (req, res) => {
         })
     })
 }
+
+exports.logHours = (req, res) => {
+    const user_id = parseInt(req.query.user_id);
+    const activity_id = parseInt(req.query.activity_id);
+    const duration = parseInt(req.query.duration);
+
+    let sql = "INSERT INTO Log (user_id, activity_id, duration) VALUES (?, ?, ?)";
+
+    db.query(sql, [user_id, activity_id, duration], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No record with id"
+            })
+        }
+        return res.status(200).send({
+            status: "Success"
+        })
+    })
+}

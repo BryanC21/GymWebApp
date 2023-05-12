@@ -52,29 +52,28 @@ exports.getActivityById = (req, res) => {
 }
 
 exports.getActivityByInterval = (req, res) => {
-    const activity_interval = parseInt(req.query.interval)
-    const userId = req.user.id
+    const activity_interval = req.query.interval;
+    const userId = req.query.user_id;
 
-
-    let sql = ""
+    let sql = "SELECT * from Log where user_id = ?";
     if (activity_interval == "week") {
-        sql = "SELECT a.id AS activity_id, a.name AS activity_name, SUM(l.duration)/60 AS total_hours \
-                FROM Log l \
-                JOIN Activity a ON l.activity_id = a.id \
-                WHERE l.user_id = ? AND l.create_time >= DATE(NOW()) - INTERVAL 7 DAY \
-                GROUP BY a.id, a.name";
-    } else if (interval == "month") {
-        sql = "SELECT a.id AS activity_id, a.name AS activity_name, SUM(l.duration)/60 AS total_hours \
-                FROM Log l \
-                JOIN Activity a ON l.activity_id = a.id \
-                WHERE l.user_id = ? AND l.create_time >= DATE(NOW()) - INTERVAL 1 MONTH \
-                GROUP BY a.id, a.name";
-    } else if (interval == "quarter") {
-        sql = "SELECT a.id AS activity_id, a.name AS activity_name, SUM(l.duration)/60 AS total_hours \
-                FROM Log l \
-                JOIN Activity a ON l.activity_id = a.id \
-                WHERE l.user_id = ? AND l.create_time >= DATE(NOW()) - INTERVAL 90 DAY \
-                GROUP BY a.id, a.name";
+        sql = "SELECT a.id AS activity_id, a.name AS activity_name, l.id AS log_id, \
+        l.user_id, l.create_time, l.duration \
+        FROM Log l \
+        JOIN Activity a ON l.activity_id = a.id \
+        WHERE l.user_id = ? AND l.create_time >= DATE(NOW()) - INTERVAL 7 DAY";
+    } else if (activity_interval == "month") {
+        sql = "SELECT a.id AS activity_id, a.name AS activity_name, l.id AS log_id, \
+        l.user_id, l.create_time, l.duration \
+        FROM Log l \
+        JOIN Activity a ON l.activity_id = a.id \
+        WHERE l.user_id = ? AND l.create_time >= DATE(NOW()) - INTERVAL 1 MONTH";
+    } else if (activity_interval == "quarter") {
+        sql = "SELECT a.id AS activity_id, a.name AS activity_name, l.id AS log_id, \
+        l.user_id, l.create_time, l.duration \
+        FROM Log l \
+        JOIN Activity a ON l.activity_id = a.id \
+        WHERE l.user_id = ? AND l.create_time >= DATE(NOW()) - INTERVAL 90 DAY";
     }
 
     db.query(sql, [userId], (err, results) => {
@@ -92,10 +91,9 @@ exports.getActivityByInterval = (req, res) => {
         }
         return res.status(200).send({
             status: "success",
-            results: results[0]
+            results: results
         })
-    }
-    )
+    })
 }
 
 exports.removeActivity = (req, res) => {

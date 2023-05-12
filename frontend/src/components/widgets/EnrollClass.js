@@ -1,27 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../styles/AddClasses.css';
 import axios from 'axios';
 import MemberHeader from '../Header/MemberHeader';
+import { useSelector } from "react-redux";
 
 const EnrollClass = () => {
+    const [classes, setClasses] = useState([]);
+    const info = useSelector(state => state.userState);
+    const user = useSelector(state => state.userDetailsState);
+
+    useEffect(() => {
+        let urlPath = process.env.REACT_APP_API_URL || 'http://localhost:5002';
+        axios.get(urlPath + '/api/class/getAllClassesExceptUserId', 
+            {params: {'user_id': user.userDetails.id, 'token': info.user}})
+            .then(res => {
+                console.log(res.data.results);
+                setClasses(res.data.results);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+
+    }, []);
 
     let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
-
-    const [class_id, setClass_id] = useState('1');
-    const [user_id, setUser_id] = useState('1');
 
     const [success, setSuccess] = useState(false);
     const [fail, setFail] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (class_id) => {
         setFail(false);
         setSuccess(false);
         const newClass = {
             'class_id': class_id,
-            'user_id': user_id
+            'user_id': user.userDetails.id,
+            'token': info.user
         };
-        console.log(newClass);
 
         axios.get(baseURL + '/api/class/enrollClass', { params: newClass })
             .then(res => {
@@ -38,24 +53,51 @@ const EnrollClass = () => {
 
     return (
         <div>
-
             <MemberHeader />
+            <div className="">
+            <h2 className="text-center">List of Classes</h2>
 
-            <h1 className='text-center'>Enroll Classes</h1>
-            <form className='form-container'>
+            {classes.length > 0 ? (
 
-                <label className='form-label'>Employee ID</label>
-                <input className='form-input' type="text" value={class_id} onChange={(e) => setClass_id(e.target.value)} />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class ID</th>
+                            <th>Activity Name</th>
+                            <th>Capacity</th>
+                            <th>Duration(mins)</th>
+                            <th>Gym Address</th>
+                            <th>Start Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {classes.map((item) => {
+                            return <tr key={item.id}>
+                                <td> {item.id}</td>
+                                <td> {item.activity_name}</td>
+                                <td> {item.capacity}/{item.full_capacity}</td>
+                                <td> {item.duration}</td>
+                                <td> {item.address}</td>
+                                <td> {item.start_time.slice(0, 10) + " " + item.start_time.slice(11, 16)}</td>
+                                <td> <button onClick={() => handleSubmit(item.id)}>Enroll</button></td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
 
-                <label className='form-label'>Gym ID</label>
-                <input className='form-input' type="text" value={user_id} onChange={(e) => setUser_id(e.target.value)} />
+            ) : (
+                <div>
+                    <p>No classes found</p>
+                </div>
 
-                <button className='form-submit form-hover' type="submit" onClick={handleSubmit} >Enroll Class</button>
+            )
+            }
 
-                {success ? <h1 style={{ color: 'white', marginTop: '20px', backgroundColor: 'green', borderRadius: '10px', padding: '10px' }}> Class added succesfully! </h1> : null}
-                {fail ? <h1 style={{ color: 'white', marginTop: '20px', backgroundColor: 'red', borderRadius: '10px', padding: '10px' }}> Class failed to add! </h1> : null}
 
-            </form>
+        </div>
+
+
+        
 
         </div >
     );
