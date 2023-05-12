@@ -1,37 +1,40 @@
 import React from 'react';
+import { useEffect } from 'react';
+
 import Home from './components/widgets/Home';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EmployeePage from './components/widgets/EmployeePage';
 import MemberPage from './components/widgets/MemberPage';
-import { useEffect } from 'react';
 
-import HomeStatic from './components/HomeStatic';
-import TWUHighlight from './components/TWUHighlight';
-import LoginHighlight from './components/LoginHighlight';
-import StaffLogin from './components/StaffLogin';
-import StaffLoginHighlight from './components/StaffLoginHighlight';
-import LoggedIn from './components/LoggedIn';
-import LoggedInReveal from './components/LoggedInReveal';
-import MemberSelect from './components/MemberSelect';
-import MemberSelectPushIn from './components/MemberSelectPushIn';
-import LoggedInStaffHighlight from './components/LoggedInStaffHighlight';
-import LoggedInMemberHighlight from './components/LoggedInMemberHighlight';
-import LoginSelector from './components/LoginSelector';
-import LoginSelectorStaff from './components/LoginSelectorStaff';
-import LoginSelectorMember from './components/LoginSelectorMember';
-import JoinGymHighlight from './components/JoinGymHighlight';
-import HomeDownStatic from './components/HomeDownStatic';
-import LoggedInACCSett from './components/LoggedInACCSett';
-import MemberDet from './components/MemberDet';
+
 import Login from './components/widgets/Login';
 import GymInfo from './components/widgets/GymInfo';
-
 import ShowCurrentClass from './components/widgets/ShowCurrentClass';
 import LogHours from './components/widgets/LogHours';
 import EnrollClass from './components/widgets/EnrollClass';
 import PastActivity from './components/widgets/PastActivity';
 import EmployeeLogin from './components/widgets/EmployeeLogin';
 import MemberLogin from './components/widgets/MemberLogin';
+
+import HomeStatic from './components/Figma/HomeStatic';
+import TWUHighlight from './components/Figma/TWUHighlight';
+import LoginHighlight from './components/Figma/LoginHighlight';
+import StaffLogin from './components/Figma/StaffLogin';
+import StaffLoginHighlight from './components/Figma/StaffLoginHighlight';
+import LoggedIn from './components/Figma/LoggedIn';
+import LoggedInReveal from './components/Figma/LoggedInReveal';
+import MemberSelect from './components/Figma/MemberSelect';
+import MemberSelectPushIn from './components/Figma/MemberSelectPushIn';
+import LoggedInStaffHighlight from './components/Figma/LoggedInStaffHighlight';
+import LoggedInMemberHighlight from './components/Figma/LoggedInMemberHighlight';
+import LoginSelector from './components/Figma/LoginSelector';
+import LoginSelectorStaff from './components/Figma/LoginSelectorStaff';
+import LoginSelectorMember from './components/Figma/LoginSelectorMember';
+import JoinGymHighlight from './components/Figma/JoinGymHighlight';
+import HomeDownStatic from './components/Figma/HomeDownStatic';
+import LoggedInACCSett from './components/Figma/LoggedInACCSett';
+import MemberDet from './components/Figma/MemberDet';
+
 
 function App() {
 
