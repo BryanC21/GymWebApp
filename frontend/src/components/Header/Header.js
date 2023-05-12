@@ -14,6 +14,8 @@ const MemberHeader = () => {
             <Nav.Link href="/MemberLogIn">Member Login</Nav.Link>
             <Nav.Link href="/EmployeeLogIn">Employee Login</Nav.Link>
             <Nav.Link href="/Gym">About Us</Nav.Link>
+            <Nav.Link href="/member">Member</Nav.Link>
+            <Nav.Link href="/employee">Employee</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -1,11 +1,13 @@
 import ListClasses from "./ListClasses";
-import {useEffect} from "react";
-import {useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import AddClasses from "./AddClasses";
 import React from "react";
 import RegisterMember from "./RegisterMember";
 import GymAnalytics from "./GymAnalytics";
+import EmployeeHeader from "../Header/EmployeeHeader";
+import ListActivities from "./ListActivities";
 
 const EmployeePage = () => {
 
@@ -24,11 +26,15 @@ const EmployeePage = () => {
 
     return (
         <div>
+            <EmployeeHeader />
             <h1 className="text-center">Employee Page</h1>
-            <ListClasses />
-            <AddClasses />
-            <RegisterMember />
-            <GymAnalytics gymId={1} > </GymAnalytics>
+            <div className="container-flex">
+                <ListClasses />
+                <AddClasses />
+                <RegisterMember />
+                <GymAnalytics gymId={1} > </GymAnalytics>
+                <ListActivities />
+            </div>
         </div>
     );
 };

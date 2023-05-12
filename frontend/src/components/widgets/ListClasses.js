@@ -28,6 +28,7 @@ const ListClasses = () => {
                 <table>
                     <thead>
                         <tr>
+                            <th>Class ID</th>
                             <th>Activity Name</th>
                             <th>Capacity</th>
                             <th>Duration</th>
@@ -39,6 +40,7 @@ const ListClasses = () => {
                     <tbody>
                         {classes.map((item) => {
                             return <tr key={item.id}>
+                                <td> {item.id}</td>
                                 <td> {item.activity_name}</td>
                                 <td> {item.capacity}</td>
                                 <td> {item.duration}</td>
