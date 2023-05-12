@@ -76,25 +76,45 @@ const LogHours = () => {
                     </h2>
                     <Icon />
                     <Container>
-                        <form>
-                            <label> Activity Type </label>
-                            <Dropdown>
-                                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                    {activityName}
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu>
-                                    {activityList.map((item) => {
-                                        return <Dropdown.Item onClick={() => { setActivityName(item.name); setActivityId(item.id); }}>
-                                            {item.name}</Dropdown.Item>
-                                    })}
-                                </Dropdown.Menu>
-                            </Dropdown>
-                            <label> Minutes </label>
-                            <input type="number" name="duration" min={0} onChange={e => setDuration(e.target.value)} />
-                            <button onClick={handleSubmit}> Submit </button>
-                        </form>
-
+                        <h3>
+                            <form>
+                                <table style={{ backgroundColor: "white", border: '0' }}>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label> Activity Type </label>
+                                            </td>
+                                            <td>
+                                                <label> Minutes </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="50%">
+                                                <Dropdown>
+                                                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                                        {activityName}
+                                                    </Dropdown.Toggle>
+                                                    <Dropdown.Menu>
+                                                        {activityList.map((item) => {
+                                                            return <Dropdown.Item onClick={() => { setActivityName(item.name); setActivityId(item.id); }}>
+                                                                {item.name}</Dropdown.Item>
+                                                        })}
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </td>
+                                            <td width="50%">
+                                                <input type="number" name="duration" min={0} onChange={e => setDuration(e.target.value)} />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <button onClick={handleSubmit}> Submit </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </h3>
                     </Container>
                 </section>
             </div>
@@ -106,6 +126,7 @@ const styles = css`
   width: 100%;
   padding: 120px 0;
   vertical-align: center;
+  min-height: 50vh;
   text-align: center;
   h2 {
     color: #232d39;
@@ -123,13 +144,11 @@ const styles = css`
     line-height: 1.7;
   }
   .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align: center;
-  margin-left: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 640px) {
     > p {
       padding: 0 30px;
       br {

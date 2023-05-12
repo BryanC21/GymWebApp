@@ -7,6 +7,7 @@ import Button from "../GlobalComponents/Button";
 const LinksContainer_Member = ({ hidden }) => {
   return (
     <div css={styles} className={(hidden ? "hidden" : "") + " linksContainer_Member"}>
+      <Link name="HOME" linkTo="/" />
       <Link name="CLASS SCHEDULES" linkTo="#current-class" />
       <Link name="LOG HOURS" linkTo="#log-hours" />
       <Link name="ENROLL CLASSES" linkTo="#enroll-class" />

@@ -11,94 +11,111 @@ import Container from "../Template/GlobalComponents/Container";
 
 const PastActivity = () => {
 
-    let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
+  let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
 
-    const info = useSelector(state => state.userState);
-    const user = useSelector(state => state.userDetailsState);
+  const info = useSelector(state => state.userState);
+  const user = useSelector(state => state.userDetailsState);
 
-    const [day, setDay] = useState(new Date().toISOString().slice(0, 10));
-    const [activityList, setActivityList] = useState([]);
+  const [day, setDay] = useState(new Date().toISOString().slice(0, 10));
+  const [activityList, setActivityList] = useState([]);
 
-    const [success, setSuccess] = useState(false);
-    const [fail, setFail] = useState(false);
-    useEffect(() => {
-        handleGetLog("week");
-    }, []);
+  const [success, setSuccess] = useState(false);
+  const [fail, setFail] = useState(false);
+  useEffect(() => {
+    handleGetLog("week");
+  }, []);
 
-    const handleGetLog = (interval) => {
-        let urlPath = process.env.REACT_APP_API_URL || 'http://localhost:5002';
+  const handleGetLog = (interval) => {
+    let urlPath = process.env.REACT_APP_API_URL || 'http://localhost:5002';
 
-        axios.get(urlPath + '/api/activity/getActivityByInterval',
-            { params: { 'user_id': user.userDetails.id, 'interval': interval, 'token': info.user } })
-            .then(res => {
-                setActivityList(res.data.results);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }
+    axios.get(urlPath + '/api/activity/getActivityByInterval',
+      { params: { 'user_id': user.userDetails.id, 'interval': interval, 'token': info.user } })
+      .then(res => {
+        setActivityList(res.data.results);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
-    return (
+  return (
 
-        <div className="">
+    <div className="">
 
-            <div>
-                <section css={styles} className="trainers" id="trainers">
-                    <h2>
-                        <span>Past Activity</span>
-                    </h2>
-                    <Icon />
-                    <p>
-                        Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra{" "}
-                        <br />
-                        ipsum dolor, ultricies fermentum massa consequat eu.
-                    </p>
-                    <Container>
-                        <div>
-                            <button onClick={() => handleGetLog("week")}>Past Week</button>
-                            <button onClick={() => handleGetLog("month")}>Past Month</button>
-                            <button onClick={() => handleGetLog("quarter")}>Last 90 Days</button>
-                        </div>
-                        <br />
-                        <br />
-                        <br />
-                        {console.log(activityList)}
-                        {activityList.length > 0 ? (
+      <div>
+        <section css={styles} className="trainers" id="trainers">
+          <h2>
+            <span>Past Activity</span>
+          </h2>
+          <Icon />
+          <p>
+            Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra{" "}
+            <br />
+            ipsum dolor, ultricies fermentum massa consequat eu.
+          </p>
+          <Container>
 
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Class ID</th>
-                                        <th>Activity Name</th>
-                                        <th>Duration(Minutes)</th>
-                                        <th>Start Time</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {activityList.map((item) => {
-                                        return <tr key={item.id}>
-                                            <td> {item.log_id}</td>
-                                            <td> {item.activity_name}</td>
-                                            <td> {item.duration}</td>
-                                            <td> {item.create_time.slice(0, 10) + " " + item.create_time.slice(11, 16)}</td>
-                                        </tr>
-                                    })}
-                                </tbody>
-                            </table>
+            <table>
+              <tbody>
+                <tr>
+                  <td style={{ width: '300px' }}>
+                    <button onClick={() => handleGetLog("week")}>Past Week</button>
+                  </td>
+                  <td style={{ width: '300px' }}>
+                    <button onClick={() => handleGetLog("month")}>Past Month</button>
+                  </td>
+                  <td style={{ width: '300px' }}>
+                    <button onClick={() => handleGetLog("quarter")}>Last 90 Days</button>
+                  </td>
+                </tr>
+                <tr>
+                  <br />
+                  <br />
+                  <br />
 
-                        ) : (
-                            <div>
-                                <p>No Activities found</p>
-                            </div>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    {console.log(activityList)}
+                    {activityList.length > 0 ? (
 
-                        )
-                        }
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Class ID</th>
+                            <th>Activity Name</th>
+                            <th>Duration(Minutes)</th>
+                            <th>Start Time</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {activityList.map((item) => {
+                            return <tr key={item.id}>
+                              <td> {item.log_id}</td>
+                              <td> {item.activity_name}</td>
+                              <td> {item.duration}</td>
+                              <td> {item.create_time.slice(0, 10) + " " + item.create_time.slice(11, 16)}</td>
+                            </tr>
+                          })}
+                        </tbody>
+                      </table>
 
-                    </Container>
-                </section>
-            </div>
-        </div>
-    );
+                    ) : (
+                      <div>
+                        <p>No Activities found</p>
+                      </div>
+
+                    )
+                    }
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </Container>
+        </section>
+      </div>
+    </div >
+  );
 }
 
 
@@ -127,6 +144,10 @@ const styles = css`
     align-items: center;
     padding: 50px 0 0 0;
   }
+  .button {
+    margin-left :5px 
+  }
+
   @media (max-width: 650px) {
     > p {
       padding: 0 30px;

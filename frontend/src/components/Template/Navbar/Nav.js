@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Logo from "./Logo";
 import LinksContainer from "./LinksContainer";
 import Container from "../GlobalComponents/Container";
-import MemberHeader from "../../Header/Header"
 
 const Nav = () => {
   const [hidden, setHidden] = useState(true);
@@ -18,7 +17,7 @@ const Nav = () => {
           className={hidden ? "fas fa-bars fa-lg" : "fas fa-times fa-lg"}
           id="burgerMenu"
         ></i>
-        <MemberHeader />
+        <LinksContainer hidden={hidden} />
       </Container>
     </nav>
   );

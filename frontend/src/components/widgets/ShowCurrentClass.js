@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import "../../styles/ListClasses.css"
 import Icon from "../Template/GlobalComponents/Icon";
-import scheduleBg from "../Template/Image/contactBg.jpg";
 import Container from "../Template/GlobalComponents/Container";
+import Nav_Member from "../Template/Navbar/Nav_Member";
 
 
 const ShowCurrentClass = () => {
@@ -35,6 +35,8 @@ const ShowCurrentClass = () => {
 
     return (
         <div className="">
+
+            <Nav_Member />
 
             <section css={styles} className="schedule" id="schedule">
                 <h2>
@@ -83,12 +85,15 @@ const ShowCurrentClass = () => {
 }
 
 const styles = css`
-  width: 100%;
-  padding: 120px 0;
-  min-height: 100vh;
-  text-align: center;
-  top-padding: 20%;
-  background: url('${scheduleBg}') no-repeat center/cover;
+width: 100%;
+max-width: 900px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 2;
+text-align: center;
+color: #fff;
   h2 {
     color: #fff;
     font-weight: 900;
@@ -110,7 +115,7 @@ const styles = css`
       flex-direction: column;
       align-items: center;
   }
-  @media(max-width: 640px) {
+  @media(max-width: 1000px) {
     p{
       padding: 0 30px;
       br{
