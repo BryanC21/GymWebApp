@@ -5,15 +5,14 @@ import React from "react";
 
 import '../../styles/MemberPage.css'
 
-import MemberHeader from "../Header/MemberHeader";
+import MemberHeader from "../Header/MemberHeader.js";
+import ShowCurrentClass from "./ShowCurrentClass";
+import LogHours from "./LogHours";
+import EnrollClass from "./EnrollClass";
+import PastActivity from "./PastActivity";
 
 import Main_Member from "../Template/Main/Main_Member";
-import GymProgram from "../Template/GymProgram/GymProgram";
-import Member from "../Template/Member/Member";
-import Classes from "../Template/OurClasses/Classes";
-import Schedule from "../Template/Schedule/Schedule";
-import Trainers from "../Template/Trainers/Trainers";
-import Contact from '../Template/Contact/Contact';
+import Nav_Member from "../Template/Navbar/Nav_Member";
 
 const MemberPage = () => {
   const info = useSelector((state) => state.userState);
@@ -26,11 +25,12 @@ const MemberPage = () => {
   return (
     <div className="MemberPage">
 
-    <Main_Member />
-      {/* <MemberHeader /> */}
+      <Main_Member />
+
+      {/* <Nav_Member /> */}
 
       {/* Use IDs in the hrefs to connect with the corresponding sections */}
-      {/* <section id="current-class">
+      <section id="current-class">
         <ShowCurrentClass />
       </section>
 
@@ -43,8 +43,8 @@ const MemberPage = () => {
       </section>
 
       <section id="past-activity">
-        <PastActivity /> 
-      </section>*/}
+        <PastActivity />
+      </section>
     </div>
   );
 };

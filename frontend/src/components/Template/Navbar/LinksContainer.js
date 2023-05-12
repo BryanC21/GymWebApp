@@ -8,8 +8,9 @@ const LinksContainer = ({ hidden }) => {
   return (
     <div css={styles} className={(hidden ? "hidden" : "") + " linksContainer"}>
       <Link name="HOME" linkTo="/" />
-      <Link name="ABOUT" linkTo="#trainers" />
       <Link name="CLASSES" linkTo="#ourClasses" />
+      <Link name="SCHEDULES" linkTo="#schedule" />
+      <Link name="ABOUT" linkTo="#trainers" />
       <Link name="MEMBER LOGIN" linkTo="/MemberLogin" />
       <Link name="EMPLOYEE LOGIN" linkTo="/EmployeeLogin" />
     </div>
@@ -36,7 +37,6 @@ const styles = css`
     &.hidden {
       left: 0;
       top: -500px;
-      opacity: 0;
     }
     .btn {
       width: 100%;
