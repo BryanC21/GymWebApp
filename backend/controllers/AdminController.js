@@ -94,7 +94,7 @@ exports.getClassCountByGymId = (req, res) => {
 
     let sql = "SELECT " + date + " as time,  \
     COUNT(Class.id) as count \
-    FORM Class, Employee \
+    FROM Class, Employee \
     WHERE Employee.gym_id = ? and Employee.id = Class.employee_id \
     GROUP BY time";
 
