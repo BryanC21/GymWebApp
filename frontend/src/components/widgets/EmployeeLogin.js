@@ -21,11 +21,9 @@ const EmployeeLogin = () => {
         axios.get(`${baseURL}/api/sso/employeeSignin`, { params: { 'email': username, 'password': password } })
             .then(res => {
                 console.log(res);
-                alert('Login successful');
                 dispatch(setUser(res.data.token));
                 dispatch(setUserDetails(res.data.results));
-                //TODO remove alert
-                //TODO redirect to home page if user is set
+                window.location.replace('/employee');
             })
             .catch(err => {
                 console.log(err);

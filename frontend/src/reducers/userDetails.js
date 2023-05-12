@@ -3,7 +3,7 @@ import {
 } from '../actions/actionTypes';
 
 const initialState = {
-    userDetails: {}
+    userDetails: null
 };
 
 const setUserDetails = (state, action) => {
