@@ -5,13 +5,14 @@ import React from "react";
 
 import '../../styles/MemberPage.css'
 
-import MemberHeader from "../Header/MemberHeader";
+import MemberHeader from "../Header/MemberHeader.js";
 import ShowCurrentClass from "./ShowCurrentClass";
 import LogHours from "./LogHours";
 import EnrollClass from "./EnrollClass";
 import PastActivity from "./PastActivity";
 
 import Main_Member from "../Template/Main/Main_Member";
+import Nav_Member from "../Template/Navbar/Nav_Member";
 
 const MemberPage = () => {
   const info = useSelector((state) => state.userState);
@@ -25,6 +26,8 @@ const MemberPage = () => {
     <div className="MemberPage">
 
       <Main_Member />
+
+      {/* <Nav_Member /> */}
 
       {/* Use IDs in the hrefs to connect with the corresponding sections */}
       <section id="current-class">
@@ -40,7 +43,7 @@ const MemberPage = () => {
       </section>
 
       <section id="past-activity">
-        <PastActivity /> 
+        <PastActivity />
       </section>
     </div>
   );

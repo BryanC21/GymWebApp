@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Header from '../Header/Header';
 
 const GymInfo = () => {
     const [classes, setClasses] = useState([]);
@@ -20,7 +19,6 @@ const GymInfo = () => {
 
     return (
         <div className="">
-            <Header />
 
             {classes.length > 0 ? (
 

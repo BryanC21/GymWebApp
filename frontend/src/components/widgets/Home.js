@@ -14,6 +14,8 @@ import Schedule from "../Template/Schedule/Schedule";
 import Contact from "../Template/Contact/Contact";
 import Trainers from "../Template/Trainers/Trainers"
 
+import GymInfo from "./GymInfo";
+
 
 
 
@@ -32,6 +34,7 @@ const Home = () => {
             <Classes />
             <Schedule />
             <Trainers />
+            <GymInfo />
             {/* <Contact />
             <br />
             “Physical fitness is not only one of the most important keys to a healthy body, but it is also the basis of dynamic and creative intellectual activity.” - John F Kennedy

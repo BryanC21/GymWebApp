@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "../../styles/ActivityHistory.css";
 import {useSelector} from "react-redux";
 import axios from 'axios';
-import MemberHeader from '../Header/MemberHeader';
+import MemberHeader from '../Header/MemberHeader.js';
 import Container from 'react-bootstrap/Container';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -49,7 +49,6 @@ const ClassSchedule = () => {
 
     return (
         <div>
-            <MemberHeader />
             <Container>
                 <div className="App">
                     <FullCalendar
