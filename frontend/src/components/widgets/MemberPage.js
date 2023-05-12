@@ -1,14 +1,19 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import EnrollClass from "./EnrollClass";
 import React from "react";
-import LogHours from "./LogHours";
-import PastActivity from "./PastActivity.js";
-import ShowCurrentClass from "./ShowCurrentClass";
+
+import '../../styles/MemberPage.css'
 
 import MemberHeader from "../Header/MemberHeader";
-import Header from "../Header/Header";
+
+import Main_Member from "../Template/Main/Main_Member";
+import GymProgram from "../Template/GymProgram/GymProgram";
+import Member from "../Template/Member/Member";
+import Classes from "../Template/OurClasses/Classes";
+import Schedule from "../Template/Schedule/Schedule";
+import Trainers from "../Template/Trainers/Trainers";
+import Contact from '../Template/Contact/Contact';
 
 const MemberPage = () => {
   const info = useSelector((state) => state.userState);
@@ -25,8 +30,10 @@ const MemberPage = () => {
   }, [info, navigate]);
 
   return (
-    <div>
-      <Header />
+    <div className="MemberPage">
+
+    <Main_Member />
+      {/* <MemberHeader /> */}
 
       {/* Use IDs in the hrefs to connect with the corresponding sections */}
       {/* <section id="current-class">
