@@ -55,6 +55,35 @@ exports.getUserByID = (req, res) => {
     });
 }   
 
+exports.searchUserByName = (req, res) => {
+    const pattern = req.query.pattern;
+
+    let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
+    User.create_time, User.level_id, Level.name as level, Gender.name as gender \
+    FROM User, Level, Gender \
+    where User.level_id = level.id and User.gender_id = Gender.id and \
+    (User.first_name LIKE ? OR User.last_name LIKE ?)";
+
+    db.query(sql, [pattern, pattern], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No users found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    })
+}   
+
 exports.editUserByID = (req, res) => {
     const id = req.query.id
     const first_name = req.query.first_name

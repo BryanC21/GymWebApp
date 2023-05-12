@@ -2,14 +2,15 @@ const express = require("express");
 const userAuth = require("../controllers/auth/userAuth");
 const employeeAuth = require("../controllers/auth/employeeAuth");
 const {
-	getAllUsers, getUserByID, editUserByID, getAllLevels, getAllGenders, enrollUser, checkinUser, 
-	checkoutUser, getCheckinByUserId, removeUser, logHours
+	getAllUsers, getUserByID, searchUserByName, editUserByID, getAllLevels, getAllGenders, enrollUser, 
+	checkinUser, checkoutUser, getCheckinByUserId, removeUser, logHours
 } = require("../controllers/UserController");
 
 const router = express.Router();
 
 router.get("/getAllUsers", getAllUsers);
 router.get("/getUserByID", getUserByID);
+router.get("/searchUserByName", searchUserByName);
 router.get("/editUserByID", editUserByID);
 router.get("/getAllLevels", getAllLevels);
 router.get("/getAllGenders", getAllGenders);
