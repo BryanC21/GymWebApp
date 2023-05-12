@@ -77,7 +77,10 @@ exports.getClassesByGym = (req, res) => {
     FROM class \
     JOIN activity ON activity.id = class.activity_id \
     JOIN employee ON employee.id = class.employee_id \
-    JOIN gym ON gym.id = class.gym_id WHERE class.gym_id = ?;"
+    JOIN gym ON gym.id = class.gym_id \
+    LEFT JOIN (SELECT COUNT(*) as count, class_id FROM enroll GROUP BY class_id) as enroll ON class.id = enroll.class_id \
+    WHERE class.gym_id = ? \
+    GROUP BY class.id, activity.id, employee.id, gym.id, employee.first_name, employee.last_name, gym.address;"
     db.query(sql, [gym_id], (err, results) => {
         if (err) {
             return res.status(401).send({

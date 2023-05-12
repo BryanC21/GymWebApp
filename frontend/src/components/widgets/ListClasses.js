@@ -30,7 +30,7 @@ const ListClasses = () => {
                         <tr>
                             <th>Class ID</th>
                             <th>Activity Name</th>
-                            <th>Capacity</th>
+                            <th>Available Spots</th>
                             <th>Duration</th>
                             <th>Employee Name</th>
                             <th>Gym Address</th>

@@ -8,7 +8,7 @@ const GymInfo = () => {
 
     useEffect(() => {
         let urlPath = process.env.REACT_APP_API_URL || 'http://localhost:5002';
-        axios.get(urlPath + '/api/class/getAllGyms')
+        axios.get(urlPath + '/api/gym/getAllGyms')
             .then(res => {
                 console.log(res.data.results);
                 setClasses(res.data.results);
@@ -16,8 +16,6 @@ const GymInfo = () => {
             .catch(err => {
                 console.log(err);
             })
-
-
     }, []);
 
     return (
@@ -29,15 +27,13 @@ const GymInfo = () => {
                 <table>
                     <thead>
                         <tr>
-                            <th>Gym ID</th>
                             <th>Gym Address</th>
                         </tr>
                     </thead>
                     <tbody>
                         {classes.map((item) => {
                             return <tr key={item.id}>
-                                <td> {item.id}</td>
-                                <td> {item.address}</td>
+                                <td><a href={"/gymDetail?gym_id="+item.id}>{item.address}, {item.city}, {item.state}</a></td>
                             </tr>
                         })}
                     </tbody>

@@ -9,6 +9,7 @@ import MemberPage from './components/widgets/MemberPage';
 
 import Login from './components/widgets/Login';
 import GymInfo from './components/widgets/GymInfo';
+import GymDetail from './components/widgets/GymDetail';
 import ShowCurrentClass from './components/widgets/ClassSchedule';
 import LogHours from './components/widgets/LogHours';
 import EnrollClass from './components/widgets/EnrollClass';
@@ -32,6 +33,7 @@ function App() {
 					<Route path="/Login" element={<Login />} />
 					<Route path="/Member" element={<MemberPage />} />
 					<Route path="/Gym" element={<GymInfo />} />
+					<Route path="/GymDetail" element={<GymDetail />} />
 					<Route path="/ShowCurrentClass" element={<ShowCurrentClass />} />
 					<Route path="/LogHours" element={<LogHours />} />
 					<Route path="/EnrollClass" element={<EnrollClass />} />
