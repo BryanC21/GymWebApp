@@ -21,12 +21,6 @@ const MemberPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    /*if (info.userid === 0 || info.userid === undefined) {
-            alert("Please login first");
-            navigate("/Home");
-        }*/
-    console.log("TOKEN: ", info);
-    console.log("USER: ", user);
   }, [info, navigate]);
 
   return (
