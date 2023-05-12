@@ -11,6 +11,7 @@ import Icon from "../Template/GlobalComponents/Icon";
 import scheduleBg from "../Template/Image/scheduleBg.jpg";
 import Container from "../Template/GlobalComponents/Container";
 import MemberLoginButton from '../Template/GlobalComponents/MemberLoginButton';
+import { Button } from "react-bootstrap";
 
 
 
@@ -69,7 +70,7 @@ const EmployeeLogin = () => {
                 </h3>
                 <br />
                 <h3>   
-                    <MemberLoginButton onClick={handleLogin}> Login </MemberLoginButton>
+                    <Button onClick={handleLogin}> Login </Button>
                 </h3>
             </form>
             </Container>
