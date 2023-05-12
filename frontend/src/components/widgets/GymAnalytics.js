@@ -93,7 +93,7 @@ const GymAnalytics = ({ gymId }) => {
     }, [gymId, baseURL]);
 
     return (
-        <div>
+        <div className='analytics'>
             <h1>Gym Analytics</h1>
             <h2>Gyms</h2>
             <div>

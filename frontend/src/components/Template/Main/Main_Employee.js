@@ -5,12 +5,13 @@ import Video from "./Video";
 import Overlay from "./Overlay";
 import Info from "./Info";
 import Nav_Employee from "../Navbar/Nav_Employee";
+import ListClasses from "../../widgets/ListClasses";
 
 const Main_Employee = () => (
   <section css={styles} className="main_employee" id="home">
     <Overlay />
     <Nav_Employee />
-    <Info />
+    <ListClasses />
     <Video />
   </section>
 );

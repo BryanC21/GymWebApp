@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { jsx, css } from "@emotion/core";
 import ListClasses from "./ListClasses";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -11,6 +13,7 @@ import Header from "../Header/Header";
 import ListActivities from "./ListActivities";
 import CheckIn from "./CheckIn";
 import CheckOut from "./CheckOut";
+import Main_Employee from "../Template/Main/Main_Employee";
 
 const EmployeePage = () => {
 
@@ -28,9 +31,10 @@ const EmployeePage = () => {
     }, [info, navigate, user]);
 
     return (
-        <div>
-            <Header />
-            <h1 className="text-center">Employee Page</h1>
+        <div className="employee">
+
+            <Main_Employee />
+
             <div className="container-flex">
                 <ListClasses />
                 <AddClasses />
@@ -43,5 +47,6 @@ const EmployeePage = () => {
         </div>
     );
 };
+
 
 export default EmployeePage;

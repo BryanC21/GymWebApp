@@ -48,11 +48,6 @@ const PastActivity = () => {
             <span>Past Activity</span>
           </h2>
           <Icon />
-          <p>
-            Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra{" "}
-            <br />
-            ipsum dolor, ultricies fermentum massa consequat eu.
-          </p>
           <Container>
 
             <table>

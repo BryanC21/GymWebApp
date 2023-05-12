@@ -68,7 +68,6 @@ const LogHours = () => {
     return (
         <div>
 
-
             <div>
                 <section css={styles} className="trainers" id="trainers">
                     <h2>

@@ -7,12 +7,12 @@ import Button from "../GlobalComponents/Button";
 const LinksContainer_Employee = ({ hidden }) => {
   return (
     <div css={styles} className={(hidden ? "hidden" : "") + " linksContainer"}>
-      <Link name="HOME" linkTo="#home" />
-      <Link name="ABOUT" linkTo="#trainers" />
-      <Link name="CLASSES" linkTo="#ourClasses" />
-      <Link name="SCHEDULES" linkTo="#schedule" />
-      <Link name="CONTACT" linkTo="#contact" />
-      <Button text="SIGN UP" />
+      <Link name="LIST CLASSES" linkTo="" />
+      <Link name="ADD A CLASS" linkTo="#add-classes" />
+      <Link name="REGISTER MEMBER" linkTo="#register" />
+      <Link name="ANALYTICS" linkTo="#analytics" />
+      <Link name="ACTIVITIES" linkTo="#list-activities" />
+      <Link name="CHECK IN/OUT" linkTo="#check-in" />
     </div>
   );
 };

@@ -20,7 +20,7 @@ const ListActivities = () => {
     }, []);
 
     return (
-        <div className="">
+        <div className="list-activities">
             <h2 className="text-center">List of activities</h2>
 
             {classes.length > 0 ? (

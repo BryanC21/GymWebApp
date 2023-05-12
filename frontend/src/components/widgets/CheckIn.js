@@ -10,7 +10,7 @@ const CheckIn = () => {
 
     const checkInUser = async (userId, employeeId) => {
         try {
-            const res = await axios.get( baseURL +'/api/user/checkinUser', {
+            const res = await axios.get(baseURL + '/api/user/checkinUser', {
                 params: {
                     user_id: userId,
                     employee_id: employeeId,
@@ -32,7 +32,7 @@ const CheckIn = () => {
     };
 
     return (
-        <div>
+        <div className='check-in'>
             <h2>Check In</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="userId">User ID:</label>
