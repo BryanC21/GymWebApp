@@ -1,6 +1,6 @@
 import React from 'react'
 import './../styles/HomeDownStatic.css'
-import ImgAsset from '../public'
+import ImgAsset from '../../public'
 export default function HomeDownStatic() {
 	return (
 		<div className='HomeDownStatic_HomeDownStatic'>
