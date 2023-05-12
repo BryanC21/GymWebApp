@@ -52,3 +52,27 @@ exports.getGymById = (req, res) => {
     }
     )
 }
+
+exports.removeGym = (req, res) => {
+    const gym_id = parseInt(req.query.gym_id);
+
+    let sql = "DELTE FROM Gym WHERE id = ?"
+
+    db.query(sql, [gym_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No Gym with id"
+            })
+        }
+        return res.status(200).send({
+            status: "Success"
+        })
+    })
+}

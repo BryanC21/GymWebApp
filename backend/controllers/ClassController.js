@@ -204,3 +204,27 @@ exports.enrollClass = (req, res) => {
         })
     })
 }
+
+exports.removeClass = (req, res) => {
+    const class_id = parseInt(req.query.class_id);
+
+    let sql = "DELTE FROM Class WHERE id = ?"
+
+    db.query(sql, [class_id], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No record with id"
+            })
+        }
+        return res.status(200).send({
+            status: "Success"
+        })
+    })
+}

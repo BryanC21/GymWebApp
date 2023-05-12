@@ -2,7 +2,8 @@ const express = require("express");
 const employeeAuth = require("../controllers/auth/employeeAuth");
 const userAuth = require("../controllers/auth/userAuth");
 const {
-    getAllClasses, getClassById, getClassesByGym, addActivity, addClass, enrollClass, getClassesByUserId
+    getAllClasses, getClassById, getClassesByGym, addActivity, addClass, enrollClass, getClassesByUserId,
+    removeClass
 } = require("../controllers/ClassController");
 
 const router = express.Router();
@@ -14,5 +15,6 @@ router.get("/addActivity", employeeAuth, addActivity);
 router.get("/addClass", employeeAuth, addClass);
 router.get("/enrollClass", userAuth, enrollClass);
 router.get("/getClassesByUserId", userAuth, getClassesByUserId);
+router.get("/removeClass", employeeAuth, removeClass);
 
 module.exports = router;
