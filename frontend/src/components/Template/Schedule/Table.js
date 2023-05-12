@@ -18,10 +18,10 @@ const Table = ({ day }) => {
               2:00PM - 3:30PM
             </span>
           </td>
-          <td>William G. Stewart</td>
+          <td>Nick Lin</td>
         </tr>
         <tr>
-          <td>Muscle Training</td>
+          <td>Weight Training</td>
           <td>
             <span className={day === "Friday" ? "" : "hidden"}>
               10:00AM - 11:30AM
@@ -32,7 +32,7 @@ const Table = ({ day }) => {
               2:00PM - 3:30PM
             </span>
           </td>
-          <td>Boyd C. Harris</td>
+          <td>Devi Priya Ravi</td>
         </tr>
         <tr>
           <td>Body Building </td>
@@ -46,10 +46,10 @@ const Table = ({ day }) => {
               2:00PM - 3:30PM
             </span>
           </td>
-          <td>Boyd C. Harris</td>
+          <td>Bryan Caldera</td>
         </tr>
         <tr>
-          <td>Yoga Training Class </td>
+          <td>Professional Stretching </td>
           <td>
             <span className={day === "Wednesday" ? "" : "hidden"}>
               10:00AM - 11:30AM
@@ -60,7 +60,7 @@ const Table = ({ day }) => {
               2:00PM - 3:30PM
             </span>
           </td>
-          <td>Hector T. Daigle</td>
+          <td>Abraham Kong</td>
         </tr>
         <tr>
           <td>Advanced Training </td>
@@ -74,7 +74,7 @@ const Table = ({ day }) => {
               2:00PM - 3:30PM
             </span>
           </td>
-          <td>Bret D. Bowers</td>
+          <td>Gopinath Vinodh</td>
         </tr>
       </tbody>
     </table>
@@ -83,7 +83,7 @@ const Table = ({ day }) => {
 
 const styles = css`
   border-collapse: collapse;
-  color: #fff;
+  color: #000000;
   margin: 30px 0 0 0;
   td,
   th {

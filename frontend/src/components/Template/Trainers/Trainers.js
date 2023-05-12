@@ -7,6 +7,7 @@ import Container from "../GlobalComponents/Container";
 import TrainerOneBg from "../Image/trainerOne.jpg";
 import TrainerTwoBg from "../Image/trainerTwo.jpg";
 import TrainerThreeBg from "../Image/trainerThree.jpg";
+import TrainerFourBg from "../Image/trainerTwo.jpg";
 
 const Trainers = () => (
   <section css={styles} className="trainers" id="trainers">
@@ -22,21 +23,27 @@ const Trainers = () => (
     <Container>
       <TrainerCard
         title="Strength Trainer"
-        name="Bret D. Bowers"
+        name="Nick L."
         desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
         img={TrainerOneBg}
       />
       <TrainerCard
         title="Muscle Trainer"
-        name="Hector T. Daigl"
+        name="Devi Priya R."
         desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
         img={TrainerTwoBg}
       />
       <TrainerCard
         title="Power Trainer"
-        name="Paul D. Newman"
+        name="Bryan C."
         desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
         img={TrainerThreeBg}
+      />
+      <TrainerCard
+        title="Professional Stretcher"
+        name="Abraham K."
+        desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
+        img={TrainerFourBg}
       />
     </Container>
   </section>

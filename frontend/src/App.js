@@ -16,6 +16,8 @@ import EnrollClass from './components/widgets/EnrollClass';
 import PastActivity from './components/widgets/PastActivity';
 import EmployeeLogin from './components/widgets/EmployeeLogin';
 import MemberLogin from './components/widgets/MemberLogin';
+import Trainers from './components/Template/Trainers/Trainers';
+import Classes from './components/Template/OurClasses/Classes';
 
 
 
@@ -41,6 +43,7 @@ function App() {
 					<Route path="/PastActivity" element={<PastActivity />} />
 					<Route path="/EmployeeLogIn" element={<EmployeeLogin />} />
 					<Route path="/MemberLogIn" element={<MemberLogin />} />
+					
 
 				</Routes>
 			</BrowserRouter>

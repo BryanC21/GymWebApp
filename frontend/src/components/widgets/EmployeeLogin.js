@@ -46,7 +46,7 @@ const EmployeeLogin = () => {
 
         <section css={styles} className="schedule" id="schedule">
             <h2>
-                <span>Member Login</span>
+                <span>Employee Login</span>
             </h2>
             <Icon />
             <Container>
