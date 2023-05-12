@@ -89,7 +89,7 @@ exports.getClassCountByGymId = (req, res) => {
 
     let date = "date(Class.start_time)";
     if (interval == "week") {
-        date = "DATE(DATE_SUB(start_time, INTERVAL WEEKDAY(start_time) DAY))"
+        date = "DATE(DATE_SUB(Class.start_time, INTERVAL WEEKDAY(Class.start_time) DAY))"
     }
 
     let sql = "SELECT " + date + " as time,  \
