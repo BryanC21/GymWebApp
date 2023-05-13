@@ -148,7 +148,7 @@ exports.getClassesByUserId = (req, res) => {
     JOIN Activity ON Class.activity_id = Activity.id \
     JOIN Gym ON Class.gym_id = Gym.id \
     JOIN Employee ON Class.employee_id = Employee.id \
-    LEFT JOIN (SELECT class_id, COUNT(*) as count FROM Enroll WHERE user_id = ? GROUP BY class_id) as Enroll ON Class.id = enroll.class_id \
+    LEFT JOIN (SELECT class_id, COUNT(*) as count FROM Enroll WHERE user_id = ? GROUP BY class_id) as Enroll ON Class.id = Enroll.class_id \
     WHERE Enroll.class_id = Class.id and Class.start_time > CURRENT_TIMESTAMP();"
     db.query(sql, [user_id], (err, results) => {
         if (err) {
