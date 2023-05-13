@@ -1,8 +1,8 @@
 const db = require("../db_connection");
 
 exports.getAllActivity = (req, res) => {
-    let sql = "SELECT activity.id, activity.name \
-    FROM activity"; // \
+    let sql = "SELECT Activity.id, Activity.name \
+    FROM Activity"; // \
 
     db.query(sql, (err, results) => {
         if (err) {
@@ -27,8 +27,8 @@ exports.getAllActivity = (req, res) => {
 exports.getActivityById = (req, res) => {
     const activity_id = parseInt(req.query.activity_id)
 
-    let sql = "SELECT activity.id, activity.name \
-    FROM activity WHERE activity.id = ?";
+    let sql = "SELECT Activity.id, Activity.name \
+    FROM Activity WHERE Activity.id = ?";
 
     db.query(sql, [activity_id], (err, results) => {
         if (err) {

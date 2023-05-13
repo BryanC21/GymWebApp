@@ -140,16 +140,16 @@ exports.getClassById = (req, res) => {
 exports.getClassesByUserId = (req, res) => {
     const user_id = parseInt(req.query.user_id);
 
-    let sql = "SELECT class.id, activity.id as activity_id, activity.name as activity_name, \
-    class.employee_id, class.gym_id, class.start_time, class.duration, class.capacity - IFNULL(enroll.count, 0) as capacity, \
-    class.capacity as full_capacity, \
-    employee.first_name, employee.last_name, gym.address \
-    FROM class \
-    JOIN activity ON class.activity_id = activity.id \
-    JOIN gym ON class.gym_id = gym.id \
-    JOIN employee ON class.employee_id = employee.id \
-    LEFT JOIN (SELECT class_id, COUNT(*) as count FROM enroll WHERE user_id = ? GROUP BY class_id) as enroll ON class.id = enroll.class_id \
-    WHERE enroll.class_id = class.id and class.start_time > CURRENT_TIMESTAMP();"
+    let sql = "SELECT Class.id, Activity.id as activity_id, Activity.name as activity_name, \
+    Class.employee_id, Class.gym_id, Class.start_time, Class.duration, Class.capacity - IFNULL(Enroll.count, 0) as capacity, \
+    Class.capacity as full_capacity, \
+    Employee.first_name, Employee.last_name, gym.address \
+    FROM Class \
+    JOIN Activity ON Class.activity_id = Activity.id \
+    JOIN gym ON Class.gym_id = gym.id \
+    JOIN Employee ON Class.employee_id = Employee.id \
+    LEFT JOIN (SELECT class_id, COUNT(*) as count FROM Enroll WHERE user_id = ? GROUP BY class_id) as Enroll ON Class.id = enroll.class_id \
+    WHERE Enroll.class_id = Class.id and Class.start_time > CURRENT_TIMESTAMP();"
     db.query(sql, [user_id], (err, results) => {
         if (err) {
             return res.status(401).send({

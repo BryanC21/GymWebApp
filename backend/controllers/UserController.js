@@ -5,7 +5,7 @@ exports.getAllUsers = (req, res) => {
     let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
     User.create_time, User.level_id, Level.name as level, Gender.name as gender \
     FROM User, Level, Gender \
-    where User.level_id = level.id and User.gender_id = Gender.id";
+    where User.level_id = Level.id and User.gender_id = Gender.id";
 
     db.query(sql, (err, results) => {
         if (err) {
@@ -33,7 +33,7 @@ exports.getUserByID = (req, res) => {
     let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
     User.create_time, User.level_id, Level.name as level, Gender.name as gender \
     FROM User, Level, Gender \
-    where User.id = ? and User.level_id = level.id and User.gender_id = Gender.id";
+    where User.id = ? and User.level_id = Level.id and User.gender_id = Gender.id";
 
     db.query(sql, [user_id], (err, results) => {
         if (err) {
@@ -61,7 +61,7 @@ exports.searchUserByName = (req, res) => {
     let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
     User.create_time, User.level_id, Level.name as level, Gender.name as gender \
     FROM User, Level, Gender \
-    where User.level_id = level.id and User.gender_id = Gender.id and \
+    where User.level_id = Level.id and User.gender_id = Gender.id and \
     (User.first_name LIKE ? OR User.last_name LIKE ?)";
 
     db.query(sql, [pattern, pattern], (err, results) => {
