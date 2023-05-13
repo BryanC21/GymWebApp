@@ -27,6 +27,8 @@ const GymInfo = () => {
             <section css={styles} className="schedule" id="schedule">
             <Container>
 
+            <h1 className= "text-white text-center">Locations</h1>
+
             {classes.length > 0 ? (
 
                 <table style={{color: 'white'}}>

@@ -11,6 +11,7 @@ import Classes from "../Template/OurClasses/Classes";
 import Schedule from "../Template/Schedule/Schedule";
 import Trainers from "../Template/Trainers/Trainers"
 import ListClassesSimple from "./ListClassesSimple";
+import GymInfo from "./GymInfo";
 
 
 
@@ -30,6 +31,9 @@ const Home = () => {
             {/*
             <Classes />
             <Schedule />*/}
+            <div className="d-flex align-items-center justify-content-center h-100 bg-dark p-5">
+                <GymInfo > </GymInfo>
+            </div>
             <ListClassesSimple />
             <Trainers />
         </div>
