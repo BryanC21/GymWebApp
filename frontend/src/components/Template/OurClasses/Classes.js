@@ -7,7 +7,7 @@ import Results from "./Results";
 import Container from "../GlobalComponents/Container";
 
 const Classes = ({ text }) => {
-  const [training, setTraining] = useState("FirstClass");
+  const [training, setTraining] = useState("Fitness Class");
 
   return (
     <section css={styles} className="ourClasses" id="ourClasses">

@@ -2,7 +2,6 @@
 import { jsx, css } from "@emotion/core";
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import "../../styles/ListClasses.css"
 import Icon from "../Template/GlobalComponents/Icon";
 import Container from "../Template/GlobalComponents/Container";
 import Nav_Employee from "../Template/Navbar/Nav_Employee";

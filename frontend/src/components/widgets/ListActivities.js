@@ -2,7 +2,6 @@
 import { jsx, css } from "@emotion/core";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "../../styles/ListClasses.css"
 
 import Icon from "../Template/GlobalComponents/Icon";
 import scheduleBg from "../Template/Image/scheduleBg.jpg";

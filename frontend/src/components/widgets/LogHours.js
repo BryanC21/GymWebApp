@@ -2,7 +2,6 @@
 import { jsx, css } from "@emotion/core";
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
-import '../../styles/LogHours.css';
 import axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
 

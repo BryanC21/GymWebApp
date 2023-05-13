@@ -5,7 +5,6 @@ import Header from '../Header/Header';
 import Container from 'react-bootstrap/Container';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import "../../styles/ActivityHistory.css";
 
 const GymDetail = () => {
     const [gym, setGym] = useState({});
@@ -16,7 +15,7 @@ const GymDetail = () => {
 
     useEffect(() => {
         let urlPath = process.env.REACT_APP_API_URL || 'http://localhost:5002';
-        axios.get(urlPath + '/api/gym/getGymById', {params:{gym_id:gym_id}})
+        axios.get(urlPath + '/api/gym/getGymById', { params: { gym_id: gym_id } })
             .then(res => {
                 console.log(res.data.results);
                 setGym(res.data.results);
@@ -24,7 +23,7 @@ const GymDetail = () => {
             .catch(err => {
                 console.log(err);
             })
-        axios.get(urlPath + '/api/class/getClassesByGym', {params:{gym_id:gym_id}})
+        axios.get(urlPath + '/api/class/getClassesByGym', { params: { gym_id: gym_id } })
             .then(res => {
                 console.log(res.data.results);
                 setClasses(res.data.results);
@@ -41,7 +40,7 @@ const GymDetail = () => {
                 id: classobj.id,
                 title: classobj.activity_name + " " + classobj.duration + " minutes",
                 start: classobj.start_time.replace(".000Z", ""),
-                end: new Date(new Date(classobj.start_time).getTime() + classobj.duration*60000).toISOString().replace(".000Z", ""),
+                end: new Date(new Date(classobj.start_time).getTime() + classobj.duration * 60000).toISOString().replace(".000Z", ""),
             };
             eventList.push(event);
         });
@@ -91,25 +90,25 @@ const GymDetail = () => {
                         </div>
 
                     )
-                }
+                    }
                 </div>
             )
-            : 
-            <Container>
-                <div className="App">
-                    <FullCalendar
-                        defaultView="dayGridMonth"
-                        header={{
-                            left: "prev,next",
-                            center: "title",
-                            right: "dayGridMonth,timeGridWeek,timeGridDay"
-                        }}
-                        themeSystem="Simplex"
-                        plugins={[dayGridPlugin]}
-                        events={format(classes)}
-                    />
-                </div>
-            </Container>
+                :
+                <Container>
+                    <div className="App">
+                        <FullCalendar
+                            defaultView="dayGridMonth"
+                            header={{
+                                left: "prev,next",
+                                center: "title",
+                                right: "dayGridMonth,timeGridWeek,timeGridDay"
+                            }}
+                            themeSystem="Simplex"
+                            plugins={[dayGridPlugin]}
+                            events={format(classes)}
+                        />
+                    </div>
+                </Container>
             }
         </div>
     );
