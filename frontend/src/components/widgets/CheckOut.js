@@ -59,7 +59,7 @@ const CheckOut = () => {
                 <Container>
 
                     <form onSubmit={handleSubmit}>
-                        <label htmlFor="checkin_id">User ID:</label>
+                        <label style={{color: 'white'}} htmlFor="checkin_id">User ID:</label>
                         <input
                             type="text"
                             id="checkin_id"

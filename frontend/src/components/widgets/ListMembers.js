@@ -8,12 +8,12 @@ import scheduleBg from "../Template/Image/scheduleBg.jpg";
 import Container from "../Template/GlobalComponents/Container";
 
 
-const ListActivities = () => {
+const ListMembers = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
         let urlPath = process.env.REACT_APP_API_URL || 'http://localhost:5002';
-        axios.get(urlPath + '/api/activity/getAllActivity')
+        axios.get(urlPath + '/api/user/getAllUsers')
             .then(res => {
                 console.log(res.data.results);
                 setClasses(res.data.results);
@@ -30,7 +30,7 @@ const ListActivities = () => {
 
             <section css={styles} className="schedule" id="schedule">
                 <h2>
-                    List of activities  <span></span>
+                    List of Members  <span></span>
                 </h2>
                 <Icon />
                 <Container>
@@ -43,7 +43,7 @@ const ListActivities = () => {
                                         <div className="col-md-4" key={activity.id}>
                                             <div className="card">
                                                 <div className="card-body">
-                                                    <h5 className="card-title">{activity.name + " - ID: " + activity.id}</h5>
+                                                    <h5 className="card-title">{activity.first_name + " " + activity.last_name + " - ID: " + activity.id + " - " + activity.level}</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,4 +109,4 @@ const styles = css`
   }
 `;
 
-export default ListActivities;
+export default ListMembers;

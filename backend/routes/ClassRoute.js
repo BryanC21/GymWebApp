@@ -11,11 +11,11 @@ const router = express.Router();
 router.get("/getAllClasses", getAllClasses);
 router.get("/getClassById", getClassById);
 router.get("/getClassesByGym", getClassesByGym);
-router.get("/addActivity", employeeAuth, addActivity);
-router.get("/addClass", employeeAuth, addClass);
-router.get("/enrollClass", userAuth, enrollClass);
-router.get("/getClassesByUserId", userAuth, getClassesByUserId);
-router.get("/removeClass", employeeAuth, removeClass);
-router.get("/getAllClassesExceptUserId", userAuth, getAllClassesExceptUserId);
+router.get("/addActivity", addActivity);
+router.get("/addClass", addClass);
+router.get("/enrollClass", enrollClass);
+router.get("/getClassesByUserId", getClassesByUserId);
+router.get("/removeClass", removeClass);
+router.get("/getAllClassesExceptUserId", getAllClassesExceptUserId);
 
 module.exports = router;

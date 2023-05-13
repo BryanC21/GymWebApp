@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get("/getAllActivity", getAllActivity);
 router.get("/getActivityById", getActivityById);
-router.get("/getActivityByInterval", userAuth, getActivityByInterval);
-router.get("/removeActivity", employeeAuth, removeActivity);
+router.get("/getActivityByInterval", getActivityByInterval);
+router.get("/removeActivity", removeActivity);
 
 module.exports = router;

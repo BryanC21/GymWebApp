@@ -8,10 +8,9 @@ import Icon from "../Template/GlobalComponents/Icon";
 import Container from "../Template/GlobalComponents/Container";
 
 
-const RegisterMember = () => {
+const RegisterMemberTrial = () => {
 
   let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
-
   const [genderValue, setGenderValue] = useState('');
 
   const [user, setUser] = useState({
@@ -22,6 +21,7 @@ const RegisterMember = () => {
     email: '',
     phone: '',
     password: '',
+    length: '',
   });
 
   const handleChange = (e) => {
@@ -35,6 +35,7 @@ const RegisterMember = () => {
     setGenderValue(selectedText);
     setUser({ ...user, gender_id: e.target.value });
   };
+
 
   const handleSubmit = async (e) => {
     //e.preventDefault();
@@ -58,7 +59,7 @@ const RegisterMember = () => {
       <div>
         <section css={styles} className="trainers" id="trainers">
           <h2>
-            <span>User Account Form</span>
+            <span>Enroll User In Trial</span>
           </h2>
           <Icon />
           <Container>
@@ -78,7 +79,6 @@ const RegisterMember = () => {
                 />
                 <br />
                 <br />
-
                 <label>Select Gender: </label>
                 <select value={user.gender_id} onChange={handleDropdownChange}>
                   <option value="">-- Select --</option>
@@ -87,7 +87,8 @@ const RegisterMember = () => {
                 </select>
                 <br />
                 <br />
-                {/*<input
+                {/*
+                <input
                   name="level_id"
                   placeholder="Level ID"
                   value={user.level_id}
@@ -95,7 +96,7 @@ const RegisterMember = () => {
                 />
                 <br />
                 <br />
-  */}
+                */}
                 <input
                   name="email"
                   placeholder="Email"
@@ -116,6 +117,15 @@ const RegisterMember = () => {
                   placeholder="Password"
                   value={user.password}
                   onChange={handleChange}
+                />
+                <br />
+                <br />
+                <input
+                    name="length"
+                    type="text"
+                    placeholder="Length (days)"
+                    value={user.length}
+                    onChange={handleChange}
                 />
                 <br />
                 <br />
@@ -180,4 +190,4 @@ const styles = css`
   }
 `;
 
-export default RegisterMember;
+export default RegisterMemberTrial;

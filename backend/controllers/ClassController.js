@@ -175,7 +175,7 @@ exports.getClassesByUserId = (req, res) => {
 exports.addActivity = (req, res) => {
     const activity_name = req.query.activity_name;
 
-    let sql = "INSERT INTO Activity (name) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    let sql = "INSERT INTO Activity (name) VALUES (?)";
 
     db.query(sql, [activity_name], (err, results) => {
         if (err) {

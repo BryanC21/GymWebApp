@@ -8,7 +8,7 @@ import Container from "../Template/GlobalComponents/Container";
 
 const CheckIn = () => {
     const [userId, setUserId] = useState('');
-    const [employeeId, setEmployeeId] = useState('');
+    const [employeeId, setEmployeeId] = useState('1');
 
     let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
 
@@ -54,13 +54,13 @@ const CheckIn = () => {
                             value={userId}
                             onChange={(e) => setUserId(e.target.value)}
                         />
-                        <label htmlFor="employeeId">Employee ID:</label>
+                        {/*<label htmlFor="employeeId">Employee ID:</label>
                         <input
                             type="text"
                             id="employeeId"
                             value={employeeId}
                             onChange={(e) => setEmployeeId(e.target.value)}
-                        />
+                        />*/}
                         <button type="submit">Check In</button>
                     </form>
                 </Container>
