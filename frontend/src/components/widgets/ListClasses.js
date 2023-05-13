@@ -48,7 +48,7 @@ const ListClasses = () => {
                             </thead>
                             <tbody>
                                 {classes.map((item) => {
-                                    return <tr key={item.id}>
+                                    return <tr key={item.id} style={{ color: 'white' }}>
                                         <td> {item.activity_name}</td>
                                         <td> {item.capacity}/{item.full_capacity}</td>
                                         <td> {item.duration}</td>
