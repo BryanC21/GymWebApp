@@ -8,7 +8,6 @@ const Output = ({ title, info, img }) => (
     <img src={img} alt="class" />
     <h2>{title}</h2>
     <p>{info}</p>
-    <Button text="VIEW SCHEDULE" />
   </div>
 );
 

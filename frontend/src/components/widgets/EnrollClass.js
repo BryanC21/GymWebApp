@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from "@emotion/core";
 import React, { useState, useEffect } from 'react';
-import '../../styles/AddClasses.css';
 import axios from 'axios';
 import { useSelector } from "react-redux";
 
@@ -59,7 +58,7 @@ const EnrollClass = () => {
 
 
     return (
-        <div>
+        <div className="enroll-classes">
             <section css={styles} className="schedule" id="schedule">
                 <h2>
                     List of Classes  <span></span>

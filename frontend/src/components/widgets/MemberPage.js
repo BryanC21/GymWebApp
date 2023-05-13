@@ -3,16 +3,12 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 
-import '../../styles/MemberPage.css'
-
-import MemberHeader from "../Header/MemberHeader.js";
 import ShowCurrentClass from "./ShowCurrentClass";
 import LogHours from "./LogHours";
 import EnrollClass from "./EnrollClass";
 import PastActivity from "./PastActivity";
 
 import Main_Member from "../Template/Main/Main_Member";
-import Nav_Member from "../Template/Navbar/Nav_Member";
 
 const MemberPage = () => {
   const info = useSelector((state) => state.userState);

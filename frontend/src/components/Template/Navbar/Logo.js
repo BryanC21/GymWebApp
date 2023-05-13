@@ -3,6 +3,7 @@ import { jsx, css } from "@emotion/core";
 import React from "react";
 
 const Logo = () => (
+
   <h2 css={styles}>
     Tech <span>Fit</span>
   </h2>

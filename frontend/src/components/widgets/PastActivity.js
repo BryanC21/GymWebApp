@@ -2,7 +2,6 @@
 import { jsx, css } from "@emotion/core";
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
-import '../../styles/LogHours.css';
 import axios from 'axios';
 
 import Icon from "../Template/GlobalComponents/Icon";
@@ -48,11 +47,6 @@ const PastActivity = () => {
             <span>Past Activity</span>
           </h2>
           <Icon />
-          <p>
-            Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra{" "}
-            <br />
-            ipsum dolor, ultricies fermentum massa consequat eu.
-          </p>
           <Container>
 
             <table>
