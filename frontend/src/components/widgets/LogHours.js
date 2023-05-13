@@ -33,7 +33,6 @@ const LogHours = () => {
                     setActivityId(list[0].id);
                 }
                 setActivityList(list);
-                alert('Hours added successful');
             })
             .catch(err => {
                 console.log(err);
@@ -56,6 +55,7 @@ const LogHours = () => {
             .then(res => {
                 console.log(res);
                 setSuccess(true);
+                alert('Hours added successful');
             })
             .catch(err => {
                 console.log(err);
