@@ -5,7 +5,7 @@ exports.getAllEmployees = (req, res) => {
     let sql = "SELECT Employee.id, Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
     Employee.create_time, Employee.level_id, Employee.gym_id, Level.name as level, Gender.name as gender \
     FROM Employee, Level, Gender \
-    where Employee.level_id = level.id and Employee.gender_id = Gender.id"
+    where Employee.level_id = Level.id and Employee.gender_id = Gender.id"
 
     db.query(sql, (err, results) => {
         if (err) {
@@ -33,7 +33,7 @@ exports.getAllEmployeesByGym = (req, res) => {
     let sql = "SELECT Employee.id, Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
     Employee.create_time, Employee.level_id, Employee.gym_id, Level.name as level, Gender.name as gender \
     FROM Employee, Level, Gender \
-    where Employee.level_id = level.id and Employee.gender_id = Gender.id and Employee.gym_id = ?"
+    where Employee.level_id = Level.id and Employee.gender_id = Gender.id and Employee.gym_id = ?"
 
     db.query(sql, [gym_id], (err, results) => {
         if (err) {
@@ -61,7 +61,7 @@ exports.getEmployeeByID = (req, res) => {
     let sql = "SELECT Employee.id, Employee.first_name, Employee.last_name, Employee.phone, Employee.email, Employee.gender_id, \
     Employee.create_time, Employee.level_id, Employee.gym_id, Level.name as level, Gender.name as gender \
     FROM Employee, Level, Gender \
-    where Employee.id = ? and Employee.level_id = level.id and Employee.gender_id = Gender.id";
+    where Employee.id = ? and Employee.level_id = Level.id and Employee.gender_id = Gender.id";
 
     db.query(sql, [employee_id], (err, results) => {
         if (err) {
