@@ -10,6 +10,7 @@ import Main from "../Template/Main/Main";
 import Classes from "../Template/OurClasses/Classes";
 import Schedule from "../Template/Schedule/Schedule";
 import Trainers from "../Template/Trainers/Trainers"
+import ListClassesSimple from "./ListClassesSimple";
 
 
 
@@ -26,8 +27,10 @@ const Home = () => {
     return (
         <div>
             <Main />
+            {/*
             <Classes />
-            <Schedule />
+            <Schedule />*/}
+            <ListClassesSimple />
             <Trainers />
         </div>
     );

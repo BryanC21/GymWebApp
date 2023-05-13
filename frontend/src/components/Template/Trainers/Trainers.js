@@ -23,25 +23,25 @@ const Trainers = () => (
       <TrainerCard
         title="Backend Engineer"
         name="Nick L."
-        desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
+        desc=""
         img={TrainerOneBg}
       />
       <TrainerCard
         title="Backend Engineer"
         name="Devi Priya R."
-        desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
+        desc=""
         img={TrainerTwoBg}
       />
       <TrainerCard
         title="Full Stack Engineer"
         name="Bryan C."
-        desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
+        desc=""
         img={TrainerThreeBg}
       />
       <TrainerCard
         title="Frontend and UI Engineer"
         name="Abraham K."
-        desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
+        desc=""
         img={TrainerFourBg}
       />
     </Container>

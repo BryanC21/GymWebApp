@@ -6,7 +6,7 @@ import Icon from "../Template/GlobalComponents/Icon";
 import Container from "../Template/GlobalComponents/Container";
 import Nav_Employee from "../Template/Navbar/Nav_Employee";
 
-const ListClasses = () => {
+const ListClassesSimple = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
@@ -26,17 +26,15 @@ const ListClasses = () => {
     return (
         <div className="list-classes">
 
-            <Nav_Employee />
-
             <section css={styles} className="schedule" id="schedule">
-                <h2>
+                <h2 style={{color: 'black', width: '100%'}}>
                     Class Schedule  <span></span>
                 </h2>
                 <Icon />
                 <Container>
                     {classes.length > 0 ? (
 
-                        <table>
+                        <table style={{color: 'black', width: '100%'}}>
                             <thead>
                                 <tr>
                                     <th>Activity Name</th>
@@ -48,7 +46,7 @@ const ListClasses = () => {
                             </thead>
                             <tbody>
                                 {classes.map((item) => {
-                                    return <tr key={item.id} style={{ color: 'white' }}>
+                                    return <tr key={item.id} style={{ color: 'black' }}>
                                         <td> {item.activity_name}</td>
                                         <td> {item.capacity}/{item.full_capacity}</td>
                                         <td> {item.duration}</td>
@@ -76,12 +74,12 @@ const ListClasses = () => {
 const styles = css`
 width: 100%;
 max-width: 900px;
-position: absolute;
-top: 50%;
+position: relative;
 left: 50%;
-transform: translate(-50%, -50%);
+transform: translate(-50%, 50%);
 z-index: 2;
 text-align: center;
+margin-bottom: 150px;
 color: #fff;
   h2 {
     color: #fff;
@@ -117,4 +115,4 @@ color: #fff;
   }
 `;
 
-export default ListClasses;
+export default ListClassesSimple;

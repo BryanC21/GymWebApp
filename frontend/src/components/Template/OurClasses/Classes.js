@@ -5,10 +5,11 @@ import Icon from "../GlobalComponents/Icon";
 import LinksContainer from "./LinksContainer";
 import Results from "./Results";
 import Container from "../GlobalComponents/Container";
+import ListClasses from "../../widgets/ListClasses";
 
 const Classes = ({ text }) => {
   const [training, setTraining] = useState("Fitness Class");
-
+/*
   return (
     <section css={styles} className="ourClasses" id="ourClasses">
       <h2>
@@ -26,6 +27,15 @@ const Classes = ({ text }) => {
         <Results training={training} />
       </Container>
     </section>
+  );*/
+  return (
+    <section css={styles} className="ourClasses" id="ourClasses">
+      <h2>
+        OUR <span>CLASSES</span>
+        <br />
+        </h2>
+        <ListClasses />
+        </section>
   );
 };
 
