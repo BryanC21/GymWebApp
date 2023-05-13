@@ -48,7 +48,7 @@ Inorder to visualize our project planning and solutions in a progressive manner,
 
 ## Working prototype:
 
-Checkout our working prototype on the Demo day by our efficient team Brainstorm Engineers that includes
+Checkout our working prototype on the Demo day by our efficient team **Brainstorm Engineers** that includes
 
 [Presentation](https://docs.google.com/presentation/d/1Km4bYkslxEFpUIyOh3Ku_gWJwoawcdAebD3CLWH5Tkc/edit?usp=sharing)
 [Jira Board](https://brainstormsjsu.atlassian.net/jira/projects)
