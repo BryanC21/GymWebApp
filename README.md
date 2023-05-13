@@ -10,15 +10,15 @@ The FitHub gym management system is a perfect application for all gym and health
 
 TechFit Features
 
-  Robust APIs: Our application holds reliable APIs that handle error and input validation.
+:muscle: Robust APIs: Our application holds reliable APIs that handle error and input validation.
 
-  Accessibility based on Roles: Members, Non-members, and Health Club employees have specific access according to the functionalities tailor-made for their access. 
+:muscle: Accessibility based on Roles: Members, Non-members, and Health Club employees have specific access according to the functionalities tailor-made for their access. 
 
- Provides broad services: The home page can be viewed with gym information and the schedule for the classes. Logging hours on the fitness equipment for members, enrolling new members, and viewing the analytics dashboard for gym employees are added benefits of our comprehensive application
+:muscle: Provides broad services: The home page can be viewed with gym information and the schedule for the classes. Logging hours on the fitness equipment for members, enrolling new members, and viewing the analytics dashboard for gym employees are added benefits of our comprehensive application
 
- Power of multi-location: Are you traveling for leisure? No worries! our applications host flexible memberships perks that are accessible across multiple locations. Members can view schedules for different locations.
+:muscle: Power of multi-location: Are you traveling for leisure? No worries! our applications host flexible memberships perks that are accessible across multiple locations. Members can view schedules for different locations.
 
- Cloud Deployment: Deploy the website on AWS EC2 group with a load balancer.
+:muscle: Cloud Deployment: Deploy the website on AWS EC2 group with a load balancer.
 
 Project Management:
 
