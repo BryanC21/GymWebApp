@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import React,  { useState } from "react";
 
 import ShowCurrentClass from "./ShowCurrentClass";
 import LogHours from "./LogHours";
@@ -15,8 +15,28 @@ const MemberPage = () => {
   const user = useSelector((state) => state.userDetailsState);
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+  const [isMember, setIsMember] = useState(false);
+
+
   useEffect(() => {
-  }, [info, navigate]);
+    
+    console.log("TOKEN: ", info);
+    console.log("USER: ", user.userDetails);
+
+    if (info.user !== null && user.userDetails !== null) {
+      if (user.userDetails.level_id === 3 || user.userDetails.level_id === 4) {
+        setIsMember(true);
+      } else {
+        alert("ACCESS DENIED: Not a member!");
+        navigate("/");
+      }
+    } else {
+      alert("ACCESS DENIED: Not signed in as member!");
+      navigate("/");
+    }
+    
+  }, [info, navigate, user, isMember]);
 
   return (
     <div className="MemberPage">

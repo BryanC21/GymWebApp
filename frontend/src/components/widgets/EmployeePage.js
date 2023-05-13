@@ -2,7 +2,7 @@
 import { jsx, css } from "@emotion/core";
 import ListClasses from "./ListClasses";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AddClasses from "./AddClasses";
 import React, { useState } from "react";
@@ -25,17 +25,24 @@ const EmployeePage = () => {
 
     const info = useSelector(state => state.userState);
     const user = useSelector(state => state.userDetailsState);
+    const dispatch = useDispatch();
+    const [isEmployee, setIsEmployee] = useState(false);
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        /*if (info.userid === 0 || info.userid === undefined) {
-            alert("Please login first");
-            navigate("/Home");
-        }*/
-        console.log("TOKEN: ", info);
-        console.log("USER: ", user);
-    }, [info, navigate, user]);
+        if (info.user !== null && user.userDetails !== null) {
+            if (user.userDetails.level_id === 1 || user.userDetails.level_id === 2) {
+              setIsEmployee(true);
+            } else {
+                alert("ACCESS DENIED: Not signed in as employee!");
+                navigate("/");
+            }
+          } else {
+            alert("ACCESS DENIED: Not signed in as employee!");
+            navigate("/");
+          }
+    }, [info, navigate, user, isEmployee]);
 
     return (
         <div className="employee">
@@ -47,7 +54,7 @@ const EmployeePage = () => {
                 <section id="list-classes">
                     <ListClasses />
                 </section>
-                
+
                 <section id="check-in">
                     <CheckIn />
                 </section>

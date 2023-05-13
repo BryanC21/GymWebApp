@@ -1,18 +1,72 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from "@emotion/core";
-import React from "react";
 import Link from "./Link";
 import Button from "../GlobalComponents/Button";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../../../actions/userActions";
+import { setUserDetails } from "../../../actions/userActions";
 
 const LinksContainer = ({ hidden }) => {
+
+  const info = useSelector(state => state.userState);
+  const user = useSelector(state => state.userDetailsState);
+  const dispatch = useDispatch();
+  const [isEmployee, setIsEmployee] = useState(false);
+  const [isMember, setIsMember] = useState(false);
+
+  useEffect(() => {
+    console.log("TOKEN: ", info);
+    console.log("USER: ", user.userDetails);
+
+    if (info.user !== null && user.userDetails !== null) {
+      if (user.userDetails.level_id === 1 || user.userDetails.level_id === 2) {
+        setIsEmployee(true);
+        setIsMember(false);
+      } else if (user.userDetails.level_id === 3 || user.userDetails.level_id === 4) {
+        setIsMember(true);
+        setIsEmployee(false);
+      }
+    }
+
+  }, [info, user]);
+
+  const handleLogout = () => {
+    dispatch(setUser(null));
+    dispatch(setUserDetails(null));
+    window.location.replace("/");
+  };
+
+
   return (
     <div css={styles} className={(hidden ? "hidden" : "") + " linksContainer"}>
       <Link name="HOME" linkTo="/" />
       {/*<Link name="CLASSES" linkTo="#ourClasses" />*/}
       <Link name="SCHEDULES" linkTo="#schedule" />
       <Link name="ABOUT" linkTo="#trainers" />
-      <Link name="MEMBER LOGIN" linkTo="/MemberLogin" />
-      <Link name="EMPLOYEE LOGIN" linkTo="/EmployeeLogin" />
+
+      {(!isMember && !isEmployee) &&
+        <Link name="MEMBER LOGIN" linkTo="/MemberLogin" />
+      }
+
+      {(!isMember && !isEmployee) &&
+        <Link name="EMPLOYEE LOGIN" linkTo="/EmployeeLogin" />
+      }
+
+      {isMember &&
+        <Link name="MEMBER PROFILE" linkTo="/Member" />
+      }
+
+      {isEmployee &&
+        <Link name="EMPLOYEE PROFILE" linkTo="/Employee" />
+      }
+
+      {(isMember || isEmployee) &&
+        <div onClick={handleLogout}>
+          <Link name="LOG OUT" linkTo="/" />
+        </div>
+      }
+
     </div>
   );
 };
