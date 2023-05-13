@@ -16,7 +16,7 @@ import Main_Employee from "../Template/Main/Main_Employee";
 import Container from "../Template/GlobalComponents/Container";
 
 import GymInfo from "./GymInfo";
-import { Dropdown } from "bootstrap";
+// import { Dropdown } from "bootstrap";
 import CreateActivity from "./CreateActivity";
 import ListEmployees from "./ListEmployees";
 import ListMembers from "./ListMembers";
@@ -33,15 +33,15 @@ const EmployeePage = () => {
     useEffect(() => {
         if (info.user !== null && user.userDetails !== null) {
             if (user.userDetails.level_id === 1 || user.userDetails.level_id === 2) {
-              setIsEmployee(true);
+                setIsEmployee(true);
             } else {
                 alert("ACCESS DENIED: Not signed in as employee!");
                 navigate("/");
             }
-          } else {
+        } else {
             alert("ACCESS DENIED: Not signed in as employee!");
             navigate("/");
-          }
+        }
     }, [info, navigate, user, isEmployee]);
 
     return (
