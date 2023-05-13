@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 
 const CreateActivity = () => {

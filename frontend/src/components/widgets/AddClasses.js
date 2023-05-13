@@ -13,7 +13,7 @@ import axios from 'axios';
 
 import Icon from "../Template/GlobalComponents/Icon";
 import Container from "../Template/GlobalComponents/Container";
-// import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const AddClasses = () => {
 

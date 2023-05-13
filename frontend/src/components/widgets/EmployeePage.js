@@ -16,7 +16,7 @@ import Main_Employee from "../Template/Main/Main_Employee";
 import Container from "../Template/GlobalComponents/Container";
 
 import GymInfo from "./GymInfo";
-// import { Dropdown } from "bootstrap";
+import { Dropdown } from "bootstrap";
 import CreateActivity from "./CreateActivity";
 import ListEmployees from "./ListEmployees";
 import ListMembers from "./ListMembers";
