@@ -1,4 +1,4 @@
-“Physical fitness is not only one of the most important keys to a healthy body, but it is also the basis of dynamic and creative intellectual activity.” - John F Kennedy
+*“Physical fitness is not only one of the most important keys to a healthy body, but it is also the basis of dynamic and creative intellectual activity.” - John F Kennedy*
 
  
 
