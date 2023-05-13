@@ -43,7 +43,7 @@ We have meticulously maintained Project journal that keeps track of weekly scrum
 
 ### Documentation :
 
-Inorder to visualize our project planning and solutions in a progressive manner, we have created UI wireframes and architecture diagrams with an exhaustive README file that includes our design patterns and features.
+Inorder to visualize our project planning and solutions in a progressive manner, we have created UI wireframes and architecture diagrams with an exhaustive Confluence page that includes our design aspects and features.
 
 
 ## Working prototype:
