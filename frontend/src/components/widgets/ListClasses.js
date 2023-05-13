@@ -15,6 +15,7 @@ const ListClasses = () => {
             .then(res => {
                 console.log(res.data.results);
                 setClasses(res.data.results);
+                alert('Class added successful');
             })
             .catch(err => {
                 console.log(err);

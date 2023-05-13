@@ -116,6 +116,7 @@ const PastActivity = () => {
 const styles = css`
   width: 100%;
   padding: 120px 0;
+  horizontal-align: center;
   text-align: center;
   h2 {
     color: #232d39;
