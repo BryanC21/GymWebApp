@@ -2,40 +2,40 @@
 import { jsx, css } from "@emotion/core";
 import React from "react";
 import Output from "./Output";
-import ClassOneBg from "../Image/classOne.jpg";
-import ClassTwoBg from "../Image/classTwo.jpg";
+import ClassOneBg from "../Image/fitness-class.jpg";
+import ClassTwoBg from "../Image/weight-training-class.jpg";
 import ClassThreeBg from "../Image/classThree.jpg";
-import ClassFourBg from "../Image/classFour.jpg";
+import ClassFourBg from "../Image/stretchingBg-1.jpg";
 
 const Results = ({ training }) => (
   <div css={styles} className="results">
-    {training === "FirstClass" && (
+    {training === "Fitness Class" && (
       <Output
-        title="First Training Class"
-        info="Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam."
+        title="Fitness Class"
+        info="Welcome to your fitness session! Get ready to break a sweat and unleash your inner athlete. This dynamic workout will elevate your heart rate, improve endurance, and strengthen your body. From cardio exercises to functional movements, this session will leave you feeling energized and accomplished. Let's get moving!"
         img={ClassOneBg}
       />
     )}
 
-    {training === "SecondClass" && (
+    {training === "Weight Training" && (
       <Output
-        title="Second Training Class"
-        info="Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        title="Weight Training"
+        info="Welcome to the world of weight training! Get ready to challenge your muscles and boost your strength. Through targeted exercises and progressive resistance, weight training promotes muscle development, enhances bone density, and improves overall fitness. Get ready to lift, sweat, and see incredible results!"
         img={ClassTwoBg}
       />
     )}
-    {training === "ThirdClass" && (
+    {training === "Body Building" && (
       <Output
-        title="Third Training Class"
-        info="Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque."
+        title="Body Building"
+        info="Welcome to the world of bodybuilding! Get ready to sculpt your physique and push your limits. This intense training session focuses on building muscle mass, enhancing strength, and achieving a chiseled physique. Through a combination of resistance exercises and strict form, you'll witness incredible gains and transform your body. Let's lift heavy and reach new heights!"
         img={ClassThreeBg}
       />
     )}
 
-    {training === "FourthClass" && (
+    {training === "Professional Stretching" && (
       <Output
-        title="Fourth Training Class"
-        info="Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ultrices elementum odio ac tempus. Etiam eleifend orci lectus, eget venenatis ipsum commodo et."
+        title="Professional Stretching"
+        info="Welcome to your stretching session! It's time to unwind, relax, and improve your flexibility. This session will help release tension, increase range of motion, and promote muscle recovery. Through a series of gentle stretches, you'll improve your posture, enhance mobility, and leave feeling rejuvenated. Let's stretch it out and find your inner calm!"
         img={ClassFourBg}
       />
     )}

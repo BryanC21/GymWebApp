@@ -16,9 +16,10 @@ const Classes = ({ text }) => {
       </h2>
       <Icon />
       <p>
-        Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra
+        “Physical fitness is not only one of the most important keys to a healthy body,
         <br />
-        ipsum dolor, ultricies fermentum massa consequat eu.
+        but it is also the basis of dynamic and creative intellectual activity.”
+        <br />- John F Kennedy
       </p>
       <Container>
         <LinksContainer setTraining={setTraining} training={training} />

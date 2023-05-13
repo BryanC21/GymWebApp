@@ -5,7 +5,7 @@ import Icon from "../GlobalComponents/Icon";
 import TrainerCard from "./TrainerCard";
 import Container from "../GlobalComponents/Container";
 import TrainerOneBg from "../Image/trainerOne.jpg";
-import TrainerTwoBg from "../Image/trainerTwo.jpg";
+import TrainerTwoBg from "../Image/trainerFour.jpg";
 import TrainerThreeBg from "../Image/trainerThree.jpg";
 import TrainerFourBg from "../Image/trainerTwo.jpg";
 
@@ -16,9 +16,8 @@ const Trainers = () => (
     </h2>
     <Icon />
     <p>
-      Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra{" "}
-      <br />
-      ipsum dolor, ultricies fermentum massa consequat eu.
+      "The only way to define your limits is by going beyond them."
+      <br />- Arthur C. Clarke
     </p>
     <Container>
       <TrainerCard
