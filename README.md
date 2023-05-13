@@ -26,7 +26,7 @@ Our collaborative team boasts driving the project with communication, simplicity
 
 ## Key Highlights :key: 
 
-### Communication :
+### Communication  :calling:  :
 
 [First week] We have a dedicated discord channel that helps us engage with each other actively throughout the project for effective communication and exchange frequent updates, ideas and solution regarding the problem statement. In addition to that it exists as a medium that needs attention for any severity issues that is being raised during the progress of the project. Dedicated channels such as backend, data holds crucial records for project management
 
