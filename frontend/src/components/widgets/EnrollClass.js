@@ -81,7 +81,7 @@ const EnrollClass = () => {
                             </thead>
                             <tbody>
                                 {classes.map((item) => {
-                                    return <tr key={item.id}>
+                                    return <tr key={item.id} style={{ color: 'white' }}>
                                         <td> {item.id}</td>
                                         <td> {item.activity_name}</td>
                                         <td> {item.capacity}/{item.full_capacity}</td>
