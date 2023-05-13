@@ -57,12 +57,12 @@ Checkout our working prototype on the Demo day by our efficient team **Brainstor
 
 **Frontend Team**
 
-@Bryan Caldera - React website, integrations with REST API, user authentication,  employee functionality. 
+Bryan Caldera - React website, integrations with REST API, user authentication,  employee functionality. 
 
-@Abraham - React website, UI Design, integrations with REST API,  Member functionality. 
+Abraham Kong - React website, UI Design, integrations with REST API,  Member functionality. 
 
 **Backend Team**
 
-@Hongru Lin - API Development, Database Design and Management, Role based access control, Deployment and infrastructure
+Hongru Lin - API Development, Database Design and Management, Role based access control, Deployment and infrastructure
 
-@DevipriyaRavi  - API Development, Role based access control, Project Management 
+Devi Priya Ravi  - API Development, Role based access control, Project Management 
