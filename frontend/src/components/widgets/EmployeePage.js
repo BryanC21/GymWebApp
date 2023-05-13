@@ -41,11 +41,11 @@ const EmployeePage = () => {
                 <section id="add-classes">
                     <AddClasses />
                 </section>
-                <section id="register">
-                    <RegisterMember />
-                </section>
                 <section id="analytics">
                     <GymAnalytics gymId={1} > </GymAnalytics>
+                </section>
+                <section id="register">
+                    <RegisterMember />
                 </section>
                 <section id="list-activities">
                     <ListActivities />

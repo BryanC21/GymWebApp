@@ -9,8 +9,8 @@ const LinksContainer_Employee = ({ hidden }) => {
     <div css={styles} className={(hidden ? "hidden" : "") + " linksContainer"}>
       <Link name="LIST CLASSES" linkTo="" />
       <Link name="ADD A CLASS" linkTo="#add-classes" />
-      <Link name="REGISTER MEMBER" linkTo="#register" />
       <Link name="ANALYTICS" linkTo="#analytics" />
+      <Link name="REGISTER MEMBER" linkTo="#register" />
       <Link name="ACTIVITIES" linkTo="#list-activities" />
       <Link name="CHECK IN/OUT" linkTo="#check-in" />
     </div>

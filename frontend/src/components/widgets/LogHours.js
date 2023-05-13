@@ -66,57 +66,54 @@ const LogHours = () => {
 
 
     return (
-        <div>
-
-            <div>
-                <section css={styles} className="trainers" id="trainers">
-                    <h2>
-                        <span>Log Hours</span>
-                    </h2>
-                    <Icon />
-                    <Container>
-                        <h3>
-                            <form>
-                                <table style={{ backgroundColor: "white", border: '0' }}>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <label> Activity Type </label>
-                                            </td>
-                                            <td>
-                                                <label> Minutes </label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="50%">
-                                                <Dropdown>
-                                                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                                        {activityName}
-                                                    </Dropdown.Toggle>
-                                                    <Dropdown.Menu>
-                                                        {activityList.map((item) => {
-                                                            return <Dropdown.Item onClick={() => { setActivityName(item.name); setActivityId(item.id); }}>
-                                                                {item.name}</Dropdown.Item>
-                                                        })}
-                                                    </Dropdown.Menu>
-                                                </Dropdown>
-                                            </td>
-                                            <td width="50%">
-                                                <input type="number" name="duration" min={0} onChange={e => setDuration(e.target.value)} />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <button onClick={handleSubmit}> Submit </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </form>
-                        </h3>
-                    </Container>
-                </section>
-            </div>
+        <div className="log-hours">
+            <section css={styles} className="trainers" id="trainers">
+                <h2>
+                    <span>Log Hours</span>
+                </h2>
+                <Icon />
+                <Container>
+                    <h3>
+                        <form>
+                            <table style={{ backgroundColor: "white", border: '0' }}>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label> Activity Type </label>
+                                        </td>
+                                        <td>
+                                            <label> Minutes </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%">
+                                            <Dropdown>
+                                                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                                    {activityName}
+                                                </Dropdown.Toggle>
+                                                <Dropdown.Menu>
+                                                    {activityList.map((item) => {
+                                                        return <Dropdown.Item onClick={() => { setActivityName(item.name); setActivityId(item.id); }}>
+                                                            {item.name}</Dropdown.Item>
+                                                    })}
+                                                </Dropdown.Menu>
+                                            </Dropdown>
+                                        </td>
+                                        <td width="50%">
+                                            <input type="number" name="duration" min={0} onChange={e => setDuration(e.target.value)} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button onClick={handleSubmit}> Submit </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </h3>
+                </Container>
+            </section>
         </div >
     );
 }

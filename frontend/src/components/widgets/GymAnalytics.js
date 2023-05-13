@@ -1,5 +1,12 @@
+/** @jsxImportSource @emotion/react */
+import { jsx, css } from "@emotion/core";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
+import Icon from "../Template/GlobalComponents/Icon";
+import scheduleBg from "../Template/Image/scheduleBg.jpg";
+import Container from "../Template/GlobalComponents/Container";
+
 
 /*
 results": [
@@ -94,44 +101,130 @@ const GymAnalytics = ({ gymId }) => {
 
     return (
         <div className='analytics'>
-            <h1>Gym Analytics</h1>
-            <h2>Gyms</h2>
-            <div>
-                <p>Location id: {gymInfo?.location_id}</p>
-                <p>Address: {gymInfo?.address}</p>
-                <p>City: {gymInfo?.city}</p>
-                <p>State: {gymInfo?.state}</p>
-                <p>Country: {gymInfo?.country}</p>
-            </div>
-            <h2>Class Count</h2>
-            <p>Error in backend!</p>
-            <div>
-                {classCount?.map((item, index) => (
-                    <p key={index}>Time: {item.time} Count: {item.count}</p>
-                ))}
-            </div>
-            <h2>Enroll Count</h2>
-            <div>
-                {enrollCount?.map((item, index) => (
-                    <p key={index}>Time: {item.time} Count: {item.count}</p>
-                ))}
-            </div>
-            <h2>Member Count Per Hour</h2>
-            <div>
-                {memberCount?.map((item, index) => (
-                    <p key={index}>Time: {item.time} Count: {item.count} checkin hour: {item.checkin_hour}</p>
-                ))}
-            </div>
-            <h2>Hours Count</h2>
-            <div>
-                {hoursCount?.map((item, index) => (
-                    <p key={index}>Time: {item.time} Count: {item.count}</p>
-                ))}
-            </div>
 
+            <div>
+                <section css={styles} className="schedule" id="schedule">
+                    <h2>
+                        Gym Analytics  <span></span>
+                    </h2>
+                    <Icon />
+                    <Container>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td colSpan={"2"}>
+                                        <h2 style={{ color: 'black' }}>Gyms</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colSpan={"2"}>
+                                        <div>
+                                            <p>Location id: {gymInfo?.location_id}</p>
+                                            <p>Address: {gymInfo?.address}</p>
+                                            <p>City: {gymInfo?.city}</p>
+                                            <p>State: {gymInfo?.state}</p>
+                                            <p>Country: {gymInfo?.country}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h2 style={{ color: 'black' }}>Class Count</h2>
+                                    </td>
+                                    <td>
+                                        <h2 style={{ color: 'black' }}>Enroll Count</h2>
+                                    </td>
+                                </tr>
 
+                                <tr>
+                                    <td>
+                                        <p>Error in backend!</p>
+                                        <div>
+                                            {classCount?.map((item, index) => (
+                                                <p key={index}>Time: {item.time} Count: {item.count}</p>
+                                            ))}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            {enrollCount?.map((item, index) => (
+                                                <p key={index}>Time: {item.time} Count: {item.count}</p>
+                                            ))}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={{ width: '50%' }}>
+                                        <h2 style={{ color: 'black' }}>Member Count Per Hour</h2>
+                                    </td>
+                                    <td style={{ width: '50%' }}>
+                                        <h2 style={{ color: 'black' }}>Hours Count</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={{ width: '50%' }}>
+                                        <div>
+                                            {memberCount?.map((item, index) => (
+                                                <p key={index}>Time: {item.time} Count: {item.count} checkin hour: {item.checkin_hour}</p>
+                                            ))}
+                                        </div>
+                                    </td>
+                                    <td style={{ width: '50%' }}>
+                                        <div>
+                                            {hoursCount?.map((item, index) => (
+                                                <p key={index}>Time: {item.time} Count: {item.count}</p>
+                                            ))}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </Container>
+                </section>
+
+            </div >
         </div>
     );
 };
+
+const styles = css`
+  width: 100%;
+  padding: 120px 0;
+  min-height: 100vh;
+  text-align: center;
+  background: url('${scheduleBg}') no-repeat center/cover;
+  h2 {
+    color: #fff;
+    font-weight: 900;
+    font-size: 36px;
+    letter-spacing: 1.3px;
+    line-height: 1;
+    span {
+      color: #ed563b;
+    }
+  }
+  p {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 20px 0;
+  }
+  .container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  @media(max-width: 640px) {
+    p{
+      padding: 0 30px;
+      br{
+        display: none;
+      }
+    }
+    .container{
+      max-width: 92%;
+    }
+  }
+`;
 
 export default GymAnalytics;
