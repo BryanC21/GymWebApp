@@ -9,7 +9,7 @@ exports.userSignin = (req, res) => {
     let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
     User.create_time, User.level_id, Level.name as level, Gender.name as gender \
     FROM User, Level, Gender \
-    where User.level_id = level.id and User.gender_id = Gender.id and user.email=? and user.password=?";
+    where User.level_id = Level.id and User.gender_id = Gender.id and User.email=? and User.password=?";
 
     db.query(sql, [email, password], (err, results) => {
         if (err) {
@@ -69,7 +69,7 @@ exports.employeeSignin = (req, res) => {
     Employee.email, Employee.gender_id, Employee.create_time, Employee.level_id, \
     Employee.gym_id, Level.name as level, Gender.name as gender \
     FROM Employee, Level, Gender \
-    WHERE Employee.level_id = level.id and Employee.gender_id = Gender.id and \
+    WHERE Employee.level_id = Level.id and Employee.gender_id = Gender.id and \
     Employee.email=? and Employee.password=?"
 
     db.query(sql, [email, password], (err, results) => {

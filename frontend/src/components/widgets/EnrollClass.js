@@ -48,10 +48,12 @@ const EnrollClass = () => {
             .then(res => {
                 console.log(res);
                 setSuccess(true);
+                alert('Class added successful');
             })
             .catch(err => {
                 console.log(err);
                 setFail(true);
+                alert('Class added failed');
             })
 
     }
@@ -69,7 +71,7 @@ const EnrollClass = () => {
 
                         <table>
                             <thead>
-                                <tr>
+                                <tr style={{color:"white"}}>
                                     <th>Class ID</th>
                                     <th>Activity Name</th>
                                     <th>Capacity</th>
@@ -80,7 +82,7 @@ const EnrollClass = () => {
                             </thead>
                             <tbody>
                                 {classes.map((item) => {
-                                    return <tr key={item.id}>
+                                    return <tr key={item.id} style={{color:"white"}}>
                                         <td> {item.id}</td>
                                         <td> {item.activity_name}</td>
                                         <td> {item.capacity}/{item.full_capacity}</td>

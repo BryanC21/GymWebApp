@@ -5,7 +5,7 @@ exports.getAllUsers = (req, res) => {
     let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
     User.create_time, User.level_id, Level.name as level, Gender.name as gender \
     FROM User, Level, Gender \
-    where User.level_id = level.id and User.gender_id = Gender.id";
+    where User.level_id = Level.id and User.gender_id = Gender.id";
 
     db.query(sql, (err, results) => {
         if (err) {
@@ -31,9 +31,9 @@ exports.getUserByID = (req, res) => {
     const user_id = req.query.user_id;
 
     let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
-    User.create_time, User.level_id, Level.name as level, Gender.name as gender \
-    FROM User, Level, Gender \
-    where User.id = ? and User.level_id = level.id and User.gender_id = Gender.id";
+    User.create_time, User.level_id, Level.name as level, Gender.name as gender, Expire.id as Expire_id \
+    FROM User, Level, Gender, Expire \
+    where User.id = ? and User.level_id = Level.id and User.gender_id = Gender.id and Expire.user_id = User.id";
 
     db.query(sql, [user_id], (err, results) => {
         if (err) {
@@ -53,6 +53,35 @@ exports.getUserByID = (req, res) => {
             results: results[0]
         })
     });
+}   
+
+exports.searchUserByName = (req, res) => {
+    const pattern = req.query.pattern;
+
+    let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
+    User.create_time, User.level_id, Level.name as level, Gender.name as gender \
+    FROM User, Level, Gender \
+    where User.level_id = Level.id and User.gender_id = Gender.id and \
+    (User.first_name LIKE ? OR User.last_name LIKE ?)";
+
+    db.query(sql, [pattern, pattern], (err, results) => {
+        if (err) {
+            return res.status(401).send({
+                status: "error",
+                message: err
+            })
+        }
+        if (results.length === 0) {
+            return res.status(404).send({
+                status: "error",
+                message: "No users found"
+            })
+        }
+        return res.status(200).send({
+            status: "success",
+            results: results
+        })
+    })
 }   
 
 exports.editUserByID = (req, res) => {

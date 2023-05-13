@@ -1,9 +1,9 @@
 const db = require("../db_connection");
 
 exports.getAllGyms = (req, res) => {
-    let sql = "SELECT gym.id, gym.location_id, location.city, location.state, location.country, gym.address \
-    FROM gym, location \
-    WHERE gym.location_id = location.id";
+    let sql = "SELECT Gym.id, Gym.location_id, Location.city, Location.state, Location.country, Gym.address \
+    FROM Gym, Location \
+    WHERE Gym.location_id = Location.id";
 
     db.query(sql, (err, results) => {
         if (err) {
@@ -28,9 +28,9 @@ exports.getAllGyms = (req, res) => {
 exports.getGymById = (req, res) => {
     const gym_id = parseInt(req.query.gym_id)
 
-    let sql = "SELECT gym.id, gym.location_id, location.city, location.state, location.country, gym.address \
-    FROM gym, location \
-    WHERE gym.location_id = location.id and gym.id = ?";
+    let sql = "SELECT Gym.id, Gym.location_id, Location.city, Location.state, Location.country, Gym.address \
+    FROM Gym, Location \
+    WHERE Gym.location_id = Location.id and Gym.id = ?";
 
     db.query(sql, [gym_id], (err, results) => {
         if (err) {

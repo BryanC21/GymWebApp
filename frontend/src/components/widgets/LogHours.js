@@ -55,10 +55,12 @@ const LogHours = () => {
             .then(res => {
                 console.log(res);
                 setSuccess(true);
+                alert('Hours added successful');
             })
             .catch(err => {
                 console.log(err);
                 setFail(true);
+                alert('Hours added failed');
             })
 
     }
