@@ -65,4 +65,4 @@ Backend Team
 
 @Hongru Lin - API Development, Database Design and Management, Role based access control, Deployment and infrastructure
 
-@DevipriyaRavi  - API Development, Role based access control, Project Management
+@DevipriyaRavi  - API Development, Role based access control, Project Management 
