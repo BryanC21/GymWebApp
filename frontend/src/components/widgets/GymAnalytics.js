@@ -104,7 +104,6 @@ const GymAnalytics = ({ gymId }) => {
                 <p>Country: {gymInfo?.country}</p>
             </div>
             <h2>Class Count</h2>
-            <p>Error in backend!</p>
             <div>
                 {classCount?.map((item, index) => (
                     <p key={index}>Time: {item.time} Count: {item.count}</p>
