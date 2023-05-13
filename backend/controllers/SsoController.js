@@ -9,7 +9,7 @@ exports.userSignin = (req, res) => {
     let sql = "SELECT User.id, User.first_name, User.last_name, User.phone, User.email, User.gender_id, \
     User.create_time, User.level_id, Level.name as level, Gender.name as gender \
     FROM User, Level, Gender \
-    where User.level_id = level.id and User.gender_id = Gender.id and User.email=? and User.password=?";
+    where User.level_id = Level.id and User.gender_id = Gender.id and User.email=? and User.password=?";
 
     db.query(sql, [email, password], (err, results) => {
         if (err) {
