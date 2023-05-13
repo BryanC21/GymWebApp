@@ -18,10 +18,11 @@ const Schedule = () => {
       </h2>
       <Icon />
       <p>
-        “Physical fitness is not only one of the most important keys to a healthy body, 
-
+        "Believe in yourself and all that you are.
         <br />
-        but it is also the basis of dynamic and creative intellectual activity.” - John F Kennedy
+        Know that there is something inside you that is greater than any obstacle."
+        <br />
+        - Christian D. Larson
       </p>
       <Container>
         <ScheduleLinks setDay={setDay} day={day} />

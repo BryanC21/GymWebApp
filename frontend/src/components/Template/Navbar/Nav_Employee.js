@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Logo from "./Logo";
 import LinksContainer_Employee from "./LinksContainer_Employee";
 import Container from "../GlobalComponents/Container";
+import { Link } from "react-router-dom";
 
 const Nav_Employee = () => {
   const [hidden, setHidden] = useState(true);
@@ -11,7 +12,9 @@ const Nav_Employee = () => {
   return (
     <nav css={styles}>
       <Container>
-        <Logo />
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <Logo />
+        </Link>
         <i
           onClick={() => setHidden(!hidden)}
           className={hidden ? "fas fa-bars fa-lg" : "fas fa-times fa-lg"}

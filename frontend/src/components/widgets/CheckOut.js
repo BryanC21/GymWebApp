@@ -1,5 +1,12 @@
+/** @jsxImportSource @emotion/react */
+import { jsx, css } from "@emotion/core";
 import React, { useState } from 'react';
 import axios from 'axios';
+
+import Icon from "../Template/GlobalComponents/Icon";
+import scheduleBg from "../Template/Image/scheduleBg.jpg";
+import Container from "../Template/GlobalComponents/Container";
+
 
 const CheckOut = () => {
     const [checkin_id, setCheckin_id] = useState('');
@@ -44,19 +51,68 @@ const CheckOut = () => {
 
     return (
         <div>
-            <h2>Check Out</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="checkin_id">User ID:</label>
-                <input
-                    type="text"
-                    id="checkin_id"
-                    value={checkin_id}
-                    onChange={(e) => setCheckin_id(e.target.value)}
-                />
-                <button type="submit">Check Out</button>
-            </form>
-        </div>
+            <section css={styles} className="schedule" id="schedule">
+                <h2>
+                    Check Out  <span></span>
+                </h2>
+                <Icon />
+                <Container>
+
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="checkin_id">User ID:</label>
+                        <input
+                            type="text"
+                            id="checkin_id"
+                            value={checkin_id}
+                            onChange={(e) => setCheckin_id(e.target.value)}
+                        />
+                        <button type="submit">Check Out</button>
+                    </form>
+                </Container>
+            </section>
+
+        </div >
     );
 };
+
+const styles = css`
+  width: 100%;
+  padding: 120px 0;
+  min-height: 50vh;
+  text-align: center;
+  background: url('${scheduleBg}') no-repeat center/cover;
+  h2 {
+    color: #fff;
+    font-weight: 900;
+    font-size: 36px;
+    letter-spacing: 1.3px;
+    line-height: 1;
+    span {
+      color: #ed563b;
+    }
+  }
+  p {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 20px 0;
+  }
+  .container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  @media(max-width: 640px) {
+    p{
+      padding: 0 30px;
+      br{
+        display: none;
+      }
+    }
+    .container{
+      max-width: 92%;
+    }
+  }
+`;
 
 export default CheckOut;

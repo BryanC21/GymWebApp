@@ -1,36 +1,35 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from "@emotion/core";
 import React from "react";
-import DumbbellBg from "../Image/dumbbellOrange.png";
+import DumbbellBg from "../Image/gym-icon.png";
 import Button from "../GlobalComponents/Button";
 
 const LinksContainer = ({ setTraining, training }) => (
   <div css={styles} className="linksContainer">
     <button
-      className={training === "FirstClass" ? "active" : ""}
-      onClick={() => setTraining("FirstClass")}
+      className={training === "Fitness Class" ? "active" : ""}
+      onClick={() => setTraining("Fitness Class")}
     >
-      <img src={DumbbellBg} alt="dumbbell" /> First Training Class
+      <img src={DumbbellBg} alt="dumbbell" /> Fitness Class
     </button>
     <button
-      className={training === "SecondClass" ? "active" : ""}
-      onClick={() => setTraining("SecondClass")}
+      className={training === "Weight Training" ? "active" : ""}
+      onClick={() => setTraining("Weight Training")}
     >
-      <img src={DumbbellBg} alt="dumbbell" /> Second Training Class
+      <img src={DumbbellBg} alt="dumbbell" /> Weight Training
     </button>
     <button
-      className={training === "ThirdClass" ? "active" : ""}
-      onClick={() => setTraining("ThirdClass")}
+      className={training === "Body Building" ? "active" : ""}
+      onClick={() => setTraining("Body Building")}
     >
-      <img src={DumbbellBg} alt="dumbbell" /> Third Training Class
+      <img src={DumbbellBg} alt="dumbbell" /> Body Building
     </button>
     <button
-      className={training === "FourthClass" ? "active" : ""}
-      onClick={() => setTraining("FourthClass")}
+      className={training === "Professional Stretching" ? "active" : ""}
+      onClick={() => setTraining("Professional Stretching")}
     >
-      <img src={DumbbellBg} alt="dumbbell" /> Fourth Training Class
+      <img src={DumbbellBg} alt="dumbbell" /> Professional Stretching
     </button>
-    <Button text="View All Schedules" />
   </div>
 );
 

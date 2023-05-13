@@ -3,7 +3,6 @@ import { jsx, css } from "@emotion/core";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import "../../styles/ListClasses.css"
 import Icon from "../Template/GlobalComponents/Icon";
 import Container from "../Template/GlobalComponents/Container";
 import Nav_Member from "../Template/Navbar/Nav_Member";

@@ -7,14 +7,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../../actions/userActions";
 
 import Main from "../Template/Main/Main";
-import GymProgram from "../Template/GymProgram/GymProgram";
-import Member from "../Template/Member/Member";
 import Classes from "../Template/OurClasses/Classes";
 import Schedule from "../Template/Schedule/Schedule";
-import Contact from "../Template/Contact/Contact";
 import Trainers from "../Template/Trainers/Trainers"
-
-import GymInfo from "./GymInfo";
 
 
 
@@ -34,8 +29,6 @@ const Home = () => {
             <Classes />
             <Schedule />
             <Trainers />
-            {/* <GymInfo /> */}
-            {/* <Contact /> */}
         </div>
     );
 }

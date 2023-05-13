@@ -2,8 +2,8 @@
 import { jsx, css } from "@emotion/core";
 import React, { useState } from "react";
 import axios from 'axios';
-import {useDispatch} from 'react-redux';
-import {setUser, setUserDetails} from '../../actions/userActions';
+import { useDispatch } from 'react-redux';
+import { setUser, setUserDetails } from '../../actions/userActions';
 
 
 import Nav from "../Template/Navbar/Nav";
@@ -16,67 +16,67 @@ import { Button } from "react-bootstrap";
 
 const EmployeeLogin = () => {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    let dispatch = useDispatch();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  let dispatch = useDispatch();
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        console.log('login');
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log('login');
 
-        let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
-        axios.get(`${baseURL}/api/sso/userSignin`, { params: { 'email': username, 'password': password } })
-            .then(res => {
-                console.log(res);
-                //alert('Login successful');
-                dispatch(setUser(res.data.token));
-                dispatch(setUserDetails(res.data.results));
-                window.location.replace('/member');
-            })
-            .catch(err => {
-                console.log(err);
-                alert('Invalid credentials');
-            });
+    let baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5002';
+    axios.get(`${baseURL}/api/sso/userSignin`, { params: { 'email': username, 'password': password } })
+      .then(res => {
+        console.log(res);
+        //alert('Login successful');
+        dispatch(setUser(res.data.token));
+        dispatch(setUserDetails(res.data.results));
+        window.location.replace('/member');
+      })
+      .catch(err => {
+        console.log(err);
+        alert('Invalid credentials');
+      });
 
-    }
+  }
 
-    return (
-        <div className="login">
+  return (
+    <div className="login">
 
-        <Nav /> 
+      <Nav />
 
-        <section css={styles} className="schedule" id="schedule">
+      <section css={styles} className="schedule" id="schedule">
+        <h2>
+          <span>Member Login</span>
+        </h2>
+        <Icon />
+        <Container>
+          <form>
+
             <h2>
-                 <span>Member Login</span>
+              <label> Username </label><span></span>
             </h2>
-            <Icon />
-            <Container>
-            <form>
-                
-                <h2>
-                <label> Username </label><span></span>
-                </h2>
-                <br />
-                <h3>
-                    <input type="text" name="username" onChange={e => setUsername(e.target.value)} />
-                </h3>
-                <br />
-                <h2>
-                <label> Password </label><span></span>
-                </h2>
-                <br />
-                <h3>
-                    <input type="password" name="password" onChange={e => setPassword(e.target.value)} />
-                </h3>
-                <br />
-                 <h3>   
-                    <Button onClick={handleLogin}> Login </Button>
-                </h3>
-            </form>
-            </Container>
-            </section>
-        </div>
-    );
+            <br />
+            <h3>
+              <input type="text" name="username" onChange={e => setUsername(e.target.value)} />
+            </h3>
+            <br />
+            <h2>
+              <label> Password </label><span></span>
+            </h2>
+            <br />
+            <h3>
+              <input type="password" name="password" onChange={e => setPassword(e.target.value)} />
+            </h3>
+            <br />
+            <h3>
+              <Button onClick={handleLogin}> Login </Button>
+            </h3>
+          </form>
+        </Container>
+      </section>
+    </div>
+  );
 
 }
 

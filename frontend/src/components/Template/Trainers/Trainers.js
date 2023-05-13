@@ -5,7 +5,7 @@ import Icon from "../GlobalComponents/Icon";
 import TrainerCard from "./TrainerCard";
 import Container from "../GlobalComponents/Container";
 import TrainerOneBg from "../Image/trainerOne.jpg";
-import TrainerTwoBg from "../Image/trainerTwo.jpg";
+import TrainerTwoBg from "../Image/trainerFour.jpg";
 import TrainerThreeBg from "../Image/trainerThree.jpg";
 import TrainerFourBg from "../Image/trainerTwo.jpg";
 
@@ -16,31 +16,30 @@ const Trainers = () => (
     </h2>
     <Icon />
     <p>
-      Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra{" "}
-      <br />
-      ipsum dolor, ultricies fermentum massa consequat eu.
+      "The only way to define your limits is by going beyond them."
+      <br />- Arthur C. Clarke
     </p>
     <Container>
       <TrainerCard
-        title="Strength Trainer"
+        title="Backend Engineer"
         name="Nick L."
         desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
         img={TrainerOneBg}
       />
       <TrainerCard
-        title="Muscle Trainer"
+        title="Backend Engineer"
         name="Devi Priya R."
         desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
         img={TrainerTwoBg}
       />
       <TrainerCard
-        title="Power Trainer"
+        title="Full Stack Engineer"
         name="Bryan C."
         desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
         img={TrainerThreeBg}
       />
       <TrainerCard
-        title="Professional Stretcher"
+        title="Frontend and UI Engineer"
         name="Abraham K."
         desc="Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel."
         img={TrainerFourBg}

@@ -4,13 +4,13 @@ import React from "react";
 import Nav from "../Navbar/Nav";
 import Video from "./Video";
 import Overlay from "./Overlay";
-import Info from "./Info";
+import Slogan from "./Slogan.js";
 
 const Main = () => (
   <section css={styles} className="main" id="home">
     <Overlay />
     <Nav />
-    <Info />
+    <Slogan />
     <Video />
   </section>
 );
