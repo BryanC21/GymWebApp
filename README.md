@@ -2,7 +2,7 @@
 
  
 
-# TechFit (Your one-stop destination for gym management)
+# [TechFit](http://35.87.142.145/) (Your one-stop destination for gym management)
 
 Being fit and healthy is an important life skill that requires prior attention and managing a gym club is quite challenging. With a plethora of membership data, class schedules, and member activity data it can be overwhelming to maintain everything in one place. Our innovative project FitHub comes to the rescue
 
