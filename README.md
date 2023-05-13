@@ -45,7 +45,7 @@ We have meticulously maintained Project journal that keeps track of weekly scrum
 
 Inorder to visualize our project planning and solutions in a progressive manner, we have created UI wireframes and architecture diagrams with an exhaustive Confluence page that includes our design aspects and features.
 
-![Diagram](https://github.com/gopinathsjsu/team-project-brainstorm-engineers/blob/main/Diagrams/ER.Diagram.-.Support.process.example.1.pdf)
+![Diagram](https://drive.google.com/file/d/1wWV2WbZAUlI0atTs82a1-_4fuoEnuG3f/view?usp=share_link)
 ## Working prototype:
 
 Checkout our working prototype on the Demo day by our efficient team **Brainstorm Engineers** that includes
