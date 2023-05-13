@@ -8,8 +8,6 @@ import AddClasses from "./AddClasses";
 import React from "react";
 import RegisterMember from "./RegisterMember";
 import GymAnalytics from "./GymAnalytics";
-import EmployeeHeader from "../Header/EmployeeHeader";
-import Header from "../Header/Header";
 import ListActivities from "./ListActivities";
 import CheckIn from "./CheckIn";
 import CheckOut from "./CheckOut";
@@ -36,13 +34,28 @@ const EmployeePage = () => {
             <Main_Employee />
 
             <div className="container-flex">
-                <ListClasses />
-                <AddClasses />
-                <RegisterMember />
-                <GymAnalytics gymId={1} > </GymAnalytics>
-                <ListActivities />
-                <CheckIn />
-                <CheckOut />
+
+                <section id="list-classes">
+                    <ListClasses />
+                </section>
+                <section id="add-classes">
+                    <AddClasses />
+                </section>
+                <section id="register">
+                    <RegisterMember />
+                </section>
+                <section id="analytics">
+                    <GymAnalytics gymId={1} > </GymAnalytics>
+                </section>
+                <section id="list-activities">
+                    <ListActivities />
+                </section>
+                <section id="check-in">
+                    <CheckIn />
+                </section>
+                <section id="check-out">
+                    <CheckOut />
+                </section>
             </div>
         </div>
     );
