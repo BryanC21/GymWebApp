@@ -87,6 +87,8 @@ exports.getClassCountByGymId = (req, res) => {
     const gym_id = req.query.gym_id;
     const interval = req.query.interval;
 
+    //if no specify its day
+    
     let date = "date(Class.start_time)";
     if (interval == "week") {
         date = "DATE(DATE_SUB(Class.start_time, INTERVAL WEEKDAY(Class.start_time) DAY))"
