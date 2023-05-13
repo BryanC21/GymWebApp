@@ -31,7 +31,7 @@ Our collaborative team boasts driving the project with communication, simplicity
 [First week] We have a dedicated discord channel that helps us engage with each other actively throughout the project for effective communication and exchange frequent updates, ideas and solution regarding the problem statement. In addition to that it exists as a medium that needs attention for any severity issues that is being raised during the progress of the project. Dedicated channels such as backend, data holds crucial records for project management
 
 
-### Simplicity :
+### Simplicity  :shopping_cart: :
 
 [Third week] While revising the plan for the project, we made sure to remove any uncertain features such as chatbot activation pertaining to the project. We gave more importance to the Information related to log activities and other functions that are easy to navigate and interpret.
 
