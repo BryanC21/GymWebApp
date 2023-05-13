@@ -8,7 +8,7 @@ Being fit and healthy is an important life skill that requires prior attention a
 
 The FitHub gym management system is a perfect application for all gym and health clubs. It simplifies the gym management process and upgrades the experience for gym members and employees. In addition to that, the insights can be quite helpful for strategic decision-making.
 
-TechFit Features
+## TechFit Features
 
 :muscle: Robust APIs: Our application holds reliable APIs that handle error and input validation.
 
@@ -20,33 +20,33 @@ TechFit Features
 
 :muscle: Cloud Deployment: Deploy the website on AWS EC2 group with a load balancer.
 
-Project Management:
+## Project Management:
 
 Our collaborative team boasts driving the project with communication, simplicity, feedback, courage and respect. 
 
-Key Highlights :key: 
+## Key Highlights :key: 
 
-Communication :
+### Communication :
 
 [First week] We have a dedicated discord channel that helps us engage with each other actively throughout the project for effective communication and exchange frequent updates, ideas and solution regarding the problem statement. In addition to that it exists as a medium that needs attention for any severity issues that is being raised during the progress of the project. Dedicated channels such as backend, data holds crucial records for project management
 
 
-Simplicity :
+### Simplicity :
 
 [Third week] While revising the plan for the project, we made sure to remove any uncertain features such as chatbot activation pertaining to the project. We gave more importance to the Information related to log activities and other functions that are easy to navigate and interpret.
 
-Feedback :dart: 
+### Feedback :dart: 
 
 [Fifth week] We emphasized feedback loops to actively seek suggestions on the developments of the project. We regularly shared our progress to gain insights and knowledge transfer via our weekly zoom calls and share our updates in the Project journal and the Confluence page.
 
 We have meticulously maintained Project journal that keeps track of weekly scrum reports for progress. Each team member has owned atleast one component in the project, supporting and learning from each other with sense of diligence and stewardship.
 
-Documentation :
+### Documentation :
 
 Inorder to visualize our project planning and solutions in a progressive manner, we have created UI wireframes and architecture diagrams with an exhaustive README file that includes our design patterns and features.
 
 
-Working prototype:
+## Working prototype:
 
 Checkout our working prototype on the Demo day by our efficient team Brainstorm Engineers that includes
 
@@ -55,7 +55,7 @@ Checkout our working prototype on the Demo day by our efficient team Brainstorm 
 [Confluence](https://brainstormsjsu.atlassian.net/wiki/home)
 [XP Core Values and Analytics](https://brainstormsjsu.atlassian.net/wiki/spaces/~70121e08b156418794e3aacbaad0c3095eaee/pages/2555932/TechFit)
 
-Frontend Team
+**Frontend Team
 
 @Bryan Caldera - React website, integrations with REST API, user authentication,  employee functionality. 
 
