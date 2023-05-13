@@ -33,15 +33,15 @@ const EmployeePage = () => {
     useEffect(() => {
         if (info.user !== null && user.userDetails !== null) {
             if (user.userDetails.level_id === 1 || user.userDetails.level_id === 2) {
-              setIsEmployee(true);
+                setIsEmployee(true);
             } else {
                 alert("ACCESS DENIED: Not signed in as employee!");
                 navigate("/");
             }
-          } else {
+        } else {
             alert("ACCESS DENIED: Not signed in as employee!");
             navigate("/");
-          }
+        }
     }, [info, navigate, user, isEmployee]);
 
     return (

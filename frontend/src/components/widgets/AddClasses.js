@@ -89,7 +89,7 @@ const AddClasses = () => {
             <label className='form-label'>Capacity</label>
             <input className='form-input' type="text" value={capacity} onChange={(e) => setCapacity(e.target.value)} />
 
-            <br/>
+            <br />
             <button className='form-submit form-hover ' type="submit" onClick={handleSubmit} >Add Class</button>
 
             {success ? <h1 style={{ color: 'white', marginTop: '20px', backgroundColor: 'green', borderRadius: '10px', padding: '10px' }}> Class added succesfully! </h1> : null}
