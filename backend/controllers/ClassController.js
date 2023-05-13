@@ -143,10 +143,10 @@ exports.getClassesByUserId = (req, res) => {
     let sql = "SELECT Class.id, Activity.id as activity_id, Activity.name as activity_name, \
     Class.employee_id, Class.gym_id, Class.start_time, Class.duration, Class.capacity - IFNULL(Enroll.count, 0) as capacity, \
     Class.capacity as full_capacity, \
-    Employee.first_name, Employee.last_name, gym.address \
+    Employee.first_name, Employee.last_name, Gym.address \
     FROM Class \
     JOIN Activity ON Class.activity_id = Activity.id \
-    JOIN gym ON Class.gym_id = gym.id \
+    JOIN Gym ON Class.gym_id = Gym.id \
     JOIN Employee ON Class.employee_id = Employee.id \
     LEFT JOIN (SELECT class_id, COUNT(*) as count FROM Enroll WHERE user_id = ? GROUP BY class_id) as Enroll ON Class.id = enroll.class_id \
     WHERE Enroll.class_id = Class.id and Class.start_time > CURRENT_TIMESTAMP();"
