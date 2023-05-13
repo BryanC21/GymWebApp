@@ -55,13 +55,13 @@ Checkout our working prototype on the Demo day by our efficient team Brainstorm 
 [Confluence](https://brainstormsjsu.atlassian.net/wiki/home)
 [XP Core Values and Analytics](https://brainstormsjsu.atlassian.net/wiki/spaces/~70121e08b156418794e3aacbaad0c3095eaee/pages/2555932/TechFit)
 
-** Frontend Team **
+**Frontend Team **
 
 @Bryan Caldera - React website, integrations with REST API, user authentication,  employee functionality. 
 
 @Abraham - React website, UI Design, integrations with REST API,  Member functionality. 
 
-Backend Team
+**Backend Team**
 
 @Hongru Lin - API Development, Database Design and Management, Role based access control, Deployment and infrastructure
 
