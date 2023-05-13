@@ -57,7 +57,6 @@ const GymDetail = () => {
             <button onClick={() => setView("calendar")}>Calendar View</button>
 
             <h2 className="text-center">Available Classes</h2>
-            <button><a href="/EnrollClass">Sign up now!</a></button>
             {view == "list" ? (
                 <div>
                     {classes.length > 0 ? (

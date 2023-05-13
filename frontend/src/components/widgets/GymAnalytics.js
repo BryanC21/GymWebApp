@@ -238,7 +238,6 @@ const GymAnalytics = ({ gymId }) => {
                                 <tr>
                                     <td colSpan={"2"}>
                                         <div>
-                                            <p>Location id: {gymInfo?.location_id}</p>
                                             <p>Address: {gymInfo?.address}</p>
                                             <p>City: {gymInfo?.city}</p>
                                             <p>State: {gymInfo?.state}</p>
