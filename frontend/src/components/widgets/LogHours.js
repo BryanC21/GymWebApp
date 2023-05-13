@@ -60,6 +60,7 @@ const LogHours = () => {
             .catch(err => {
                 console.log(err);
                 setFail(true);
+                alert('Hours added failed');
             })
 
     }
