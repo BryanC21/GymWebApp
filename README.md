@@ -74,3 +74,6 @@ Devi Priya Ravi  - API Development, Role based access control, Project Managemen
 ### Scrum Burndown Chart  
 ![image](https://github.com/gopinathsjsu/team-project-brainstorm-engineers/assets/32147608/348626f0-f111-4a58-b200-560245afa59f)  
 
+### Scrum Task Board
+<img width="1384" alt="Scrum task board" src="https://github.com/gopinathsjsu/team-project-brainstorm-engineers/assets/32147608/79a856c2-7a33-45af-a479-3640e2de2af0">
+
