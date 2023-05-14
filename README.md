@@ -68,6 +68,9 @@ Hongru Lin - API Development, Database Design and Management, Role based access 
 
 Devi Priya Ravi  - API Development, Role based access control, Project Management 
 
+### Scrum Meeting Records  
+[Weekly Scrum](https://drive.google.com/drive/folders/1-hfH2Y-7j-V_rguyHAdvgYRwN9pQZEEY)
+
 ### Scrum Burndown Chart  
 ![image](https://github.com/gopinathsjsu/team-project-brainstorm-engineers/assets/32147608/348626f0-f111-4a58-b200-560245afa59f)  
 
