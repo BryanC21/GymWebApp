@@ -77,3 +77,7 @@ Devi Priya Ravi  - API Development, Role based access control, Project Managemen
 ### Scrum Task Board
 <img width="1384" alt="Scrum task board" src="https://github.com/gopinathsjsu/team-project-brainstorm-engineers/assets/32147608/79a856c2-7a33-45af-a479-3640e2de2af0">
 
+### UI Wireframe  
+![image](https://github.com/gopinathsjsu/team-project-brainstorm-engineers/assets/32147608/1ead362a-c45c-49fb-a132-b49ca61ac746)
+
+
