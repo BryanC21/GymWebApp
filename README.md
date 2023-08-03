@@ -29,3 +29,10 @@ Abraham Kong - React website, UI Design, integrations with REST API,  Member fun
 Hongru Lin - API Development, Database Design and Management, Role based access control, Deployment and infrastructure
 
 Devi Priya Ravi  - API Development, Role based access control, Project Management 
+
+![Screenshot 2023-08-02 at 7 18 22 PM](https://github.com/BryanC21/GymWebApp/assets/32147608/432a693c-a33b-400a-8c59-7526f442197d)
+
+![Screenshot 2023-08-02 at 7 19 56 PM](https://github.com/BryanC21/GymWebApp/assets/32147608/38f9e78a-878f-4b74-9a91-40c02964bef5)
+
+![Screenshot 2023-08-02 at 7 20 59 PM](https://github.com/BryanC21/GymWebApp/assets/32147608/841137e7-2193-4b7a-a26e-b5c7d7975f27)
+
